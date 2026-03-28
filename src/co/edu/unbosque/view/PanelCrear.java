@@ -85,7 +85,7 @@ public class PanelCrear extends JPanel{
 	}
 	
 	public void initComps() {
-		this.setBounds(170, 120, 780, 370);
+		this.setBounds(170, 120, 780, 375);
 		this.setLayout(null);
 		this.setBackground(Color.decode("#dba76d"));
 	}
