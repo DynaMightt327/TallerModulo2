@@ -21,6 +21,8 @@ public class PanelCrear extends JPanel{
 	private JComboBox<String> cmbMascota;
 	private JComboBox<String> cmbProducto;
 	
+	private JButton guardar;
+	
 	//paneles para agrupar
 	/*private JPanel pAdmin;
 	private JPanel pVet;
@@ -157,56 +159,56 @@ public class PanelCrear extends JPanel{
 		tipo = new JLabel("Seleccione que desea crear:");
 		tipo.setBounds(20, 15, 300, 30);
 		tipo.setFont(new Font("Agency FB", Font.BOLD, 22));
-		tipo.setForeground(Color.decode("#111d15"));
+		tipo.setForeground(Color.decode("#f6efe7"));
 		add(tipo);
 		
 		cmbTipo = new JComboBox<String>(new String[] { "...", "Persona", "Mascota", "Producto" });
 		cmbTipo.setBounds(30, 50, 164, 32);
 		cmbTipo.setFont(new Font("Agency FB", Font.BOLD, 18));
 		cmbTipo.setForeground(Color.decode("#111d15"));
-		cmbTipo.setBackground(Color.decode("#e0ebe0"));
+		cmbTipo.setBackground(Color.decode("#e1c8ad"));
 		cmbTipo.setBorder(null);
 		add(cmbTipo);
 		
 		persona = new JLabel("Tipo de persona:");
 		persona.setBounds(235, 15, 150, 30);
 		persona.setFont(new Font("Agency FB", Font.BOLD, 22));
-		persona.setForeground(Color.decode("#111d15"));
+		persona.setForeground(Color.decode("#f6efe7"));
 		add(persona);
 		
 		cmbPersona = new JComboBox<String>(new String[] { "...", "Administrativo", "Veterinario", "Cliente" });
 		cmbPersona.setBounds(240, 50, 164, 32);
 		cmbPersona.setFont(new Font("Agency FB", Font.BOLD, 18));
 		cmbPersona.setForeground(Color.decode("#111d15"));
-		cmbPersona.setBackground(Color.decode("#e0ebe0"));
+		cmbPersona.setBackground(Color.decode("#e1c8ad"));
 		cmbPersona.setBorder(null);
 		add(cmbPersona);
 		
 		mascota = new JLabel("Tipo de mascota:");
 		mascota.setBounds(235, 15, 150, 30);
 		mascota.setFont(new Font("Agency FB", Font.BOLD, 22));
-		mascota.setForeground(Color.decode("#111d15"));
+		mascota.setForeground(Color.decode("#f6efe7"));
 		add(mascota);
 		
 		cmbMascota = new JComboBox<String>(new String[] { "...", "Ave", "Mamífero", "Pez", "Reptil" });
 		cmbMascota.setBounds(240, 50, 164, 32);
 		cmbMascota.setFont(new Font("Agency FB", Font.BOLD, 18));
 		cmbMascota.setForeground(Color.decode("#111d15"));
-		cmbMascota.setBackground(Color.decode("#e0ebe0"));
+		cmbMascota.setBackground(Color.decode("#e1c8ad"));
 		cmbMascota.setBorder(null);
 		add(cmbMascota);
 		
 		producto = new JLabel("Tipo de producto:");
 		producto.setBounds(235, 15, 150, 30);
 		producto.setFont(new Font("Agency FB", Font.BOLD, 22));
-		producto.setForeground(Color.decode("#111d15"));
+		producto.setForeground(Color.decode("#f6efe7"));
 		add(producto);
 		
 		cmbProducto = new JComboBox<String>(new String[] { "...", "Medicamento", "Juguete"});
 		cmbProducto.setBounds(240, 50, 164, 32);
 		cmbProducto.setFont(new Font("Agency FB", Font.BOLD, 18));
 		cmbProducto.setForeground(Color.decode("#111d15"));
-		cmbProducto.setBackground(Color.decode("#e0ebe0"));
+		cmbProducto.setBackground(Color.decode("#e1c8ad"));
 		cmbProducto.setBorder(null);
 		add(cmbProducto);
 		
@@ -215,266 +217,266 @@ public class PanelCrear extends JPanel{
 		nombre = new JLabel("Nombre:");
 		nombre.setBounds(25, 85, 150, 30);
 		nombre.setFont(new Font("Agency FB", Font.BOLD, 22));
-		nombre.setForeground(Color.decode("#111d15"));
+		nombre.setForeground(Color.decode("#f6efe7"));
 		add(nombre);
 		
 		tNombre = new JTextField();
 		tNombre.setBounds(30, 115, 164, 32);
 		tNombre.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tNombre.setForeground(Color.decode("#111d15"));
-		tNombre.setBackground(Color.decode("#e0ebe0"));
+		tNombre.setBackground(Color.decode("#e1c8ad"));
 		tNombre.setBorder(null);
 		add(tNombre);
 
 		marca = new JLabel("Marca:");
 		marca.setBounds(25, 85, 150, 30);
 		marca.setFont(new Font("Agency FB", Font.BOLD, 22));
-		marca.setForeground(Color.decode("#111d15"));
+		marca.setForeground(Color.decode("#f6efe7"));
 		add(marca);
 		
 		tMarca = new JTextField();
 		tMarca.setBounds(30, 115, 164, 32);
 		tMarca.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tMarca.setForeground(Color.decode("#111d15"));
-		tMarca.setBackground(Color.decode("#e0ebe0"));
+		tMarca.setBackground(Color.decode("#e1c8ad"));
 		tMarca.setBorder(null);
 		add(tMarca);
 		//1,2
 		apellido = new JLabel("Apellido:");
 		apellido.setBounds(235, 85, 150, 30);
 		apellido.setFont(new Font("Agency FB", Font.BOLD, 22));
-		apellido.setForeground(Color.decode("#111d15"));
+		apellido.setForeground(Color.decode("#f6efe7"));
 		add(apellido);
 		
 		tApellido = new JTextField();
 		tApellido.setBounds(240, 115, 164, 32);
 		tApellido.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tApellido.setForeground(Color.decode("#111d15"));
-		tApellido.setBackground(Color.decode("#e0ebe0"));
+		tApellido.setBackground(Color.decode("#e1c8ad"));
 		tApellido.setBorder(null);
 		add(tApellido);
 
 		especie = new JLabel("Especie:");
 		especie.setBounds(235, 85, 150, 30);
 		especie.setFont(new Font("Agency FB", Font.BOLD, 22));
-		especie.setForeground(Color.decode("#111d15"));
+		especie.setForeground(Color.decode("#f6efe7"));
 		add(especie);
 		
 		tEspecie = new JTextField();
 		tEspecie.setBounds(240, 115, 164, 32);
 		tEspecie.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tEspecie.setForeground(Color.decode("#111d15"));
-		tEspecie.setBackground(Color.decode("#e0ebe0"));
+		tEspecie.setBackground(Color.decode("#e1c8ad"));
 		tEspecie.setBorder(null);
 		add(tEspecie);
 		
 		precio = new JLabel("Precio:");
 		precio.setBounds(235, 85, 150, 30);
 		precio.setFont(new Font("Agency FB", Font.BOLD, 22));
-		precio.setForeground(Color.decode("#111d15"));
+		precio.setForeground(Color.decode("#f6efe7"));
 		add(precio);
 		
 		tPrecio = new JTextField();
 		tPrecio.setBounds(240, 115, 164, 32);
 		tPrecio.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tPrecio.setForeground(Color.decode("#111d15"));
-		tPrecio.setBackground(Color.decode("#e0ebe0"));
+		tPrecio.setBackground(Color.decode("#e1c8ad"));
 		tPrecio.setBorder(null);
 		add(tPrecio);
 		//1,3
 		genero = new JLabel("Género:");
 		genero.setBounds(440, 85, 150, 30);
 		genero.setFont(new Font("Agency FB", Font.BOLD, 22));
-		genero.setForeground(Color.decode("#111d15"));
+		genero.setForeground(Color.decode("#f6efe7"));
 		add(genero);
 		
 		tGenero = new JComboBox<String>(new String[] { "...", "Femenino", "Masculino"});
 		tGenero.setBounds(445, 115, 164, 32);
 		tGenero.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tGenero.setForeground(Color.decode("#111d15"));
-		tGenero.setBackground(Color.decode("#e0ebe0"));
+		tGenero.setBackground(Color.decode("#e1c8ad"));
 		tGenero.setBorder(null);
 		add(tGenero);
 		
 		habitat = new JLabel("Habitat:");
 		habitat.setBounds(440, 85, 150, 30);
 		habitat.setFont(new Font("Agency FB", Font.BOLD, 22));
-		habitat.setForeground(Color.decode("#111d15"));
+		habitat.setForeground(Color.decode("#f6efe7"));
 		add(habitat);
 		
 		tHabitat = new JTextField();
 		tHabitat.setBounds(445, 115, 164, 32);
 		tHabitat.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tHabitat.setForeground(Color.decode("#111d15"));
-		tHabitat.setBackground(Color.decode("#e0ebe0"));
+		tHabitat.setBackground(Color.decode("#e1c8ad"));
 		tHabitat.setBorder(null);
 		add(tHabitat);
 		
 		idProducto = new JLabel("ID producto:");
 		idProducto.setBounds(440, 85, 150, 30);
 		idProducto.setFont(new Font("Agency FB", Font.BOLD, 22));
-		idProducto.setForeground(Color.decode("#111d15"));
+		idProducto.setForeground(Color.decode("#f6efe7"));
 		add(idProducto);
 		
 		tIdProducto = new JTextField();
 		tIdProducto.setBounds(445, 115, 164, 32);
 		tIdProducto.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tIdProducto.setForeground(Color.decode("#111d15"));
-		tIdProducto.setBackground(Color.decode("#e0ebe0"));
+		tIdProducto.setBackground(Color.decode("#e1c8ad"));
 		tIdProducto.setBorder(null);
 		add(tIdProducto);
 		//2,1
 		documento = new JLabel("Documento:");
 		documento.setBounds(25, 150, 150, 30);
 		documento.setFont(new Font("Agency FB", Font.BOLD, 22));
-		documento.setForeground(Color.decode("#111d15"));
+		documento.setForeground(Color.decode("#f6efe7"));
 		add(documento);
 		
 		tDocumento = new JTextField();
 		tDocumento.setBounds(30, 180, 164, 32);
 		tDocumento.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tDocumento.setForeground(Color.decode("#111d15"));
-		tDocumento.setBackground(Color.decode("#e0ebe0"));
+		tDocumento.setBackground(Color.decode("#e1c8ad"));
 		tDocumento.setBorder(null);
 		add(tDocumento);
 		
 		tipoAlimento = new JLabel("Tipo de alimento:");
 		tipoAlimento.setBounds(25, 150, 150, 30);
 		tipoAlimento.setFont(new Font("Agency FB", Font.BOLD, 22));
-		tipoAlimento.setForeground(Color.decode("#111d15"));
+		tipoAlimento.setForeground(Color.decode("#f6efe7"));
 		add(tipoAlimento);
 		
 		tTipoAlimento = new JTextField();
 		tTipoAlimento.setBounds(30, 180, 164, 32);
 		tTipoAlimento.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tTipoAlimento.setForeground(Color.decode("#111d15"));
-		tTipoAlimento.setBackground(Color.decode("#e0ebe0"));
+		tTipoAlimento.setBackground(Color.decode("#e1c8ad"));
 		tTipoAlimento.setBorder(null);
 		add(tTipoAlimento);
 		
 		nombreComercial = new JLabel("Nombre comercial:");
 		nombreComercial.setBounds(25, 150, 150, 30);
 		nombreComercial.setFont(new Font("Agency FB", Font.BOLD, 22));
-		nombreComercial.setForeground(Color.decode("#111d15"));
+		nombreComercial.setForeground(Color.decode("#f6efe7"));
 		add(nombreComercial);
 		
 		tNombreComercial = new JTextField();
 		tNombreComercial.setBounds(30, 180, 164, 32);
 		tNombreComercial.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tNombreComercial.setForeground(Color.decode("#111d15"));
-		tNombreComercial.setBackground(Color.decode("#e0ebe0"));
+		tNombreComercial.setBackground(Color.decode("#e1c8ad"));
 		tNombreComercial.setBorder(null);
 		add(tNombreComercial);
 		
 		color = new JLabel("Color juguete:");
 		color.setBounds(25, 150, 150, 30);
 		color.setFont(new Font("Agency FB", Font.BOLD, 22));
-		color.setForeground(Color.decode("#111d15"));
+		color.setForeground(Color.decode("#f6efe7"));
 		add(color);
 		
 		tColor = new JTextField();
 		tColor.setBounds(30, 180, 164, 32);
 		tColor.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tColor.setForeground(Color.decode("#111d15"));
-		tColor.setBackground(Color.decode("#e0ebe0"));
+		tColor.setBackground(Color.decode("#e1c8ad"));
 		tColor.setBorder(null);
 		add(tColor);
 		//2,2
 		correo = new JLabel("Correo:");
 		correo.setBounds(235, 150, 150, 30);
 		correo.setFont(new Font("Agency FB", Font.BOLD, 22));
-		correo.setForeground(Color.decode("#111d15"));
+		correo.setForeground(Color.decode("#f6efe7"));
 		add(correo);
 		
 		tCorreo = new JTextField();
 		tCorreo.setBounds(240, 180, 164, 32);
 		tCorreo.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tCorreo.setForeground(Color.decode("#111d15"));
-		tCorreo.setBackground(Color.decode("#e0ebe0"));
+		tCorreo.setBackground(Color.decode("#e1c8ad"));
 		tCorreo.setBorder(null);
 		add(tCorreo);
 		
 		nombreCientifico = new JLabel("Nombre Científico:");
 		nombreCientifico.setBounds(235, 150, 150, 30);
 		nombreCientifico.setFont(new Font("Agency FB", Font.BOLD, 22));
-		nombreCientifico.setForeground(Color.decode("#111d15"));
+		nombreCientifico.setForeground(Color.decode("#f6efe7"));
 		add(nombreCientifico);
 		
 		tNombreCientifico = new JTextField();
 		tNombreCientifico.setBounds(240, 180, 164, 32);
 		tNombreCientifico.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tNombreCientifico.setForeground(Color.decode("#111d15"));
-		tNombreCientifico.setBackground(Color.decode("#e0ebe0"));
+		tNombreCientifico.setBackground(Color.decode("#e1c8ad"));
 		tNombreCientifico.setBorder(null);
 		add(tNombreCientifico);
 		
 		peso = new JLabel("Peso:");
 		peso.setBounds(235, 150, 150, 30);
 		peso.setFont(new Font("Agency FB", Font.BOLD, 22));
-		peso.setForeground(Color.decode("#111d15"));
+		peso.setForeground(Color.decode("#f6efe7"));
 		add(peso);
 		
 		tPeso = new JTextField();
 		tPeso.setBounds(240, 180, 164, 32);
 		tPeso.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tPeso.setForeground(Color.decode("#111d15"));
-		tPeso.setBackground(Color.decode("#e0ebe0"));
+		tPeso.setBackground(Color.decode("#e1c8ad"));
 		tPeso.setBorder(null);
 		add(tPeso);
 		
 		tipoJuguete = new JLabel("Tipo de juguete:");
 		tipoJuguete.setBounds(235, 150, 150, 30);
 		tipoJuguete.setFont(new Font("Agency FB", Font.BOLD, 22));
-		tipoJuguete.setForeground(Color.decode("#111d15"));
+		tipoJuguete.setForeground(Color.decode("#f6efe7"));
 		add(tipoJuguete);
 		
 		tTipoJuguete = new JComboBox<String>(new String[] { "...", "Peluche", "De goma"});
 		tTipoJuguete.setBounds(240, 180, 164, 32);
 		tTipoJuguete.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tTipoJuguete.setForeground(Color.decode("#111d15"));
-		tTipoJuguete.setBackground(Color.decode("#e0ebe0"));
+		tTipoJuguete.setBackground(Color.decode("#e1c8ad"));
 		tTipoJuguete.setBorder(null);
 		add(tTipoJuguete);
 		//2,3
 		telefono = new JLabel("Telefono:");
 		telefono.setBounds(440, 150, 150, 30);
 		telefono.setFont(new Font("Agency FB", Font.BOLD, 22));
-		telefono.setForeground(Color.decode("#111d15"));
+		telefono.setForeground(Color.decode("#f6efe7"));
 		add(telefono);
 		
 		tTelefono = new JTextField();
 		tTelefono.setBounds(445, 180, 164, 32);
 		tTelefono.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tTelefono.setForeground(Color.decode("#111d15"));
-		tTelefono.setBackground(Color.decode("#e0ebe0"));
+		tTelefono.setBackground(Color.decode("#e1c8ad"));
 		tTelefono.setBorder(null);
 		add(tTelefono);
 		
 		altura = new JLabel("Altura:");
 		altura.setBounds(440, 150, 150, 30);
 		altura.setFont(new Font("Agency FB", Font.BOLD, 22));
-		altura.setForeground(Color.decode("#111d15"));
+		altura.setForeground(Color.decode("#f6efe7"));
 		add(altura);
 		
 		tAltura = new JTextField();
 		tAltura.setBounds(445, 180, 164, 32);
 		tAltura.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tAltura.setForeground(Color.decode("#111d15"));
-		tAltura.setBackground(Color.decode("#e0ebe0"));
+		tAltura.setBackground(Color.decode("#e1c8ad"));
 		tAltura.setBorder(null);
 		add(tAltura);
 
 		fechaCaducidad = new JLabel("Fecha caducidad:");
 		fechaCaducidad.setBounds(440, 150, 150, 30);
 		fechaCaducidad.setFont(new Font("Agency FB", Font.BOLD, 22));
-		fechaCaducidad.setForeground(Color.decode("#111d15"));
+		fechaCaducidad.setForeground(Color.decode("#f6efe7"));
 		add(fechaCaducidad);
 		
 		tFechaCaducidad = new JTextField();
 		tFechaCaducidad.setBounds(445, 180, 164, 32);
 		tFechaCaducidad.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tFechaCaducidad.setForeground(Color.decode("#111d15"));
-		tFechaCaducidad.setBackground(Color.decode("#e0ebe0"));
+		tFechaCaducidad.setBackground(Color.decode("#e1c8ad"));
 		tFechaCaducidad.setBorder(null);
 		add(tFechaCaducidad);
 		
@@ -482,14 +484,14 @@ public class PanelCrear extends JPanel{
 		garantia = new JLabel("Garantía:");
 		garantia.setBounds(440, 150, 150, 30);
 		garantia.setFont(new Font("Agency FB", Font.BOLD, 22));
-		garantia.setForeground(Color.decode("#111d15"));
+		garantia.setForeground(Color.decode("#f6efe7"));
 		add(garantia);
 		
 		tGarantia = new JComboBox<String>(new String[] { "...", "Si", "No"});
 		tGarantia.setBounds(445, 180, 164, 32);
 		tGarantia.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tGarantia.setForeground(Color.decode("#111d15"));
-		tGarantia.setBackground(Color.decode("#e0ebe0"));
+		tGarantia.setBackground(Color.decode("#e1c8ad"));
 		tGarantia.setBorder(null);
 		add(tGarantia);
 		
@@ -498,28 +500,28 @@ public class PanelCrear extends JPanel{
 		salario = new JLabel("Salario:");
 		salario.setBounds(25, 215, 150, 30);
 		salario.setFont(new Font("Agency FB", Font.BOLD, 22));
-		salario.setForeground(Color.decode("#111d15"));
+		salario.setForeground(Color.decode("#f6efe7"));
 		add(salario);
 		
 		tSalario = new JTextField();
 		tSalario.setBounds(30, 245, 164, 32);
 		tSalario.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tSalario.setForeground(Color.decode("#111d15"));
-		tSalario.setBackground(Color.decode("#e0ebe0"));
+		tSalario.setBackground(Color.decode("#e1c8ad"));
 		tSalario.setBorder(null);
 		add(tSalario);
 
 		edad = new JLabel("Edad:");
 		edad.setBounds(25, 215, 150, 30);
 		edad.setFont(new Font("Agency FB", Font.BOLD, 22));
-		edad.setForeground(Color.decode("#111d15"));
+		edad.setForeground(Color.decode("#f6efe7"));
 		add(edad);
 		
 		tEdad = new JTextField();
 		tEdad.setBounds(30, 245, 164, 32);
 		tEdad.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tEdad.setForeground(Color.decode("#111d15"));
-		tEdad.setBackground(Color.decode("#e0ebe0"));
+		tEdad.setBackground(Color.decode("#e1c8ad"));
 		tEdad.setBorder(null);
 		add(tSalario);
 		//admiiin
@@ -527,189 +529,189 @@ public class PanelCrear extends JPanel{
 		areaAsignada = new JLabel("Área asignada:");
 		areaAsignada.setBounds(235, 215, 150, 30);
 		areaAsignada.setFont(new Font("Agency FB", Font.BOLD, 22));
-		areaAsignada.setForeground(Color.decode("#111d15"));
+		areaAsignada.setForeground(Color.decode("#f6efe7"));
 		add(areaAsignada);
 		
 		tAreaAsignada = new JComboBox<String>(new String[] { "...", "Gestion contable", "Logistica", "Atencion al cliente", "Proveedores", "Archivo"});
 		tAreaAsignada.setBounds(240, 245, 164, 32);
 		tAreaAsignada.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tAreaAsignada.setForeground(Color.decode("#111d15"));
-		tAreaAsignada.setBackground(Color.decode("#e0ebe0"));
+		tAreaAsignada.setBackground(Color.decode("#e1c8ad"));
 		tAreaAsignada.setBorder(null);
 		add(tAreaAsignada);
 
 		estaDisponible = new JLabel("Está disponible?:");
 		estaDisponible.setBounds(235, 215, 150, 30);
 		estaDisponible.setFont(new Font("Agency FB", Font.BOLD, 22));
-		estaDisponible.setForeground(Color.decode("#111d15"));
+		estaDisponible.setForeground(Color.decode("#f6efe7"));
 		add(estaDisponible);
 		
 		tEstaDisponible = new JComboBox<String>(new String[] { "...", "Si", "No"});
 		tEstaDisponible.setBounds(240, 245, 164, 32);
 		tEstaDisponible.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tEstaDisponible.setForeground(Color.decode("#111d15"));
-		tEstaDisponible.setBackground(Color.decode("#e0ebe0"));
+		tEstaDisponible.setBackground(Color.decode("#e1c8ad"));
 		tEstaDisponible.setBorder(null);
 		add(tEstaDisponible);
 
 		formaPata = new JLabel("Forma pata:");
 		formaPata.setBounds(235, 215, 150, 30);
 		formaPata.setFont(new Font("Agency FB", Font.BOLD, 22));
-		formaPata.setForeground(Color.decode("#111d15"));
+		formaPata.setForeground(Color.decode("#f6efe7"));
 		add(formaPata);
 		
 		tFormaPata = new JComboBox<String>(new String[] { "...", "anisodáctilos", " zigodáctilos", "palmeados", "rapaces", "lobulados"});
 		tFormaPata.setBounds(240, 245, 164, 32);
 		tFormaPata.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tFormaPata.setForeground(Color.decode("#111d15"));
-		tFormaPata.setBackground(Color.decode("#e0ebe0"));
+		tFormaPata.setBackground(Color.decode("#e1c8ad"));
 		tFormaPata.setBorder(null);
 		add(tFormaPata);
 
 		cantidadPelaje = new JLabel("Cantidad pelaje:");
 		cantidadPelaje.setBounds(235, 215, 150, 30);
 		cantidadPelaje.setFont(new Font("Agency FB", Font.BOLD, 22));
-		cantidadPelaje.setForeground(Color.decode("#111d15"));
+		cantidadPelaje.setForeground(Color.decode("#f6efe7"));
 		add(cantidadPelaje);
 		
 		tCantidadPelaje = new JComboBox<String>(new String[] { "...", "Mucho", "Poco", "Medio"});
 		tCantidadPelaje.setBounds(240, 245, 164, 32);
 		tCantidadPelaje.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tCantidadPelaje.setForeground(Color.decode("#111d15"));
-		tCantidadPelaje.setBackground(Color.decode("#e0ebe0"));
+		tCantidadPelaje.setBackground(Color.decode("#e1c8ad"));
 		tCantidadPelaje.setBorder(null);
 		add(tCantidadPelaje);
 		
 		tipoDesplazamiento = new JLabel("Tipo desplazamiento:");
 		tipoDesplazamiento.setBounds(235, 215, 150, 30);
 		tipoDesplazamiento.setFont(new Font("Agency FB", Font.BOLD, 22));
-		tipoDesplazamiento.setForeground(Color.decode("#111d15"));
+		tipoDesplazamiento.setForeground(Color.decode("#f6efe7"));
 		add(tipoDesplazamiento);
 		
 		tTipoDesplazamiento = new JComboBox<String>(new String[] { "...", "Patas", "Alas", "Cuerpo"});
 		tTipoDesplazamiento.setBounds(240, 245, 164, 32);
 		tTipoDesplazamiento.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tTipoDesplazamiento.setForeground(Color.decode("#111d15"));
-		tTipoDesplazamiento.setBackground(Color.decode("#e0ebe0"));
+		tTipoDesplazamiento.setBackground(Color.decode("#e1c8ad"));
 		tTipoDesplazamiento.setBorder(null);
 		add(tTipoDesplazamiento);
 		
 		tipoAgua = new JLabel("Tipo de agua:");
 		tipoAgua.setBounds(235, 215, 150, 30);
 		tipoAgua.setFont(new Font("Agency FB", Font.BOLD, 22));
-		tipoAgua.setForeground(Color.decode("#111d15"));
+		tipoAgua.setForeground(Color.decode("#f6efe7"));
 		add(tipoAgua);
 		
 		tTipoAgua = new JComboBox<String>(new String[] { "...", "Dulce", "Salada"});
 		tTipoAgua.setBounds(240, 245, 164, 32);
 		tTipoAgua.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tTipoAgua.setForeground(Color.decode("#111d15"));
-		tTipoAgua.setBackground(Color.decode("#e0ebe0"));
+		tTipoAgua.setBackground(Color.decode("#e1c8ad"));
 		tTipoAgua.setBorder(null);
 		add(tTipoAgua);
 
 		horario = new JLabel("Horario:");
 		horario.setBounds(440, 215, 150, 30);
 		horario.setFont(new Font("Agency FB", Font.BOLD, 22));
-		horario.setForeground(Color.decode("#111d15"));
+		horario.setForeground(Color.decode("#f6efe7"));
 		add(horario);
 		//3,3
 		tHorario = new JComboBox<String>(new String[] { "...", "6am - 2pm", "2pm - 10pm", "10pm - 6am"});
 		tHorario.setBounds(445, 245, 164, 32);
 		tHorario.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tHorario.setForeground(Color.decode("#111d15"));
-		tHorario.setBackground(Color.decode("#e0ebe0"));
+		tHorario.setBackground(Color.decode("#e1c8ad"));
 		tHorario.setBorder(null);
 		add(tHorario);
 		
 		dosis = new JLabel("Dosis:");
 		dosis.setBounds(440, 215, 150, 30);
 		dosis.setFont(new Font("Agency FB", Font.BOLD, 22));
-		dosis.setForeground(Color.decode("#111d15"));
+		dosis.setForeground(Color.decode("#f6efe7"));
 		add(dosis);
 		
 		tDosis = new JTextField();
 		tDosis.setBounds(445, 245, 164, 32);
 		tDosis.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tDosis.setForeground(Color.decode("#111d15"));
-		tDosis.setBackground(Color.decode("#e0ebe0"));
+		tDosis.setBackground(Color.decode("#e1c8ad"));
 		tDosis.setBorder(null);
 		add(tDosis);
 		
 		colorPluma = new JLabel("Color de plumas:");
 		colorPluma.setBounds(440, 215, 150, 30);
 		colorPluma.setFont(new Font("Agency FB", Font.BOLD, 22));
-		colorPluma.setForeground(Color.decode("#111d15"));
+		colorPluma.setForeground(Color.decode("#f6efe7"));
 		add(colorPluma);
 		
 		tColorPluma = new JTextField();
 		tColorPluma.setBounds(445, 245, 164, 32);
 		tColorPluma.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tColorPluma.setForeground(Color.decode("#111d15"));
-		tColorPluma.setBackground(Color.decode("#e0ebe0"));
+		tColorPluma.setBackground(Color.decode("#e1c8ad"));
 		tColorPluma.setBorder(null);
 		add(tColorPluma);
 		
 		colorPelaje = new JLabel("Color del pelaje:");
 		colorPelaje.setBounds(440, 215, 150, 30);
 		colorPelaje.setFont(new Font("Agency FB", Font.BOLD, 22));
-		colorPelaje.setForeground(Color.decode("#111d15"));
+		colorPelaje.setForeground(Color.decode("#f6efe7"));
 		add(colorPelaje);
 		
 		tColorPelaje = new JTextField();
 		tColorPelaje.setBounds(445, 245, 164, 32);
 		tColorPelaje.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tColorPelaje.setForeground(Color.decode("#111d15"));
-		tColorPelaje.setBackground(Color.decode("#e0ebe0"));
+		tColorPelaje.setBackground(Color.decode("#e1c8ad"));
 		tColorPelaje.setBorder(null);
 		add(tColorPelaje);
 		
 		colorEscama = new JLabel("Color de escamas:");
 		colorEscama.setBounds(440, 215, 150, 30);
 		colorEscama.setFont(new Font("Agency FB", Font.BOLD, 22));
-		colorEscama.setForeground(Color.decode("#111d15"));
+		colorEscama.setForeground(Color.decode("#f6efe7"));
 		add(colorEscama);
 		
 		tColorEscama = new JTextField();
 		tColorEscama.setBounds(445, 245, 164, 32);
 		tColorEscama.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tColorEscama.setForeground(Color.decode("#111d15"));
-		tColorEscama.setBackground(Color.decode("#e0ebe0"));
+		tColorEscama.setBackground(Color.decode("#e1c8ad"));
 		tColorEscama.setBorder(null);
 		add(tColorEscama);
 		
 		esVenenoso = new JLabel("Es venenoso?:");
 		esVenenoso.setBounds(440, 215, 150, 30);
 		esVenenoso.setFont(new Font("Agency FB", Font.BOLD, 22));
-		esVenenoso.setForeground(Color.decode("#111d15"));
+		esVenenoso.setForeground(Color.decode("#f6efe7"));
 		add(esVenenoso);
 		
 		tEsVenenoso = new JComboBox<String>(new String[] { "...", "Si", "No"});
 		tEsVenenoso.setBounds(445, 245, 164, 32);
 		tEsVenenoso.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tEsVenenoso.setForeground(Color.decode("#111d15"));
-		tEsVenenoso.setBackground(Color.decode("#e0ebe0"));
+		tEsVenenoso.setBackground(Color.decode("#e1c8ad"));
 		tEsVenenoso.setBorder(null);
 		add(tEsVenenoso);
 		//4,1
 		numEmpleado = new JLabel("Numero de empleados:");
 		numEmpleado.setBounds(25, 280, 180, 30);
 		numEmpleado.setFont(new Font("Agency FB", Font.BOLD, 22));
-		numEmpleado.setForeground(Color.decode("#111d15"));
+		numEmpleado.setForeground(Color.decode("#f6efe7"));
 		add(numEmpleado);
 		
 		tNumEmpleado = new JTextField();
 		tNumEmpleado.setBounds(30, 310, 164, 32);
 		tNumEmpleado.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tNumEmpleado.setForeground(Color.decode("#111d15"));
-		tNumEmpleado.setBackground(Color.decode("#e0ebe0"));
+		tNumEmpleado.setBackground(Color.decode("#e1c8ad"));
 		tNumEmpleado.setBorder(null);
 		add(tNumEmpleado);
 		
 		cantidadHuevo = new JLabel("Cantidad de huevos:");
 		cantidadHuevo.setBounds(25, 280, 180, 30);
 		cantidadHuevo.setFont(new Font("Agency FB", Font.BOLD, 22));
-		cantidadHuevo.setForeground(Color.decode("#111d15"));
+		cantidadHuevo.setForeground(Color.decode("#f6efe7"));
 		add(cantidadHuevo);
 		
 		tCantidadHuevo = new JTextField();
@@ -723,7 +725,7 @@ public class PanelCrear extends JPanel{
 		tipoDiente = new JLabel("Tipo de dientes:");
 		tipoDiente.setBounds(25, 280, 180, 30);
 		tipoDiente.setFont(new Font("Agency FB", Font.BOLD, 22));
-		tipoDiente.setForeground(Color.decode("#111d15"));
+		tipoDiente.setForeground(Color.decode("#f6efe7"));
 		add(tipoDiente);
 		
 		tTipoDiente = new JComboBox<String>(new String[] { "...", "heterodonta", " homodonta", "Tecodontos", "Pleurodontos","Acrodontos"});
@@ -737,7 +739,7 @@ public class PanelCrear extends JPanel{
 		tipoRespiracion = new JLabel("Tipo de repiración:");
 		tipoRespiracion.setBounds(25, 280, 180, 30);
 		tipoRespiracion.setFont(new Font("Agency FB", Font.BOLD, 22));
-		tipoRespiracion.setForeground(Color.decode("#111d15"));
+		tipoRespiracion.setForeground(Color.decode("#f6efe7"));
 		add(tipoRespiracion);
 		
 		tTipoRespiracion = new JComboBox<String>(new String[] { "...","branquias"});
@@ -753,7 +755,7 @@ public class PanelCrear extends JPanel{
 		cargo = new JLabel("Cargo:");
 		cargo.setBounds(235, 215, 150, 30);
 		cargo.setFont(new Font("Agency FB", Font.BOLD, 22));
-		cargo.setForeground(Color.decode("#111d15"));
+		cargo.setForeground(Color.decode("#f6efe7"));
 		add(cargo);
 		
 		tCargo = new JComboBox<String>(new String[] { "...", "Cirujano", "Dermatologia", "Oncologia", "Cardiologia", "Anestesiologia", "Odontologia", "Cuidados criticos"});
@@ -767,182 +769,182 @@ public class PanelCrear extends JPanel{
 		tamanoPico = new JLabel("Tamaño pico:");
 		tamanoPico.setBounds(235, 280, 150, 30);
 		tamanoPico.setFont(new Font("Agency FB", Font.BOLD, 22));
-		tamanoPico.setForeground(Color.decode("#111d15"));
+		tamanoPico.setForeground(Color.decode("#f6efe7"));
 		add(tamanoPico);
 		
 		tTamanoPico = new JTextField();
 		tTamanoPico.setBounds(240, 310, 164, 32);
 		tTamanoPico.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tTamanoPico.setForeground(Color.decode("#111d15"));
-		tTamanoPico.setBackground(Color.decode("#e0ebe0"));
+		tTamanoPico.setBackground(Color.decode("#e1c8ad"));
 		tTamanoPico.setBorder(null);
 		add(tTamanoPico);
 		
 		numeroDiente = new JLabel("Numero de dientes:");
 		numeroDiente.setBounds(235, 280, 150, 30);
 		numeroDiente.setFont(new Font("Agency FB", Font.BOLD, 22));
-		numeroDiente.setForeground(Color.decode("#111d15"));
+		numeroDiente.setForeground(Color.decode("#f6efe7"));
 		add(numeroDiente);
 		
 		tNumeroDiente = new JTextField();
 		tNumeroDiente.setBounds(240, 310, 164, 32);
 		tNumeroDiente.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tNumeroDiente.setForeground(Color.decode("#111d15"));
-		tNumeroDiente.setBackground(Color.decode("#e0ebe0"));
+		tNumeroDiente.setBackground(Color.decode("#e1c8ad"));
 		tNumeroDiente.setBorder(null);
 		add(tNumeroDiente);
 		
 		numeroAleta = new JLabel("Numero de aletas:");
 		numeroAleta.setBounds(235, 280, 150, 30);
 		numeroAleta.setFont(new Font("Agency FB", Font.BOLD, 22));
-		numeroAleta.setForeground(Color.decode("#111d15"));
+		numeroAleta.setForeground(Color.decode("#f6efe7"));
 		add(numeroAleta);
 		
 		tNumeroAleta = new JTextField();
 		tNumeroAleta.setBounds(240, 310, 164, 32);
 		tNumeroAleta.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tNumeroAleta.setForeground(Color.decode("#111d15"));
-		tNumeroAleta.setBackground(Color.decode("#e0ebe0"));
+		tNumeroAleta.setBackground(Color.decode("#e1c8ad"));
 		tNumeroAleta.setBorder(null);
 		add(tNumeroAleta);
 		
 		esEctoformo = new JLabel("Es ectoformo?:");
 		esEctoformo.setBounds(235, 280, 150, 30);
 		esEctoformo.setFont(new Font("Agency FB", Font.BOLD, 22));
-		esEctoformo.setForeground(Color.decode("#111d15"));
+		esEctoformo.setForeground(Color.decode("#f6efe7"));
 		add(esEctoformo);
 		
 		tEsEctoformo =new JComboBox<String>(new String[] { "...", "Si", "No"});
 		tEsEctoformo.setBounds(240, 310, 164, 32);
 		tEsEctoformo.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tEsEctoformo.setForeground(Color.decode("#111d15"));
-		tEsEctoformo.setBackground(Color.decode("#e0ebe0"));
+		tEsEctoformo.setBackground(Color.decode("#e1c8ad"));
 		tEsEctoformo.setBorder(null);
 		add(tEsEctoformo);
 		//4,3
 		horaTrabajo = new JLabel("Horas de trabajo:");
 		horaTrabajo.setBounds(440, 215, 150, 30);
 		horaTrabajo.setFont(new Font("Agency FB", Font.BOLD, 22));
-		horaTrabajo.setForeground(Color.decode("#111d15"));
+		horaTrabajo.setForeground(Color.decode("#f6efe7"));
 		add(horaTrabajo);
 		
 		tHoraTrabajo = new JTextField();
 		tHoraTrabajo.setBounds(445, 245, 164, 32);
 		tHoraTrabajo.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tHoraTrabajo.setForeground(Color.decode("#111d15"));
-		tHoraTrabajo.setBackground(Color.decode("#e0ebe0"));
+		tHoraTrabajo.setBackground(Color.decode("#e1c8ad"));
 		tHoraTrabajo.setBorder(null);
 		add(tHoraTrabajo);
 
 		esMigratoria = new JLabel("Es migratoria?:");
 		esMigratoria.setBounds(440, 280, 150, 30);
 		esMigratoria.setFont(new Font("Agency FB", Font.BOLD, 22));
-		esMigratoria.setForeground(Color.decode("#111d15"));
+		esMigratoria.setForeground(Color.decode("#f6efe7"));
 		add(esMigratoria);
 		
 		tEsMigratoria = new JComboBox<String>(new String[] { "...", "Si", "No"});
 		tEsMigratoria.setBounds(445, 310, 164, 32);
 		tEsMigratoria.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tEsMigratoria.setForeground(Color.decode("#111d15"));
-		tEsMigratoria.setBackground(Color.decode("#e0ebe0"));
+		tEsMigratoria.setBackground(Color.decode("#e1c8ad"));
 		tEsMigratoria.setBorder(null);
 		add(tEsMigratoria);
 		
 		medioDesplazamiento = new JLabel("Medio Desplazamiento:");
 		medioDesplazamiento.setBounds(440, 280, 150, 30);
 		medioDesplazamiento.setFont(new Font("Agency FB", Font.BOLD, 22));
-		medioDesplazamiento.setForeground(Color.decode("#111d15"));
+		medioDesplazamiento.setForeground(Color.decode("#f6efe7"));
 		add(medioDesplazamiento);
 		
 		tMedioDesplazamiento = new JComboBox<String>(new String[] { "...", "Patas", "Alas", "Cuerpo"});
 		tMedioDesplazamiento.setBounds(445, 310, 164, 32);
 		tMedioDesplazamiento.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tMedioDesplazamiento.setForeground(Color.decode("#111d15"));
-		tMedioDesplazamiento.setBackground(Color.decode("#e0ebe0"));
+		tMedioDesplazamiento.setBackground(Color.decode("#e1c8ad"));
 		tMedioDesplazamiento.setBorder(null);
 		add(tMedioDesplazamiento);
 		
 		temperaturaCorporal = new JLabel("Temperatura corporal:");
 		temperaturaCorporal.setBounds(440, 280, 150, 30);
 		temperaturaCorporal.setFont(new Font("Agency FB", Font.BOLD, 22));
-		temperaturaCorporal.setForeground(Color.decode("#111d15"));
+		temperaturaCorporal.setForeground(Color.decode("#f6efe7"));
 		add(temperaturaCorporal);
 		
 		tTemperaturaCorporal = new JTextField();
 		tTemperaturaCorporal.setBounds(445, 310, 164, 32);
 		tTemperaturaCorporal.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tTemperaturaCorporal.setForeground(Color.decode("#111d15"));
-		tTemperaturaCorporal.setBackground(Color.decode("#e0ebe0"));
+		tTemperaturaCorporal.setBackground(Color.decode("#e1c8ad"));
 		tTemperaturaCorporal.setBorder(null);
 		add(tTemperaturaCorporal);
 		
 		profundidadMaxima = new JLabel("Profundidad Maxima:");
 		profundidadMaxima.setBounds(440, 280, 150, 30);
 		profundidadMaxima.setFont(new Font("Agency FB", Font.BOLD, 22));
-		profundidadMaxima.setForeground(Color.decode("#111d15"));
+		profundidadMaxima.setForeground(Color.decode("#f6efe7"));
 		add(profundidadMaxima);
 		
 		tProfundidadMaxima = new JTextField();
 		tProfundidadMaxima.setBounds(445, 310, 164, 32);
 		tProfundidadMaxima.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tProfundidadMaxima.setForeground(Color.decode("#111d15"));
-		tProfundidadMaxima.setBackground(Color.decode("#e0ebe0"));
+		tProfundidadMaxima.setBackground(Color.decode("#e1c8ad"));
 		tProfundidadMaxima.setBorder(null);
 		add(tProfundidadMaxima);
 		
 		numLicencia = new JLabel("Numero de licencia:");
 		numLicencia.setBounds(25, 280, 180, 30);
 		numLicencia.setFont(new Font("Agency FB", Font.BOLD, 22));
-		numLicencia.setForeground(Color.decode("#111d15"));
+		numLicencia.setForeground(Color.decode("#f6efe7"));
 		add(numLicencia);
 		
 		tNumLicencia = new JTextField();
 		tNumLicencia.setBounds(30, 310, 164, 32);
 		tNumLicencia.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tNumLicencia.setForeground(Color.decode("#111d15"));
-		tNumLicencia.setBackground(Color.decode("#e0ebe0"));
+		tNumLicencia.setBackground(Color.decode("#e1c8ad"));
 		tNumLicencia.setBorder(null);
 		add(tNumLicencia);
 		//cliente
 		nombreMascota = new JLabel("Nombre mascota:");
 		nombreMascota.setBounds(25, 215, 150, 30);
 		nombreMascota.setFont(new Font("Agency FB", Font.BOLD, 22));
-		nombreMascota.setForeground(Color.decode("#111d15"));
+		nombreMascota.setForeground(Color.decode("#f6efe7"));
 		add(nombreMascota);
 		
 		tNombreMascota = new JTextField();
 		tNombreMascota.setBounds(30, 245, 164, 32);
 		tNombreMascota.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tNombreMascota.setForeground(Color.decode("#111d15"));
-		tNombreMascota.setBackground(Color.decode("#e0ebe0"));
+		tNombreMascota.setBackground(Color.decode("#e1c8ad"));
 		tNombreMascota.setBorder(null);
 		add(tNombreMascota);
 		
 		razonVisita = new JLabel("Razón de la visita:");
 		razonVisita.setBounds(235, 215, 150, 30);
 		razonVisita.setFont(new Font("Agency FB", Font.BOLD, 22));
-		razonVisita.setForeground(Color.decode("#111d15"));
+		razonVisita.setForeground(Color.decode("#f6efe7"));
 		add(razonVisita);
 		
 		tRazonVisita = new JTextField();
 		tRazonVisita.setBounds(240, 245, 164, 32);
 		tRazonVisita.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tRazonVisita.setForeground(Color.decode("#111d15"));
-		tRazonVisita.setBackground(Color.decode("#e0ebe0"));
+		tRazonVisita.setBackground(Color.decode("#e1c8ad"));
 		tRazonVisita.setBorder(null);
 		add(tRazonVisita);
 		
 		esClienteNuevo = new JLabel("Es cliente nuevo? (si/no):");
 		esClienteNuevo.setBounds(440, 215, 150, 30);
 		esClienteNuevo.setFont(new Font("Agency FB", Font.BOLD, 22));
-		esClienteNuevo.setForeground(Color.decode("#111d15"));
+		esClienteNuevo.setForeground(Color.decode("#f6efe7"));
 		add(esClienteNuevo);
 		
 		tEsClienteNuevo = new JComboBox<String>(new String[] { "...", "Si", "No"});
 		tEsClienteNuevo.setBounds(445, 245, 164, 32);
 		tEsClienteNuevo.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tEsClienteNuevo.setForeground(Color.decode("#111d15"));
-		tEsClienteNuevo.setBackground(Color.decode("#e0ebe0"));
+		tEsClienteNuevo.setBackground(Color.decode("#e1c8ad"));
 		tEsClienteNuevo.setBorder(null);
 		add(tEsClienteNuevo);
 
