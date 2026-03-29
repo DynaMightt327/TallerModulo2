@@ -95,6 +95,44 @@ public class PanelCrear extends JPanel{
 	private JTextField tRazonVisita;
 	private JComboBox<String> tEsClienteNuevo;
 	
+	private JTextField tEspecie;
+	private JTextField tHabitat;
+	private JTextField tTipoAlimento;
+	private JTextField tPeso;
+	private JTextField tAltura;
+	private JTextField tEdad;
+	private JComboBox<String> tFormaPata;
+	private JTextField tColorPluma;
+	private JTextField tCantidadHuevo;
+	private JTextField tTamanoPico;
+	private JComboBox<String> tEsMigratoria;
+	private JComboBox<String> tCantidadPelaje;
+	private JTextField tColorPelaje;
+	private JComboBox<String> tTipoDiente;
+	private JTextField tNumeroDiente;
+	private JComboBox<String> tMedioDesplazamiento;
+	private JComboBox<String> tTipoDesplazamiento;
+	private JTextField tTemperaturaCorporal;
+	private JComboBox<String> tEsVenenoso;
+	private JComboBox<String> tEsEctoformo;
+	private JComboBox<String> tTipoAgua;
+	private JTextField tColorEscama;
+	private JComboBox<String> tTipoRespiracion;
+	private JTextField tNumeroAleta;
+	private JTextField tProfundidadMaxima;
+	
+	private JTextField tMarca;
+	private JTextField tPrecio;
+	private JTextField tIdProducto;
+	private JTextField tNombreComercial;
+	private JTextField tNombreCientifico;
+	private JTextField tFechaCaducidad;
+	private JComboBox<String> tEstaDisponible;
+	private JTextField tDosis;
+	private JTextField tColor;
+	private JComboBox<String> tTipoJuguete;
+	private JComboBox<String> tGarantia;
+	
 	public PanelCrear() {
 		initComps();
 		setVisible(false);

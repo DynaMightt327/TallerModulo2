@@ -3,6 +3,7 @@ package co.edu.unbosque.view;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,8 +16,7 @@ public class VentanaCliente extends JFrame {
 	private JButton mostrar;
 	private JButton volver;
 
-	private JPanel banner;
-	private JLabel titulo;
+	private JLabel background;
 
 	public VentanaCliente() {
 		initcomps();
@@ -26,38 +26,39 @@ public class VentanaCliente extends JFrame {
 	public void initcomps() {
 		// ====CONFIGURACION DE LA VENTANA====
 		this.setTitle("Chupiveterinaria");
-		this.setBounds(250, 30, 980, 550);
+		this.setBounds(250, 30, 1000, 650);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.setLayout(null);
 		this.getContentPane().setBackground(Color.decode("#fff4e4"));
 
-		banner = new JPanel();
-		banner.setBounds(0, 0, 980, 100);
-		banner.setBackground(Color.white);
-		add(banner);
-
-		titulo = new JLabel("Veterinaria");
-		titulo.setBounds(450, 0, 300, 100);
-		titulo.setForeground(Color.black);
-		titulo.setFont(new Font("Arial", Font.BOLD, 70));
-		banner.add(titulo);
-
+		// ====IMAGEN DE FONDO====
+		ImageIcon backgroundImage = new ImageIcon(getClass().getResource("imagen2.png"));
+		background = new JLabel(backgroundImage);
+		background.setBounds(0, 0, 1000, 650);
+		background.setLayout(null);
+		this.add(background);
 		panelMostrar = new PanelMostrar();
 		panelMostrar.setVisible(false);
 		add(panelMostrar);
-		
-		mostrar = new JButton("Mostrar");
-		mostrar.setBounds(15, 230, 140, 30);
-		mostrar.setBorderPainted(false);
-		mostrar.setForeground(Color.decode("#060b37"));
-		add(mostrar);
 
-		volver = new JButton("Volver");
-		volver.setBounds(15, 350, 140, 30);
+		mostrar = new JButton("MOSTRAR");
+		mostrar.setBounds(345, 162, 150, 30);
+		mostrar.setBorderPainted(false);
+		mostrar.setLayout(null);
+		mostrar.setFont(new Font("Georgia", Font.BOLD, 12));
+		mostrar.setBackground(Color.decode("#cca881"));
+		mostrar.setForeground(Color.black);
+		background.add(mostrar);
+
+		volver = new JButton("VOLVER");
+		volver.setBounds(530, 162, 150, 30);
 		volver.setBorderPainted(false);
-		volver.setForeground(Color.decode("#060b37"));
-		add(volver);
+		volver.setLayout(null);
+		volver.setFont(new Font("Georgia", Font.BOLD, 12));
+		volver.setBackground(Color.decode("#cca881"));
+		volver.setForeground(Color.black);
+		background.add(volver);
 
 	}
 
@@ -75,22 +76,6 @@ public class VentanaCliente extends JFrame {
 
 	public void setVolver(JButton volver) {
 		this.volver = volver;
-	}
-
-	public JPanel getBanner() {
-		return banner;
-	}
-
-	public void setBanner(JPanel banner) {
-		this.banner = banner;
-	}
-
-	public JLabel getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(JLabel titulo) {
-		this.titulo = titulo;
 	}
 
 	public PanelMostrar getPanelMostrar() {
