@@ -54,7 +54,7 @@ public class PanelMostrar extends JPanel {
 	}
 
 	public void initComps() {
-		this.setBounds(170, 120, 780, 375);
+		this.setBounds(135, 120, 815, 375);
 		this.setLayout(null);
 		this.setBackground(Color.decode("#6d4c41"));
 		
@@ -119,17 +119,77 @@ public class PanelMostrar extends JPanel {
 		DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
 		tablaAdmin = new JTable(modelo);
 		JScrollPane scroll = new JScrollPane(tablaAdmin);
-		scroll.setBounds(45, 100, 690, 200);
+		scroll.setBounds(20, 100, 780, 255);
 		scroll.setBackground(Color.WHITE);
 		add(scroll);
 		
-		String[] columnas1 = { "Nombre", "Apellido", "Género", "Documento", "Correo", "Telefono" };
-		DefaultTableModel modelo1 = new DefaultTableModel(columnas, 0);
-		tablaAdmin = new JTable(modelo1);
+		//tabla de veterinario
+		String[] columnas1 = { "Nombre", "Apellido", "Género", "Documento", "Correo", "Telefono", "Cargo", "Salario", "Horas trabajo", "# licencia" };
+		DefaultTableModel modelo1 = new DefaultTableModel(columnas1, 0);
+		tablaVet = new JTable(modelo1);
 		JScrollPane scroll1 = new JScrollPane(tablaVet);
-		scroll1.setBounds(45, 100, 690, 200);
+		scroll1.setBounds(20, 100, 780, 255);
 		scroll1.setBackground(Color.WHITE);
 		add(scroll1);
+		
+		//tabla de cliente
+		String[] columnas2 = { "Nombre", "Apellido", "Género", "Documento", "Correo", "Telefono", "Mascota", "Razon visita", "Cliente nuevo?"};
+		DefaultTableModel modelo2 = new DefaultTableModel(columnas2, 0);
+		tablaCliente = new JTable(modelo2);
+		JScrollPane scroll2 = new JScrollPane(tablaCliente);
+		scroll2.setBounds(20, 100, 780, 255);
+		scroll2.setBackground(Color.WHITE);
+		add(scroll2);
+		
+		//tabla de ave
+		String[] columnas3 = { "Nombre", "Especie", "Habitat", "Alimento", "Peso", "Altura", "Edad", "Pata", "Color pluma", "Huevos", "Tamaño pico", "Migratoria?"};
+		DefaultTableModel modelo3 = new DefaultTableModel(columnas3, 0);
+		tablaAve = new JTable(modelo3);
+		JScrollPane scroll3 = new JScrollPane(tablaAve);
+		scroll3.setBounds(20, 100, 780, 255);
+		scroll3.setBackground(Color.WHITE);
+		add(scroll3);
+		//tabla de mamifero
+		String[] columnas4 = { "Nombre", "Especie", "Habitat", "Alimento", "Peso", "Altura", "Edad", "Cantidad pelaje", "Color Pelaje", "Dientes", "Desplazamiento"};
+		DefaultTableModel modelo4 = new DefaultTableModel(columnas4, 0);
+		tablaMamifero = new JTable(modelo4);
+		JScrollPane scroll4 = new JScrollPane(tablaMamifero);
+		scroll4.setBounds(20, 100, 780, 255);
+		scroll4.setBackground(Color.WHITE);
+		add(scroll4);
+
+		//tabla de reptil
+		String[] columnas5 = { "Nombre", "Especie", "Habitat", "Alimento", "Peso", "Altura", "Edad", "Desplazamiento", "Dientes", "Temperatura", "Venenoso?", "Ectoformo?"};
+		DefaultTableModel modelo5 = new DefaultTableModel(columnas5, 0);
+		tablaReptil = new JTable(modelo5);
+		JScrollPane scroll5 = new JScrollPane(tablaReptil);
+		scroll5.setBounds(20, 100, 780, 255);
+		scroll5.setBackground(Color.WHITE);
+		add(scroll5);
+		//tabla de pez
+		String[] columnas6 = { "Nombre", "Especie", "Habitat", "Alimento", "Peso", "Altura", "Edad", "Tipo Agua", "Color escamas", "Respiración", "Numero aletas", "Profundidad max"};
+		DefaultTableModel modelo6 = new DefaultTableModel(columnas6, 0);
+		tablaPez = new JTable(modelo6);
+		JScrollPane scroll6 = new JScrollPane(tablaPez);
+		scroll6.setBounds(20, 100, 780, 255);
+		scroll6.setBackground(Color.WHITE);
+		add(scroll6);
+		//tabla de juguete
+		String[] columnas7 = { "Marca", "Precio", "Id Producto", "Nombre", "Color", "Tipo Juguete", "Garantia"};
+		DefaultTableModel modelo7 = new DefaultTableModel(columnas7, 0);
+		tablaJuguete = new JTable(modelo7);
+		JScrollPane scroll7 = new JScrollPane(tablaJuguete);
+		scroll7.setBounds(20, 100, 780, 255);
+		scroll7.setBackground(Color.WHITE);
+		add(scroll7);
+		//tabla de medicamentos
+		String[] columnas8 = { "Marca", "Precio", "Id Producto", "Nombre comercial", "Nombre cientifico", "fecha caducidad", "disponible?", "dosis"};
+		DefaultTableModel modelo8 = new DefaultTableModel(columnas8, 0);
+		tablaMedicamento = new JTable(modelo8);
+		JScrollPane scroll8 = new JScrollPane(tablaMedicamento);
+		scroll8.setBounds(20, 100, 780, 255);
+		scroll8.setBackground(Color.WHITE);
+		add(scroll8);
 		
 		
 	}

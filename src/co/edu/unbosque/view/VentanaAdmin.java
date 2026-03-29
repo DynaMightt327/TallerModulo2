@@ -66,31 +66,31 @@ public class VentanaAdmin extends JFrame {
 		add(panelEliminar);
 		
 		crear = new JButton("Crear");
-		crear.setBounds(15, 190, 140, 30);
+		crear.setBounds(15, 190, 100, 30);
 		crear.setBorderPainted(false);
 		crear.setForeground(Color.decode("#060b37"));
 		add(crear);
 		
 		mostrar = new JButton("Mostrar");
-		mostrar.setBounds(15, 230, 140, 30);
+		mostrar.setBounds(15, 230, 100, 30);
 		mostrar.setBorderPainted(false);
 		mostrar.setForeground(Color.decode("#060b37"));
 		add(mostrar);
 		
 		actualizar = new JButton("Actualizar");
-		actualizar.setBounds(15, 270, 140, 30);
+		actualizar.setBounds(15, 270, 100, 30);
 		actualizar.setBorderPainted(false);
 		actualizar.setForeground(Color.decode("#060b37"));
 		add(actualizar);
 		
 		eliminar = new JButton("Eliminar");
-		eliminar.setBounds(15, 310, 140, 30);
+		eliminar.setBounds(15, 310, 100, 30);
 		eliminar.setBorderPainted(false);
 		eliminar.setForeground(Color.decode("#060b37"));
 		add(eliminar);
 		
 		volver = new JButton("Volver");
-		volver.setBounds(15, 350, 140, 30);
+		volver.setBounds(15, 350, 100, 30);
 		volver.setBorderPainted(false);
 		volver.setForeground(Color.decode("#060b37"));
 		add(volver);
