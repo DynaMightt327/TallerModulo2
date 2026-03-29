@@ -4,11 +4,24 @@ import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
 
-import co.edu.unbosque.view.PanelCrear;
+import javax.swing.JOptionPane;
+
+import co.edu.unbosque.model.Cliente;
+import co.edu.unbosque.model.persistence.AdminDAO;
+import co.edu.unbosque.model.persistence.AveDAO;
+import co.edu.unbosque.model.persistence.ClienteDAO;
+import co.edu.unbosque.model.persistence.JugueteDAO;
+import co.edu.unbosque.model.persistence.MamiferoDAO;
+import co.edu.unbosque.model.persistence.MedicamentoDAO;
+import co.edu.unbosque.model.persistence.PezDAO;
+import co.edu.unbosque.model.persistence.ReptilDAO;
+import co.edu.unbosque.model.persistence.VeterinarioDAO;
 import co.edu.unbosque.view.VentanaAdmin;
 import co.edu.unbosque.view.VentanaCliente;
 import co.edu.unbosque.view.VentanaPrincipal;
 import co.edu.unbosque.view.VentanaVet;
+
+
 
 public class Controller implements ActionListener {
 
@@ -16,12 +29,30 @@ public class Controller implements ActionListener {
 	private VentanaAdmin va;
 	private VentanaVet vv;
 	private VentanaCliente vc;
+	private AdminDAO aDAO;
+	private ClienteDAO cDAO;
+	private VeterinarioDAO vDAO;
+	private AveDAO avDAO;
+	private MamiferoDAO mDAO;
+	private PezDAO pDAO;
+	private ReptilDAO rDAO;
+	private JugueteDAO jDAO;
+	private MedicamentoDAO meDAO;
 
 	public Controller() {
 		vp = new VentanaPrincipal();
 		va = new VentanaAdmin();
 		vv = new VentanaVet();
 		vc = new VentanaCliente();
+		aDAO = new AdminDAO();
+		cDAO = new ClienteDAO();
+		vDAO = new VeterinarioDAO();
+		avDAO = new AveDAO();
+		mDAO = new MamiferoDAO();
+		pDAO = new PezDAO();
+		rDAO = new ReptilDAO();
+		jDAO = new JugueteDAO();
+		meDAO = new MedicamentoDAO();
 		asignarOyentes();
 	}
 
@@ -66,6 +97,12 @@ public class Controller implements ActionListener {
 		
 		va.getPanelCrear().getCmbMascota().addActionListener(this);
 		va.getPanelCrear().getCmbMascota().setActionCommand("cmb_mascota_crear_admin");
+		
+		va.getPanelCrear().getCmbProducto().addActionListener(this);
+		va.getPanelCrear().getCmbProducto().setActionCommand("cmb_producto_crear_admin");
+		
+		va.getPanelCrear().getGuardar().addActionListener(this);
+		va.getPanelCrear().getGuardar().setActionCommand("guardar_objeto_admin");
 
 		// =========VETERINARIO========
 		vv.getCrear().addActionListener(this);
@@ -128,6 +165,7 @@ public class Controller implements ActionListener {
 			break;
 		}
 		case "cmb_tipo_crear_admin": {
+			ocultarCampos();
 			actualizarPorTipo();
 			break;
 		}
@@ -139,6 +177,13 @@ public class Controller implements ActionListener {
 		case "cmb_mascota_crear_admin": {
 			actualizarPorMascota();
 			break;
+		}
+		case "cmb_producto_crear_admin": {
+			actualizarPorProducto();
+			break;
+		}
+		case "guardar_objeto_admin": {
+			
 		}
 		case "mostrar_en_admin": {
 			va.getPanelCrear().setVisible(false);
@@ -466,7 +511,7 @@ public class Controller implements ActionListener {
 			va.getPanelCrear().gettEsMigratoria().setVisible(true);
 			
 		}
-		if(mascota.equals("Mamifero")) {
+		if(mascota.equals("Mamífero")) {
 			
 			va.getPanelCrear().getCantidadPelaje().setVisible(true);
 			va.getPanelCrear().gettCantidadPelaje().setVisible(true);
@@ -498,8 +543,8 @@ public class Controller implements ActionListener {
 			
 			va.getPanelCrear().getTipoDiente().setVisible(true);
 			va.getPanelCrear().gettTipoDiente().setVisible(true);
-			va.getPanelCrear().getMedioDesplazamiento().setVisible(true);
-			va.getPanelCrear().gettMedioDesplazamiento().setVisible(true);
+			va.getPanelCrear().getTipoDesplazamiento().setVisible(true);
+			va.getPanelCrear().gettTipoDesplazamiento().setVisible(true);
 			va.getPanelCrear().getTemperaturaCorporal().setVisible(true);
 			va.getPanelCrear().gettTemperaturaCorporal().setVisible(true);
 			va.getPanelCrear().getEsVenenoso().setVisible(true);
@@ -508,6 +553,45 @@ public class Controller implements ActionListener {
 			va.getPanelCrear().gettEsEctoformo().setVisible(true);
 			
 		}
+		va.getPanelCrear().revalidate();
+		va.getPanelCrear().repaint();
+		
+	}
+	
+	public void actualizarPorProducto() {
+		String producto = (String) va.getPanelCrear().getCmbProducto().getSelectedItem();
+		ocultarCampoProducto();
+		
+		if(producto == null || producto.equals("...")) {
+			return;
+		}
+		if(producto.equals("Medicamento")) {
+			
+			va.getPanelCrear().getNombreComercial().setVisible(true);
+			va.getPanelCrear().gettNombreComercial().setVisible(true);
+			va.getPanelCrear().getNombreCientifico().setVisible(true);
+			va.getPanelCrear().gettNombreCientifico().setVisible(true);
+			va.getPanelCrear().getFechaCaducidad().setVisible(true);
+			va.getPanelCrear().gettFechaCaducidad().setVisible(true);
+			va.getPanelCrear().getEstaDisponible().setVisible(true);
+			va.getPanelCrear().gettEstaDisponible().setVisible(true);
+			va.getPanelCrear().getDosis().setVisible(true);
+			va.getPanelCrear().gettDosis().setVisible(true);
+			
+		}
+		if(producto.equals("Juguete")) {
+			
+			va.getPanelCrear().getNombre().setVisible(true);
+			va.getPanelCrear().gettNombre().setVisible(true);
+			va.getPanelCrear().getColor().setVisible(true);
+			va.getPanelCrear().gettColor().setVisible(true);
+			va.getPanelCrear().getTipoJuguete().setVisible(true);
+			va.getPanelCrear().gettTipoJuguete().setVisible(true);
+			va.getPanelCrear().getGarantia().setVisible(true);
+			va.getPanelCrear().gettGarantia().setVisible(true);
+			
+		}
+		
 		va.getPanelCrear().revalidate();
 		va.getPanelCrear().repaint();
 		
@@ -569,6 +653,77 @@ public class Controller implements ActionListener {
 		va.getPanelCrear().gettEsVenenoso().setVisible(false);
 		va.getPanelCrear().getEsEctoformo().setVisible(false);
 		va.getPanelCrear().gettEsEctoformo().setVisible(false);
+		
+	}
+	
+	public void ocultarCampoProducto() {
+		
+		va.getPanelCrear().getNombreComercial().setVisible(false);
+		va.getPanelCrear().gettNombreComercial().setVisible(false);
+		va.getPanelCrear().getNombreCientifico().setVisible(false);
+		va.getPanelCrear().gettNombreCientifico().setVisible(false);
+		va.getPanelCrear().getFechaCaducidad().setVisible(false);
+		va.getPanelCrear().gettFechaCaducidad().setVisible(false);
+		va.getPanelCrear().getEstaDisponible().setVisible(false);
+		va.getPanelCrear().gettEstaDisponible().setVisible(false);
+		va.getPanelCrear().getDosis().setVisible(false);
+		va.getPanelCrear().gettDosis().setVisible(false);
+		
+		va.getPanelCrear().getNombre().setVisible(false);
+		va.getPanelCrear().gettNombre().setVisible(false);
+		va.getPanelCrear().getColor().setVisible(false);
+		va.getPanelCrear().gettColor().setVisible(false);
+		va.getPanelCrear().getTipoJuguete().setVisible(false);
+		va.getPanelCrear().gettTipoJuguete().setVisible(false);
+		va.getPanelCrear().getGarantia().setVisible(false);
+		va.getPanelCrear().gettGarantia().setVisible(false);
+		
+	}
+	
+	public void guardarSegunTipo() {
+		String tipo = (String) va.getPanelCrear().getCmbTipo().getSelectedItem();
+		
+		if(tipo == null || tipo.equals("...")) {
+			JOptionPane.showMessageDialog(va, "Debe seleccionar un tipo (Persona/Mascota/Producto)");
+			return;
+		}
+		try {
+			if(tipo.equals("Persona")) {
+				String nombre = va.getPanelCrear().gettNombre().getText();
+				String apellido = va.getPanelCrear().gettApellido().getText();
+				char genero = (char) va.getPanelCrear().gettGenero().getSelectedItem();
+				double documento = (double) Double.parseDouble(va.getPanelCrear().gettDocumento().getText());
+				String correo = va.getPanelCrear().gettCorreo().getText();
+				double telefono = (double) Double.parseDouble(va.getPanelCrear().gettTelefono().getText());
+				String tipoPersona = (String) va.getPanelCrear().getCmbPersona().getSelectedItem();
+				
+				if(tipoPersona.equals("Cliente")) {
+					String nombreMascota = va.getPanelCrear().gettNombreMascota().getText();
+					String razonVisita = va.getPanelCrear().gettRazonVisita().getText();
+					boolean esClienteNuevo = (boolean) va.getPanelCrear().gettEsClienteNuevo().getSelectedItem();
+					
+					cDAO.crear(new Cliente(nombre, apellido, genero, documento, correo, telefono, nombreMascota, razonVisita, esClienteNuevo));
+				}
+				
+			} else if(tipo.equals("Mascota")) {
+				String nombre = va.getPanelCrear().gettNombre().getText();
+				String especie = (String) va.getPanelCrear().getCmbMascota().getSelectedItem();
+				String habitat = va.getPanelCrear().gettHabitat().getText();
+				String tipoAlimento = va.getPanelCrear().gettTipoAlimento().getText();
+				float peso = (float) Float.parseFloat(va.getPanelCrear().gettPeso().getText());
+				float altura = (float) Float.parseFloat(va.getPanelCrear().gettAltura().getText());
+				int edad = (int) Integer.parseInt(va.getPanelCrear().gettEdad().getText());
+				
+			} else if(tipo.equals("Producto")) {
+				String marca = va.getPanelCrear().gettMarca().getText();
+				float precio = (float) Float.parseFloat(va.getPanelCrear().gettPrecio().getText());
+				int idProducto = (int) Integer.parseInt(va.getPanelCrear().gettIdProducto().getText());
+				
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 	}
 

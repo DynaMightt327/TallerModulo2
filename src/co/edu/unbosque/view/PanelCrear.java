@@ -238,13 +238,13 @@ public class PanelCrear extends JPanel{
 		add(tNombre);
 
 		marca = new JLabel("Marca:");
-		marca.setBounds(25, 85, 150, 30);
+		marca.setBounds(25, 215, 150, 30);
 		marca.setFont(new Font("Agency FB", Font.BOLD, 22));
 		marca.setForeground(Color.decode("#f6efe7"));
 		add(marca);
 		
 		tMarca = new JTextField();
-		tMarca.setBounds(30, 115, 164, 32);
+		tMarca.setBounds(30, 245, 164, 32);
 		tMarca.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tMarca.setForeground(Color.decode("#111d15"));
 		tMarca.setBackground(Color.decode("#e1c8ad"));
