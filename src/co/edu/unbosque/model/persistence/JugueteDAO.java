@@ -63,11 +63,11 @@ public class JugueteDAO implements DAO<Juguete>{
 
 	@Override
 	public void escribirArchivo() {
-		StringBuilder sb = new StringBuilder();
+		/*StringBuilder sb = new StringBuilder();
 		for (Juguete juguete : listaJuguetes) {
 			sb.append(juguete.toString() + "\n");
 		}
-		FileHandler.crearYEscribirArchivo("juguetes.txt", sb.toString());
+		FileHandler.crearYEscribirArchivo("juguetes.txt", sb.toString());*/
 	}
 
 	public ArrayList<Juguete> getListaJuguetes() {

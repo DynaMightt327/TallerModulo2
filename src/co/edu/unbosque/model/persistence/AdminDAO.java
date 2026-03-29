@@ -73,10 +73,10 @@ public class AdminDAO implements DAO<Administrativo> {
 
 	@Override
 	public void escribirArchivo() {
-		StringBuilder sb = new StringBuilder();
+		/*StringBuilder sb = new StringBuilder();
 		for (Administrativo admin : listaAdmins) {
 			sb.append(admin.toString() + "\n");
 		}
-		FileHandler.crearYEscribirArchivo("aministrativo.txt", sb.toString());
+		FileHandler.crearYEscribirArchivo("aministrativo.txt", sb.toString());*/
 	}
 }

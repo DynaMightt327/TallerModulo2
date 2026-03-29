@@ -63,11 +63,11 @@ public class MedicamentoDAO implements DAO<Medicamento>{
 
 	@Override
 	public void escribirArchivo() {
-		StringBuilder sb = new StringBuilder();
+		/*StringBuilder sb = new StringBuilder();
 		for (Medicamento medicamento : listaMedicamentos) {
 			sb.append(medicamento.toString() + "\n");
 		}
-		FileHandler.crearYEscribirArchivo("Medicamentos.txt", sb.toString());
+		FileHandler.crearYEscribirArchivo("Medicamentos.txt", sb.toString());*/
 	}
 
 	public ArrayList<Medicamento> getListaMedicamentos() {

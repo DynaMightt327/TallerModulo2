@@ -1,11 +1,15 @@
 package co.edu.unbosque.controller;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
 
 import javax.print.attribute.standard.PrinterMakeAndModel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 import co.edu.unbosque.model.Administrativo;
 import co.edu.unbosque.model.Ave;
@@ -91,6 +95,12 @@ public class Controller implements ActionListener {
 
 		va.getMostrar().addActionListener(this);
 		va.getMostrar().setActionCommand("mostrar_en_admin");
+		
+		va.getPanelMostrar().getCmbTipo().addActionListener(this);
+		va.getPanelMostrar().getCmbTipo().setActionCommand("cmb_tipo_mostrar_admin");
+		
+		va.getPanelMostrar().getCmbPersona().addActionListener(this);
+		va.getPanelMostrar().getCmbPersona().setActionCommand("cmb_persona_mostrar_admin");
 
 		va.getActualizar().addActionListener(this);
 		va.getActualizar().setActionCommand("actualizar_en_admin");
@@ -129,6 +139,13 @@ public class Controller implements ActionListener {
 		// ========CLIENTE=========
 		vc.getMostrar().addActionListener(this);
 		vc.getMostrar().setActionCommand("mostrar_en_cliente");
+		
+		va.getPanelMostrar().getCmbMascota().addActionListener(this);
+		va.getPanelMostrar().getCmbMascota().setActionCommand("cmb_mascota_mostrar_admin");
+
+		va.getPanelMostrar().getCmbProducto().addActionListener(this);
+		va.getPanelMostrar().getCmbProducto().setActionCommand("cmb_producto_mostrar_admin");
+
 	}
 
 	@Override
@@ -192,7 +209,8 @@ public class Controller implements ActionListener {
 			break;
 		}
 		case "guardar_objeto_admin": {
-			
+			guardarSegunTipo();
+			break;
 		}
 		case "mostrar_en_admin": {
 			va.getPanelCrear().setVisible(false);
@@ -201,6 +219,160 @@ public class Controller implements ActionListener {
 			va.getPanelEliminar().setVisible(false);
 			break;
 		}
+		case "cmb_tipo_mostrar_admin": {
+			String tipo = (String) va.getPanelMostrar().getCmbTipo().getSelectedItem();
+			va.getPanelMostrar().getCmbPersona().setVisible(false);
+			va.getPanelMostrar().getCmbMascota().setVisible(false);
+			va.getPanelMostrar().getCmbProducto().setVisible(false);
+			if (tipo.equals("Persona")) {
+				va.getPanelMostrar().getCmbPersona().setVisible(true);
+				va.getPanelMostrar().getCmbMascota().setVisible(false);
+				va.getPanelMostrar().getCmbProducto().setVisible(false);
+			}
+			if (tipo.equals("Mascota")) {
+				va.getPanelMostrar().getCmbMascota().setVisible(true);
+				va.getPanelMostrar().getCmbPersona().setVisible(false);
+				va.getPanelMostrar().getCmbProducto().setVisible(false);
+			}
+			if (tipo.equals("Producto")) {
+				va.getPanelMostrar().getCmbMascota().setVisible(false);
+				va.getPanelMostrar().getCmbPersona().setVisible(false);
+				va.getPanelMostrar().getCmbProducto().setVisible(true);
+			}
+			Component[] comps = va.getPanelMostrar().getComponents();
+			for (int i = 0; i < comps.length; i++) {
+				try {
+					((JScrollPane) comps[i]).setVisible(false);
+				} catch (ClassCastException ex) {
+				}
+			}
+			va.getPanelMostrar().revalidate();
+			va.getPanelMostrar().repaint();
+			break;
+		}
+
+		case "cmb_persona_mostrar_admin": {
+			hacerVisibleScrollSegunCmbPersona();
+
+			String persona = String.valueOf(va.getPanelMostrar().getCmbPersona().getSelectedItem());
+
+			if ("Cliente".equals(persona)) {
+				DefaultTableModel modelo = (DefaultTableModel) va.getPanelMostrar().getTablaCliente().getModel();
+				modelo.setRowCount(0);
+
+				for (Cliente c : cDAO.mostrarTodo()) {
+					modelo.addRow(new Object[] { c.getNombre(), c.getApellido(), c.getGenero(), c.getDocumento(),
+							c.getCorreo(), c.getTelefono(), c.getNombreMascota(), c.getRazonVisita(),
+							c.isEsClienteNuevo() });
+				}
+			}
+
+			if ("Veterinario".equals(persona)) {
+				DefaultTableModel modelo = (DefaultTableModel) va.getPanelMostrar().getTablaVet().getModel();
+				modelo.setRowCount(0);
+
+				for (Veterinario v : vDAO.mostrarTodo()) {
+					modelo.addRow(new Object[] { v.getNombre(), v.getApellido(), v.getGenero(), v.getDocumento(),
+							v.getCorreo(), v.getTelefono(), v.getCargo(), v.getSalario(), v.getHoraTrabajo(),
+							v.getNumLicencia() });
+				}
+			}
+
+			if ("Administrativo".equals(persona)) {
+				DefaultTableModel modelo = (DefaultTableModel) va.getPanelMostrar().getTablaAdmin().getModel();
+				modelo.setRowCount(0);
+
+				for (Administrativo a : aDAO.mostrarTodo()) {
+					modelo.addRow(new Object[] { a.getNombre(), a.getApellido(), a.getGenero(), a.getDocumento(),
+							a.getCorreo(), a.getTelefono(), a.getSalario(), a.getAreaAsignada(), a.getHorario(),
+							a.getNumEmpleado() });
+				}
+			}
+
+			break;
+		}
+		case "cmb_mascota_mostrar_admin": {
+			hacerVisibleScrollSegunCmbMascota();
+
+			String mascota = String.valueOf(va.getPanelMostrar().getCmbMascota().getSelectedItem());
+
+			if ("Ave".equals(mascota)) {
+				DefaultTableModel modelo = (DefaultTableModel) va.getPanelMostrar().getTablaAve().getModel();
+				modelo.setRowCount(0);
+
+				for (Ave a : avDAO.mostrarTodo()) {
+					modelo.addRow(new Object[] { a.getNombre(), a.getEspecie(), a.getHabitat(), a.getTipoAlimento(),
+							a.getPeso(), a.getAltura(), a.getEdad(), a.getFormaPata(), a.getColorPluma(),
+							a.getCantidadHuevo(), a.getTamanoPico(), a.isEsMigratoria() });
+				}
+			}
+
+			if ("Mamífero".equals(mascota) || "Mamifero".equals(mascota)) {
+				DefaultTableModel modelo = (DefaultTableModel) va.getPanelMostrar().getTablaMamifero().getModel();
+				modelo.setRowCount(0);
+
+				for (Mamifero m : mDAO.mostrarTodo()) {
+					modelo.addRow(new Object[] { m.getNombre(), m.getEspecie(), m.getHabitat(), m.getTipoAlimento(),
+							m.getPeso(), m.getAltura(), m.getEdad(), m.getCantidadPelaje(), m.getColorPelaje(),
+							m.getTipoDiente(), m.getMedioDesplazamiento() });
+				}
+			}
+
+			if ("Pez".equals(mascota)) {
+				DefaultTableModel modelo = (DefaultTableModel) va.getPanelMostrar().getTablaPez().getModel();
+				modelo.setRowCount(0);
+
+				for (Pez p : pDAO.mostrarTodo()) {
+					modelo.addRow(new Object[] { p.getNombre(), p.getEspecie(), p.getHabitat(), p.getTipoAlimento(),
+							p.getPeso(), p.getAltura(), p.getEdad(), p.getTipoAgua(), p.getColorEscama(),
+							p.getTipoRespiracion(), p.getNumeroAleta(), p.getProfundidadMaxima() });
+				}
+			}
+
+			if ("Reptil".equals(mascota)) {
+				DefaultTableModel modelo = (DefaultTableModel) va.getPanelMostrar().getTablaReptil().getModel();
+				modelo.setRowCount(0);
+
+				for (Reptil r : rDAO.mostrarTodo()) {
+					modelo.addRow(new Object[] { r.getNombre(), r.getEspecie(), r.getHabitat(), r.getTipoAlimento(),
+							r.getPeso(), r.getAltura(), r.getEdad(), r.getTipoDesplazamiento(), r.getTipoDiente(),
+							r.getTemperaturaCorporal(), r.isEsVenenoso(), r.isEsEctoformo() });
+				}
+			}
+
+			break;
+		}
+		
+
+		case "cmb_producto_mostrar_admin": {
+			hacerVisibleScrollSegunCmbProducto();
+
+			String prod = String.valueOf(va.getPanelMostrar().getCmbProducto().getSelectedItem());
+
+			if ("Juguete".equals(prod)) {
+				DefaultTableModel modelo = (DefaultTableModel) va.getPanelMostrar().getTablaJuguete().getModel();
+				modelo.setRowCount(0);
+
+				for (Juguete j : jDAO.mostrarTodo()) {
+					modelo.addRow(new Object[] { j.getMarca(), j.getPrecio(), j.getIdProducto(), j.getNombre(),
+							j.getColor(), j.getTipoJuguete(), j.getGarantia() });
+				}
+			}
+
+			if ("Medicamento".equals(prod)) {
+				DefaultTableModel modelo = (DefaultTableModel) va.getPanelMostrar().getTablaMedicamento().getModel();
+				modelo.setRowCount(0);
+
+				for (Medicamento m : meDAO.mostrarTodo()) {
+					modelo.addRow(new Object[] { m.getMarca(), m.getPrecio(), m.getIdProducto(), m.getNombreComercial(),
+							m.getNombreCientifico(), m.getFechaCaducidad(), m.isEstaDisponible(), m.getDosis() });
+				}
+			}
+
+			break;
+		}
+
+		
 		case "actualizar_en_admin": {
 			va.getPanelCrear().setVisible(false);
 			va.getPanelMostrar().setVisible(false);
@@ -698,19 +870,26 @@ public class Controller implements ActionListener {
 		}
 		try {
 			if(tipo.equals("Persona")) {
+
 				String nombre = va.getPanelCrear().gettNombre().getText();
 				String apellido = va.getPanelCrear().gettApellido().getText();
-				char genero = (char) va.getPanelCrear().gettGenero().getSelectedItem();
-				double documento = (double) Double.parseDouble(va.getPanelCrear().gettDocumento().getText());
+
+				String gen = String.valueOf(va.getPanelCrear().gettGenero().getSelectedItem());
+				char genero = gen.charAt(0);
+
+				double documento = Double.parseDouble(va.getPanelCrear().gettDocumento().getText());
 				String correo = va.getPanelCrear().gettCorreo().getText();
-				double telefono = (double) Double.parseDouble(va.getPanelCrear().gettTelefono().getText());
+				double telefono = Double.parseDouble(va.getPanelCrear().gettTelefono().getText());
 				
 				String tipoPersona = (String) va.getPanelCrear().getCmbPersona().getSelectedItem();
 				
 				if(tipoPersona.equals("Cliente")) {
 					String nombreMascota = va.getPanelCrear().gettNombreMascota().getText();
 					String razonVisita = va.getPanelCrear().gettRazonVisita().getText();
-					boolean esClienteNuevo = (boolean) va.getPanelCrear().gettEsClienteNuevo().getSelectedItem();
+
+					String s = String.valueOf(va.getPanelCrear().gettEsClienteNuevo().getSelectedItem());
+					boolean esClienteNuevo = s.equalsIgnoreCase("si") || s.equalsIgnoreCase("sí")
+							|| s.equalsIgnoreCase("true");
 					
 					cDAO.crear(new Cliente(nombre, apellido, genero, documento, correo, telefono, nombreMascota, razonVisita, esClienteNuevo));
 				}
@@ -805,10 +984,129 @@ public class Controller implements ActionListener {
 			}
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			JOptionPane.showMessageDialog(va, "Error creando: " + e.getMessage());
+			e.printStackTrace();
+
 		}
 		
 	}
+	
+
+
+	private void hacerVisibleScrollSegunCmbPersona() {
+
+		String persona = String.valueOf(va.getPanelMostrar().getCmbPersona().getSelectedItem());
+		JTable tablaObjetivo = null;
+
+		if ("Cliente".equals(persona)) {
+			tablaObjetivo = va.getPanelMostrar().getTablaCliente();
+		} else if ("Veterinario".equals(persona)) {
+			tablaObjetivo = va.getPanelMostrar().getTablaVet();
+		} else if ("Administrativo".equals(persona)) {
+			tablaObjetivo = va.getPanelMostrar().getTablaAdmin();
+		} else {
+			Component[] comps = va.getPanelMostrar().getComponents();
+			for (int i = 0; i < comps.length; i++) {
+				try {
+					JScrollPane sp = (JScrollPane) comps[i];
+					sp.setVisible(false);
+				} catch (ClassCastException ex) {
+				}
+			}
+			va.getPanelMostrar().revalidate();
+			va.getPanelMostrar().repaint();
+			return;
+		}
+		Component[] comps = va.getPanelMostrar().getComponents();
+
+		for (int i = 0; i < comps.length; i++) {
+			try {
+				JScrollPane sp = (JScrollPane) comps[i];
+
+				boolean esElCorrecto = (sp.getViewport().getView() == tablaObjetivo);
+				sp.setVisible(esElCorrecto);
+
+			} catch (ClassCastException ex) {
+				
+			}
+		}
+
+		va.getPanelMostrar().revalidate();
+		va.getPanelMostrar().repaint();
+	}
+	
+
+	private void hacerVisibleScrollSegunCmbMascota() {
+		String mascota = String.valueOf(va.getPanelMostrar().getCmbMascota().getSelectedItem());
+		JTable tablaObjetivo = null;
+
+		if ("Ave".equals(mascota)) {
+			tablaObjetivo = va.getPanelMostrar().getTablaAve();
+		} else if ("Mamífero".equals(mascota) || "Mamifero".equals(mascota)) {
+			tablaObjetivo = va.getPanelMostrar().getTablaMamifero();
+		} else if ("Pez".equals(mascota)) {
+			tablaObjetivo = va.getPanelMostrar().getTablaPez();
+		} else if ("Reptil".equals(mascota)) {
+			tablaObjetivo = va.getPanelMostrar().getTablaReptil();
+		} else {
+			Component[] comps = va.getPanelMostrar().getComponents();
+			for (int i = 0; i < comps.length; i++) {
+				try {
+					((JScrollPane) comps[i]).setVisible(false);
+				} catch (ClassCastException ex) {
+				}
+			}
+			va.getPanelMostrar().revalidate();
+			va.getPanelMostrar().repaint();
+			return;
+		}
+
+		Component[] comps = va.getPanelMostrar().getComponents();
+		for (int i = 0; i < comps.length; i++) {
+			try {
+				JScrollPane sp = (JScrollPane) comps[i];
+				sp.setVisible(sp.getViewport().getView() == tablaObjetivo);
+			} catch (ClassCastException ex) {
+			}
+		}
+		va.getPanelMostrar().revalidate();
+		va.getPanelMostrar().repaint();
+	}
+	
+
+	private void hacerVisibleScrollSegunCmbProducto() {
+		String prod = String.valueOf(va.getPanelMostrar().getCmbProducto().getSelectedItem());
+		JTable tablaObjetivo = null;
+
+		if ("Juguete".equals(prod)) {
+			tablaObjetivo = va.getPanelMostrar().getTablaJuguete();
+		} else if ("Medicamento".equals(prod)) {
+			tablaObjetivo = va.getPanelMostrar().getTablaMedicamento();
+		} else {
+			Component[] comps = va.getPanelMostrar().getComponents();
+			for (int i = 0; i < comps.length; i++) {
+				try {
+					((JScrollPane) comps[i]).setVisible(false);
+				} catch (ClassCastException ex) {
+				}
+			}
+			va.getPanelMostrar().revalidate();
+			va.getPanelMostrar().repaint();
+			return;
+		}
+
+		Component[] comps = va.getPanelMostrar().getComponents();
+		for (int i = 0; i < comps.length; i++) {
+			try {
+				JScrollPane sp = (JScrollPane) comps[i];
+				sp.setVisible(sp.getViewport().getView() == tablaObjetivo);
+			} catch (ClassCastException ex) {
+			}
+		}
+		va.getPanelMostrar().revalidate();
+		va.getPanelMostrar().repaint();
+	}
+	
 
 	public void iniciar() {
 		vp.setVisible(true);

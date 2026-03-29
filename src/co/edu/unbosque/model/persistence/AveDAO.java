@@ -72,10 +72,10 @@ public class AveDAO implements DAO<Ave> {
 
 	@Override
 	public void escribirArchivo() {
-		StringBuilder sb = new StringBuilder();
+		/*StringBuilder sb = new StringBuilder();
 		for (Ave ave : listaAves) {
 			sb.append(ave.toString() + "\n");
 		}
-		FileHandler.crearYEscribirArchivo("aves.txt", sb.toString());
+		FileHandler.crearYEscribirArchivo("aves.txt", sb.toString());*/
 	}
 }

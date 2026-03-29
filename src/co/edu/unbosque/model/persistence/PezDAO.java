@@ -63,11 +63,11 @@ public class PezDAO implements DAO<Pez>{
 
 	@Override
 	public void escribirArchivo() {
-		StringBuilder sb = new StringBuilder();
+		/*StringBuilder sb = new StringBuilder();
 		for (Pez pez : listaPeces) {
 			sb.append(pez.toString() + "\n");
 		}
-		FileHandler.crearYEscribirArchivo("peces.txt", sb.toString());
+		FileHandler.crearYEscribirArchivo("peces.txt", sb.toString());*/
 	}
 
 	public ArrayList<Pez> getListaPeces() {

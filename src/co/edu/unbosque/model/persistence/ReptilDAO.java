@@ -63,11 +63,11 @@ public class ReptilDAO implements DAO<Reptil> {
 
 	@Override
 	public void escribirArchivo() {
-		StringBuilder sb = new StringBuilder();
+		/*StringBuilder sb = new StringBuilder();
 		for (Reptil reptil : listaReptiles) {
 			sb.append(reptil.toString() + "\n");
 		}
-		FileHandler.crearYEscribirArchivo("reptiles.txt", sb.toString());
+		FileHandler.crearYEscribirArchivo("reptiles.txt", sb.toString());*/
 	}
 
 	public ArrayList<Reptil> getListaReptiles() {

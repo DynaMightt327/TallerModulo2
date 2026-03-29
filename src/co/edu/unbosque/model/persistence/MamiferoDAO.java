@@ -64,11 +64,11 @@ public class MamiferoDAO implements DAO<Mamifero> {
 
 	@Override
 	public void escribirArchivo() {
-		StringBuilder sb = new StringBuilder();
+		/*StringBuilder sb = new StringBuilder();
 		for (Mamifero mamifero : listaMamiferos) {
 			sb.append(mamifero.toString() + "\n");
 		}
-		FileHandler.crearYEscribirArchivo("mamiferos.txt", sb.toString());
+		FileHandler.crearYEscribirArchivo("mamiferos.txt", sb.toString());*/
 	}
 
 	public ArrayList<Mamifero> getListaMamiferos() {

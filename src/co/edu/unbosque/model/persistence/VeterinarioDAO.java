@@ -62,11 +62,11 @@ public class VeterinarioDAO implements DAO<Veterinario> {
 
 	@Override
 	public void escribirArchivo() {
-		StringBuilder sb = new StringBuilder();
+		/*StringBuilder sb = new StringBuilder();
 		for (Veterinario veterinario : listaVeterinarios) {
 			sb.append(veterinario.toString() + "\n");
 		}
-		FileHandler.crearYEscribirArchivo("veterinarios.txt", sb.toString());
+		FileHandler.crearYEscribirArchivo("veterinarios.txt", sb.toString());*/
 	}
 
 	public ArrayList<Veterinario> getListaVeterinarios() {

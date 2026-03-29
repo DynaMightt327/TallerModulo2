@@ -65,11 +65,11 @@ public class ClienteDAO implements DAO<Cliente>{
 
 	@Override
 	public void escribirArchivo() {
-		StringBuilder sb = new StringBuilder();
+		/*StringBuilder sb = new StringBuilder();
 		for (Cliente cliente : listaClientes) {
 			sb.append(cliente.toString() + "\n");
 		}
-		FileHandler.crearYEscribirArchivo("clientes.txt", sb.toString());
+		FileHandler.crearYEscribirArchivo("clientes.txt", sb.toString());*/
 	}
 
 	public ArrayList<Cliente> getListaClientes() {
