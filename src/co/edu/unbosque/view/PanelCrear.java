@@ -532,7 +532,7 @@ public class PanelCrear extends JPanel{
 		tEdad.setForeground(Color.decode("#111d15"));
 		tEdad.setBackground(Color.decode("#e1c8ad"));
 		tEdad.setBorder(null);
-		add(tSalario);
+		add(tEdad);
 		//admiiin
 		//3,2
 		areaAsignada = new JLabel("Área asignada:");
