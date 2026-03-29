@@ -212,6 +212,15 @@ public class PanelCrear extends JPanel{
 		cmbProducto.setBorder(null);
 		add(cmbProducto);
 		
+		guardar = new JButton("GUARDAR");
+		guardar.setBounds(630, 320, 110, 30);
+		guardar.setBorderPainted(false);
+		guardar.setLayout(null);
+		guardar.setFont(new Font("Georgia", Font.BOLD, 12));
+		guardar.setBackground(Color.decode("#e1c8ad"));
+		guardar.setForeground(Color.black);
+		add(guardar);
+		
 		//campos para llenar info
 		//1,1
 		nombre = new JLabel("Nombre:");
@@ -1844,6 +1853,14 @@ public class PanelCrear extends JPanel{
 
 	public void settGarantia(JComboBox<String> tGarantia) {
 		this.tGarantia = tGarantia;
+	}
+
+	public JButton getGuardar() {
+		return guardar;
+	}
+
+	public void setGuardar(JButton guardar) {
+		this.guardar = guardar;
 	}
 
 }
