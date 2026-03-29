@@ -1,8 +1,10 @@
 package co.edu.unbosque.controller;
 
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
 
+import co.edu.unbosque.view.PanelCrear;
 import co.edu.unbosque.view.VentanaAdmin;
 import co.edu.unbosque.view.VentanaCliente;
 import co.edu.unbosque.view.VentanaPrincipal;
@@ -55,6 +57,9 @@ public class Controller implements ActionListener{
 		
 		va.getEliminar().addActionListener(this);
 		va.getEliminar().setActionCommand("eliminar_en_admin");
+		
+		va.getPanelCrear().getCmbTipo().addActionListener(this);
+		va.getPanelCrear().getCmbTipo().setActionCommand("cmb_tipo_crear_admin");
 		
 
 		//=================
@@ -114,7 +119,10 @@ public class Controller implements ActionListener{
 			va.getPanelMostrar().setVisible(false);
 			va.getPanelActualizar().setVisible(false);
 			va.getPanelEliminar().setVisible(false);
-
+			break;
+		}
+		case "cmb_tipo_crear_admin": {
+			actualizarPorTipo();
 			break;
 		}
 		case "mostrar_en_admin":{
@@ -177,8 +185,31 @@ public class Controller implements ActionListener{
 		
 	}
 	
-	public void actualizarCampoTipo() {
-		//String cmbTipo = (String) va.getcm
+	public void actualizarPorTipo() {
+		String tipo = (String) va.getPanelCrear().getCmbTipo().getSelectedItem();
+		
+		va.getPanelCrear().gettNombre().setVisible(false);
+		va.getPanelCrear().gettApellido().setVisible(false);
+		va.getPanelCrear().gettGenero().setVisible(false);
+		va.getPanelCrear().gettDocumento().setVisible(false);
+		va.getPanelCrear().gettCorreo().setVisible(false);
+		va.getPanelCrear().gettTelefono().setVisible(false);
+		va.getPanelCrear().getNombre().setVisible(va.getPanelCrear().gettNombre().isVisible());
+		
+		if(tipo == null || tipo.equals("...")) {
+			return;
+		}
+		if(tipo.equals("Persona")) {
+			va.getPanelCrear().gettNombre().setVisible(true);
+			va.getPanelCrear().gettApellido().setVisible(true);
+			va.getPanelCrear().gettGenero().setVisible(true);
+			va.getPanelCrear().gettDocumento().setVisible(true);
+			va.getPanelCrear().gettCorreo().setVisible(true);
+			va.getPanelCrear().gettTelefono().setVisible(true);
+		}
+		
+		va.getPanelCrear().revalidate();
+		va.getPanelCrear().repaint();
 	}
 	
 	public void iniciar() {
