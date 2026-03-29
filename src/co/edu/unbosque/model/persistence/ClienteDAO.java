@@ -2,7 +2,6 @@ package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
 
-import co.edu.unbosque.model.Administrador;
 import co.edu.unbosque.model.Cliente;
 
 public class ClienteDAO implements DAO<Cliente>{

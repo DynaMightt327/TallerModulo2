@@ -114,7 +114,8 @@ public class PanelMostrar extends JPanel {
 		cmbProducto.setBorder(null);
 		add(cmbProducto);
 
-		String[] columnas = { "Nombre", "Apellido", "Género", "Documento", "Correo", "Telefono" };
+		//tabla de admin
+		String[] columnas = { "Nombre", "Apellido", "Género", "Documento", "Correo", "Telefono", "Salario", "Area", "Horario", "# empleados" };
 		DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
 		tablaAdmin = new JTable(modelo);
 		JScrollPane scroll = new JScrollPane(tablaAdmin);
