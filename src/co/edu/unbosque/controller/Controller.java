@@ -62,7 +62,7 @@ public class Controller implements ActionListener{
 		va.getPanelCrear().getCmbTipo().setActionCommand("cmb_tipo_crear_admin");
 		
 
-		//=================
+		//=========VETERINARIO========
 		vv.getCrear().addActionListener(this);
 		vv.getCrear().setActionCommand("crear_en_vet");
 		
@@ -75,7 +75,7 @@ public class Controller implements ActionListener{
 		vv.getEliminar().addActionListener(this);
 		vv.getEliminar().setActionCommand("eliminar_en_vet");
 
-		//=================
+		//========CLIENTE=========
 		vc.getMostrar().addActionListener(this);
 		vc.getMostrar().setActionCommand("mostrar_en_cliente");
 	}

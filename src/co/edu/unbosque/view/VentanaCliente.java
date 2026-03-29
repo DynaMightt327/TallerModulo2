@@ -38,9 +38,10 @@ public class VentanaCliente extends JFrame {
 		background.setBounds(0, 0, 1000, 650);
 		background.setLayout(null);
 		this.add(background);
+		
 		panelMostrar = new PanelMostrar();
 		panelMostrar.setVisible(false);
-		add(panelMostrar);
+		background.add(panelMostrar);
 
 		mostrar = new JButton("MOSTRAR");
 		mostrar.setBounds(345, 162, 150, 30);
