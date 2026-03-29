@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class PanelCrear extends JPanel{
 	//seleccionar que se desea crear
@@ -76,6 +77,24 @@ public class PanelCrear extends JPanel{
 	private JLabel tipoJuguete;
 	private JLabel garantia;
 	
+	//campos de texto
+	private JTextField tNombre;
+	private JTextField tApellido;
+	private JTextField tGenero;
+	private JTextField tDocumento;
+	private JTextField tCorreo;
+	private JTextField tTelefono;
+	private JTextField tCargo;
+	private JTextField tSalario;
+	private JTextField tHoraTrabajo;
+	private JTextField tNumLicencia;
+	private JTextField tAreaAsignada;
+	private JTextField tHorario;
+	private JTextField tNumEmpleado;
+	private JTextField tNombreMascota;
+	private JTextField tRazonVisita;
+	private JTextField tEsClienteNuevo;
+	
 	public PanelCrear() {
 		initComps();
 		setVisible(false);
@@ -142,6 +161,359 @@ public class PanelCrear extends JPanel{
 		cmbProducto.setBorder(null);
 		add(cmbProducto);
 		
+		//campos para llenar info
+		nombre = new JLabel("Nombre:");
+		nombre.setBounds(25, 85, 150, 30);
+		nombre.setFont(new Font("Agency FB", Font.BOLD, 22));
+		nombre.setForeground(Color.decode("#111d15"));
+		add(nombre);
+		
+		tNombre = new JTextField();
+		tNombre.setBounds(30, 115, 164, 32);
+		tNombre.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tNombre.setForeground(Color.decode("#111d15"));
+		tNombre.setBackground(Color.decode("#e0ebe0"));
+		tNombre.setBorder(null);
+		add(tNombre);
+		
+		apellido = new JLabel("Apellido:");
+		apellido.setBounds(235, 85, 150, 30);
+		apellido.setFont(new Font("Agency FB", Font.BOLD, 22));
+		apellido.setForeground(Color.decode("#111d15"));
+		add(apellido);
+		
+		tApellido = new JTextField();
+		tApellido.setBounds(240, 115, 164, 32);
+		tApellido.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tApellido.setForeground(Color.decode("#111d15"));
+		tApellido.setBackground(Color.decode("#e0ebe0"));
+		tApellido.setBorder(null);
+		add(tApellido);
+		
+		genero = new JLabel("Género:");
+		genero.setBounds(440, 85, 150, 30);
+		genero.setFont(new Font("Agency FB", Font.BOLD, 22));
+		genero.setForeground(Color.decode("#111d15"));
+		add(genero);
+		
+		tGenero = new JTextField();
+		tGenero.setBounds(445, 115, 164, 32);
+		tGenero.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tGenero.setForeground(Color.decode("#111d15"));
+		tGenero.setBackground(Color.decode("#e0ebe0"));
+		tGenero.setBorder(null);
+		add(tGenero);
+		
+		documento = new JLabel("Documento:");
+		documento.setBounds(25, 150, 150, 30);
+		documento.setFont(new Font("Agency FB", Font.BOLD, 22));
+		documento.setForeground(Color.decode("#111d15"));
+		add(documento);
+		
+		tDocumento = new JTextField();
+		tDocumento.setBounds(30, 180, 164, 32);
+		tDocumento.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tDocumento.setForeground(Color.decode("#111d15"));
+		tDocumento.setBackground(Color.decode("#e0ebe0"));
+		tDocumento.setBorder(null);
+		add(tDocumento);
+		
+		correo = new JLabel("Correo:");
+		correo.setBounds(235, 150, 150, 30);
+		correo.setFont(new Font("Agency FB", Font.BOLD, 22));
+		correo.setForeground(Color.decode("#111d15"));
+		add(correo);
+		
+		tCorreo = new JTextField();
+		tCorreo.setBounds(240, 180, 164, 32);
+		tCorreo.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tCorreo.setForeground(Color.decode("#111d15"));
+		tCorreo.setBackground(Color.decode("#e0ebe0"));
+		tCorreo.setBorder(null);
+		add(tCorreo);
+		
+		telefono = new JLabel("Telefono:");
+		telefono.setBounds(440, 150, 150, 30);
+		telefono.setFont(new Font("Agency FB", Font.BOLD, 22));
+		telefono.setForeground(Color.decode("#111d15"));
+		add(telefono);
+		
+		tTelefono = new JTextField();
+		tTelefono.setBounds(445, 180, 164, 32);
+		tTelefono.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tTelefono.setForeground(Color.decode("#111d15"));
+		tTelefono.setBackground(Color.decode("#e0ebe0"));
+		tTelefono.setBorder(null);
+		add(tTelefono);
+
+		salario = new JLabel("Salario:");
+		salario.setBounds(25, 215, 150, 30);
+		salario.setFont(new Font("Agency FB", Font.BOLD, 22));
+		salario.setForeground(Color.decode("#111d15"));
+		add(salario);
+		
+		tSalario = new JTextField();
+		tSalario.setBounds(30, 245, 164, 32);
+		tSalario.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tSalario.setForeground(Color.decode("#111d15"));
+		tSalario.setBackground(Color.decode("#e0ebe0"));
+		tSalario.setBorder(null);
+		add(tSalario);
+
+		areaAsignada = new JLabel("Área asignada:");
+		areaAsignada.setBounds(235, 215, 150, 30);
+		areaAsignada.setFont(new Font("Agency FB", Font.BOLD, 22));
+		areaAsignada.setForeground(Color.decode("#111d15"));
+		add(areaAsignada);
+		
+		tAreaAsignada = new JTextField();
+		tAreaAsignada.setBounds(240, 245, 164, 32);
+		tAreaAsignada.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tAreaAsignada.setForeground(Color.decode("#111d15"));
+		tAreaAsignada.setBackground(Color.decode("#e0ebe0"));
+		tAreaAsignada.setBorder(null);
+		add(tAreaAsignada);
+
+		horario = new JLabel("Horario:");
+		horario.setBounds(440, 215, 150, 30);
+		horario.setFont(new Font("Agency FB", Font.BOLD, 22));
+		horario.setForeground(Color.decode("#111d15"));
+		add(horario);
+		
+		tHorario = new JTextField();
+		tHorario.setBounds(445, 245, 164, 32);
+		tHorario.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tHorario.setForeground(Color.decode("#111d15"));
+		tHorario.setBackground(Color.decode("#e0ebe0"));
+		tHorario.setBorder(null);
+		add(tHorario);
+
+		numEmpleado = new JLabel("Numero de empleados:");
+		numEmpleado.setBounds(25, 280, 180, 30);
+		numEmpleado.setFont(new Font("Agency FB", Font.BOLD, 22));
+		numEmpleado.setForeground(Color.decode("#111d15"));
+		add(numEmpleado);
+		
+		tNumEmpleado = new JTextField();
+		tNumEmpleado.setBounds(30, 310, 164, 32);
+		tNumEmpleado.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tNumEmpleado.setForeground(Color.decode("#111d15"));
+		tNumEmpleado.setBackground(Color.decode("#e0ebe0"));
+		tNumEmpleado.setBorder(null);
+		add(tNumEmpleado);
+		
+		cargo = new JLabel("Cargo:");
+		cargo.setBounds(235, 215, 150, 30);
+		cargo.setFont(new Font("Agency FB", Font.BOLD, 22));
+		cargo.setForeground(Color.decode("#111d15"));
+		add(cargo);
+		
+		tCargo = new JTextField();
+		tCargo.setBounds(240, 245, 164, 32);
+		tCargo.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tCargo.setForeground(Color.decode("#111d15"));
+		tCargo.setBackground(Color.decode("#e0ebe0"));
+		tCargo.setBorder(null);
+		add(tCargo);
+	
+		horaTrabajo = new JLabel("Horas de trabajo:");
+		horaTrabajo.setBounds(440, 215, 150, 30);
+		horaTrabajo.setFont(new Font("Agency FB", Font.BOLD, 22));
+		horaTrabajo.setForeground(Color.decode("#111d15"));
+		add(horaTrabajo);
+		
+		tHoraTrabajo = new JTextField();
+		tHoraTrabajo.setBounds(445, 245, 164, 32);
+		tHoraTrabajo.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tHoraTrabajo.setForeground(Color.decode("#111d15"));
+		tHoraTrabajo.setBackground(Color.decode("#e0ebe0"));
+		tHoraTrabajo.setBorder(null);
+		add(tHoraTrabajo);
+		
+		numLicencia = new JLabel("Numero de licencia:");
+		numLicencia.setBounds(25, 280, 180, 30);
+		numLicencia.setFont(new Font("Agency FB", Font.BOLD, 22));
+		numLicencia.setForeground(Color.decode("#111d15"));
+		add(numLicencia);
+		
+		tNumLicencia = new JTextField();
+		tNumLicencia.setBounds(30, 310, 164, 32);
+		tNumLicencia.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tNumLicencia.setForeground(Color.decode("#111d15"));
+		tNumLicencia.setBackground(Color.decode("#e0ebe0"));
+		tNumLicencia.setBorder(null);
+		add(tNumLicencia);
+		
+		nombreMascota = new JLabel("Nombre mascota:");
+		nombreMascota.setBounds(25, 215, 150, 30);
+		nombreMascota.setFont(new Font("Agency FB", Font.BOLD, 22));
+		nombreMascota.setForeground(Color.decode("#111d15"));
+		add(nombreMascota);
+		
+		tNombreMascota = new JTextField();
+		tNombreMascota.setBounds(30, 245, 164, 32);
+		tNombreMascota.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tNombreMascota.setForeground(Color.decode("#111d15"));
+		tNombreMascota.setBackground(Color.decode("#e0ebe0"));
+		tNombreMascota.setBorder(null);
+		add(tNombreMascota);
+		
+		razonVisita = new JLabel("Razón de la visita:");
+		razonVisita.setBounds(235, 215, 150, 30);
+		razonVisita.setFont(new Font("Agency FB", Font.BOLD, 22));
+		razonVisita.setForeground(Color.decode("#111d15"));
+		add(razonVisita);
+		
+		tRazonVisita = new JTextField();
+		tRazonVisita.setBounds(240, 245, 164, 32);
+		tRazonVisita.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tRazonVisita.setForeground(Color.decode("#111d15"));
+		tRazonVisita.setBackground(Color.decode("#e0ebe0"));
+		tRazonVisita.setBorder(null);
+		add(tRazonVisita);
+		
+		esClienteNuevo = new JLabel("Es cliente nuevo? (si/no):");
+		esClienteNuevo.setBounds(440, 215, 150, 30);
+		esClienteNuevo.setFont(new Font("Agency FB", Font.BOLD, 22));
+		esClienteNuevo.setForeground(Color.decode("#111d15"));
+		add(esClienteNuevo);
+		
+		tEsClienteNuevo = new JTextField();
+		tEsClienteNuevo.setBounds(445, 245, 164, 32);
+		tEsClienteNuevo.setFont(new Font("Agency FB", Font.BOLD, 18));
+		tEsClienteNuevo.setForeground(Color.decode("#111d15"));
+		tEsClienteNuevo.setBackground(Color.decode("#e0ebe0"));
+		tEsClienteNuevo.setBorder(null);
+		add(tEsClienteNuevo);
+
+	}
+
+	public JTextField gettNombre() {
+		return tNombre;
+	}
+
+	public void settNombre(JTextField tNombre) {
+		this.tNombre = tNombre;
+	}
+
+	public JTextField gettApellido() {
+		return tApellido;
+	}
+
+	public void settApellido(JTextField tApellido) {
+		this.tApellido = tApellido;
+	}
+
+	public JTextField gettGenero() {
+		return tGenero;
+	}
+
+	public void settGenero(JTextField tGenero) {
+		this.tGenero = tGenero;
+	}
+
+	public JTextField gettDocumento() {
+		return tDocumento;
+	}
+
+	public void settDocumento(JTextField tDocumento) {
+		this.tDocumento = tDocumento;
+	}
+
+	public JTextField gettCorreo() {
+		return tCorreo;
+	}
+
+	public void settCorreo(JTextField tCorreo) {
+		this.tCorreo = tCorreo;
+	}
+
+	public JTextField gettTelefono() {
+		return tTelefono;
+	}
+
+	public void settTelefono(JTextField tTelefono) {
+		this.tTelefono = tTelefono;
+	}
+
+	public JTextField gettCargo() {
+		return tCargo;
+	}
+
+	public void settCargo(JTextField tCargo) {
+		this.tCargo = tCargo;
+	}
+
+	public JTextField gettSalario() {
+		return tSalario;
+	}
+
+	public void settSalario(JTextField tSalario) {
+		this.tSalario = tSalario;
+	}
+
+	public JTextField gettHoraTrabajo() {
+		return tHoraTrabajo;
+	}
+
+	public void settHoraTrabajo(JTextField tHoraTrabajo) {
+		this.tHoraTrabajo = tHoraTrabajo;
+	}
+
+	public JTextField gettNumLicencia() {
+		return tNumLicencia;
+	}
+
+	public void settNumLicencia(JTextField tNumLicencia) {
+		this.tNumLicencia = tNumLicencia;
+	}
+
+	public JTextField gettAreaAsignada() {
+		return tAreaAsignada;
+	}
+
+	public void settAreaAsignada(JTextField tAreaAsignada) {
+		this.tAreaAsignada = tAreaAsignada;
+	}
+
+	public JTextField gettHorario() {
+		return tHorario;
+	}
+
+	public void settHorario(JTextField tHorario) {
+		this.tHorario = tHorario;
+	}
+
+	public JTextField gettNumEmpleado() {
+		return tNumEmpleado;
+	}
+
+	public void settNumEmpleado(JTextField tNumEmpleado) {
+		this.tNumEmpleado = tNumEmpleado;
+	}
+
+	public JTextField gettNombreMascota() {
+		return tNombreMascota;
+	}
+
+	public void settNombreMascota(JTextField tNombreMascota) {
+		this.tNombreMascota = tNombreMascota;
+	}
+
+	public JTextField gettRazonVisita() {
+		return tRazonVisita;
+	}
+
+	public void settRazonVisita(JTextField tRazonVisita) {
+		this.tRazonVisita = tRazonVisita;
+	}
+
+	public JTextField gettEsClienteNuevo() {
+		return tEsClienteNuevo;
+	}
+
+	public void settEsClienteNuevo(JTextField tEsClienteNuevo) {
+		this.tEsClienteNuevo = tEsClienteNuevo;
 	}
 
 	public JLabel getTipo() {

@@ -37,19 +37,19 @@ public class VentanaPrincipal extends JFrame {
 		
 		//====BOTONES DE INGRESO====
 		bAdmin = new JButton("Administrador");
-		bAdmin.setBounds(235, 360, 140, 30);
+		bAdmin.setBounds(235, 350, 140, 30);
 		bAdmin.setBorderPainted(false);
 		bAdmin.setForeground(Color.decode("#060b37"));
 		background.add(bAdmin);
 		
 		bVeterinario = new JButton("Veterinario");
-		bVeterinario.setBounds(425, 360, 140, 30);
+		bVeterinario.setBounds(425, 350, 140, 30);
 		bVeterinario.setBorderPainted(false);
 		bVeterinario.setForeground(Color.decode("#060b37"));
 		background.add(bVeterinario);
 		
 		bCliente = new JButton("Cliente");
-		bCliente.setBounds(635, 360, 140, 30);
+		bCliente.setBounds(635, 350, 140, 30);
 		bCliente.setBorderPainted(false);
 		bCliente.setForeground(Color.decode("#060b37"));
 		background.add(bCliente);
