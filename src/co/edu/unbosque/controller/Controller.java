@@ -778,23 +778,38 @@ public class Controller implements ActionListener {
 		
 	}
 	
-
 	public void ocultarCampoPersona() {
-		va.getPanelCrear().getCargo().setVisible(false);
-		va.getPanelCrear().gettCargo().setVisible(false);
+        va.getPanelCrear().getCargo().setVisible(false);
+        va.getPanelCrear().gettCargo().setVisible(false);
 
-		va.getPanelCrear().getSalario().setVisible(false);
-		va.getPanelCrear().gettSalario().setVisible(false);
+        va.getPanelCrear().getSalario().setVisible(false);
+        va.getPanelCrear().gettSalario().setVisible(false);
 
-		va.getPanelCrear().getHorario().setVisible(false);
-		va.getPanelCrear().gettHorario().setVisible(false);
+        va.getPanelCrear().getHorario().setVisible(false);
+        va.getPanelCrear().gettHorario().setVisible(false);
 
-		va.getPanelCrear().getNumLicencia().setVisible(false);
-		va.getPanelCrear().gettNumLicencia().setVisible(false);
-	}
+        va.getPanelCrear().getNumLicencia().setVisible(false);
+        va.getPanelCrear().gettNumLicencia().setVisible(false);
+
+        va.getPanelCrear().getAreaAsignada().setVisible(false);
+        va.getPanelCrear().gettAreaAsignada().setVisible(false);
+
+        va.getPanelCrear().getNumEmpleado().setVisible(false);
+        va.getPanelCrear().gettNumEmpleado().setVisible(false);
+
+        va.getPanelCrear().getNombreMascota().setVisible(false);
+        va.getPanelCrear().gettNombreMascota().setVisible(false);
+
+        va.getPanelCrear().getRazonVisita().setVisible(false);
+        va.getPanelCrear().gettRazonVisita().setVisible(false);
+
+        va.getPanelCrear().getEsClienteNuevo().setVisible(false);
+        va.getPanelCrear().gettEsClienteNuevo().setVisible(false);
+
+    }
 	
 	public void ocultarCampoMascota() {
-		
+
 		va.getPanelCrear().getFormaPata().setVisible(false);
 		va.getPanelCrear().gettFormaPata().setVisible(false);
 		va.getPanelCrear().getColorPluma().setVisible(false);
@@ -805,7 +820,7 @@ public class Controller implements ActionListener {
 		va.getPanelCrear().gettTamanoPico().setVisible(false);
 		va.getPanelCrear().getEsMigratoria().setVisible(false);
 		va.getPanelCrear().gettEsMigratoria().setVisible(false);
-		
+
 		va.getPanelCrear().getCantidadPelaje().setVisible(false);
 		va.getPanelCrear().gettCantidadPelaje().setVisible(false);
 		va.getPanelCrear().getColorPelaje().setVisible(false);
@@ -816,7 +831,7 @@ public class Controller implements ActionListener {
 		va.getPanelCrear().gettNumeroDiente().setVisible(false);
 		va.getPanelCrear().getMedioDesplazamiento().setVisible(false);
 		va.getPanelCrear().gettMedioDesplazamiento().setVisible(false);
-		
+
 		va.getPanelCrear().getTipoAgua().setVisible(false);
 		va.getPanelCrear().gettTipoAgua().setVisible(false);
 		va.getPanelCrear().getColorEscama().setVisible(false);
@@ -827,14 +842,16 @@ public class Controller implements ActionListener {
 		va.getPanelCrear().gettNumeroAleta().setVisible(false);
 		va.getPanelCrear().getProfundidadMaxima().setVisible(false);
 		va.getPanelCrear().gettProfundidadMaxima().setVisible(false);
-		
+
+		va.getPanelCrear().getTipoDesplazamiento().setVisible(false);
+		va.getPanelCrear().gettTipoDesplazamiento().setVisible(false);
 		va.getPanelCrear().getTemperaturaCorporal().setVisible(false);
 		va.getPanelCrear().gettTemperaturaCorporal().setVisible(false);
 		va.getPanelCrear().getEsVenenoso().setVisible(false);
 		va.getPanelCrear().gettEsVenenoso().setVisible(false);
 		va.getPanelCrear().getEsEctoformo().setVisible(false);
 		va.getPanelCrear().gettEsEctoformo().setVisible(false);
-		
+
 	}
 	
 	public void ocultarCampoProducto() {
@@ -991,8 +1008,6 @@ public class Controller implements ActionListener {
 		
 	}
 	
-
-
 	private void hacerVisibleScrollSegunCmbPersona() {
 
 		String persona = String.valueOf(va.getPanelMostrar().getCmbPersona().getSelectedItem());
@@ -1035,7 +1050,6 @@ public class Controller implements ActionListener {
 		va.getPanelMostrar().repaint();
 	}
 	
-
 	private void hacerVisibleScrollSegunCmbMascota() {
 		String mascota = String.valueOf(va.getPanelMostrar().getCmbMascota().getSelectedItem());
 		JTable tablaObjetivo = null;
@@ -1073,7 +1087,6 @@ public class Controller implements ActionListener {
 		va.getPanelMostrar().repaint();
 	}
 	
-
 	private void hacerVisibleScrollSegunCmbProducto() {
 		String prod = String.valueOf(va.getPanelMostrar().getCmbProducto().getSelectedItem());
 		JTable tablaObjetivo = null;
@@ -1107,7 +1120,6 @@ public class Controller implements ActionListener {
 		va.getPanelMostrar().repaint();
 	}
 	
-
 	public void iniciar() {
 		vp.setVisible(true);
 	}

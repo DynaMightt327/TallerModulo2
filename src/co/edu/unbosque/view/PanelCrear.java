@@ -23,17 +23,6 @@ public class PanelCrear extends JPanel{
 	
 	private JButton guardar;
 	
-	//paneles para agrupar
-	/*private JPanel pAdmin;
-	private JPanel pVet;
-	private JPanel pCliente;
-	private JPanel pAve;
-	private JPanel pMamifero;
-	private JPanel pReptil;
-	private JPanel pPez;
-	private JPanel pJuguete;
-	private JPanel pMedicamento;
-	*/
 	//labels de la info que se pide
 	private JLabel nombre;
 	private JLabel apellido;
@@ -727,7 +716,7 @@ public class PanelCrear extends JPanel{
 		tCantidadHuevo.setBounds(30, 310, 164, 32);
 		tCantidadHuevo.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tCantidadHuevo.setForeground(Color.decode("#111d15"));
-		tCantidadHuevo.setBackground(Color.decode("#e0ebe0"));
+		tCantidadHuevo.setBackground(Color.decode("#e1c8ad"));
 		tCantidadHuevo.setBorder(null);
 		add(tCantidadHuevo);
 		
@@ -741,7 +730,7 @@ public class PanelCrear extends JPanel{
 		tTipoDiente.setBounds(30, 310, 164, 32);
 		tTipoDiente.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tTipoDiente.setForeground(Color.decode("#111d15"));
-		tTipoDiente.setBackground(Color.decode("#e0ebe0"));
+		tTipoDiente.setBackground(Color.decode("#e1c8ad"));
 		tTipoDiente.setBorder(null);
 		add(tTipoDiente);
 		
@@ -755,7 +744,7 @@ public class PanelCrear extends JPanel{
 		tTipoRespiracion.setBounds(30, 310, 164, 32);
 		tTipoRespiracion.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tTipoRespiracion.setForeground(Color.decode("#111d15"));
-		tTipoRespiracion.setBackground(Color.decode("#e0ebe0"));
+		tTipoRespiracion.setBackground(Color.decode("#e1c8ad"));
 		tTipoRespiracion.setBorder(null);
 		add(tTipoRespiracion);
 		
@@ -771,7 +760,7 @@ public class PanelCrear extends JPanel{
 		tCargo.setBounds(240, 245, 164, 32);
 		tCargo.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tCargo.setForeground(Color.decode("#111d15"));
-		tCargo.setBackground(Color.decode("#e0ebe0"));
+		tCargo.setBackground(Color.decode("#e1c8ad"));
 		tCargo.setBorder(null);
 		add(tCargo);
 
@@ -860,7 +849,7 @@ public class PanelCrear extends JPanel{
 		add(tEsMigratoria);
 		
 		medioDesplazamiento = new JLabel("Medio Desplazamiento:");
-		medioDesplazamiento.setBounds(440, 280, 150, 30);
+		medioDesplazamiento.setBounds(440, 280, 185, 30);
 		medioDesplazamiento.setFont(new Font("Agency FB", Font.BOLD, 22));
 		medioDesplazamiento.setForeground(Color.decode("#f6efe7"));
 		add(medioDesplazamiento);
@@ -874,7 +863,7 @@ public class PanelCrear extends JPanel{
 		add(tMedioDesplazamiento);
 		
 		temperaturaCorporal = new JLabel("Temperatura corporal:");
-		temperaturaCorporal.setBounds(440, 280, 150, 30);
+		temperaturaCorporal.setBounds(440, 280, 185, 30);
 		temperaturaCorporal.setFont(new Font("Agency FB", Font.BOLD, 22));
 		temperaturaCorporal.setForeground(Color.decode("#f6efe7"));
 		add(temperaturaCorporal);
