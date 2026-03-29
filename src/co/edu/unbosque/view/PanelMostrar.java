@@ -203,4 +203,236 @@ public class PanelMostrar extends JPanel {
 		
 	}
 
+	public JButton getSelecPersona() {
+		return selecPersona;
+	}
+
+	public void setSelecPersona(JButton selecPersona) {
+		this.selecPersona = selecPersona;
+	}
+
+	public JButton getmAdmin() {
+		return mAdmin;
+	}
+
+	public void setmAdmin(JButton mAdmin) {
+		this.mAdmin = mAdmin;
+	}
+
+	public JButton getmVet() {
+		return mVet;
+	}
+
+	public void setmVet(JButton mVet) {
+		this.mVet = mVet;
+	}
+
+	public JButton getmCliente() {
+		return mCliente;
+	}
+
+	public void setmCliente(JButton mCliente) {
+		this.mCliente = mCliente;
+	}
+
+	public JButton getSelectMascota() {
+		return selectMascota;
+	}
+
+	public void setSelectMascota(JButton selectMascota) {
+		this.selectMascota = selectMascota;
+	}
+
+	public JButton getmAve() {
+		return mAve;
+	}
+
+	public void setmAve(JButton mAve) {
+		this.mAve = mAve;
+	}
+
+	public JButton getmMamifero() {
+		return mMamifero;
+	}
+
+	public void setmMamifero(JButton mMamifero) {
+		this.mMamifero = mMamifero;
+	}
+
+	public JButton getmPez() {
+		return mPez;
+	}
+
+	public void setmPez(JButton mPez) {
+		this.mPez = mPez;
+	}
+
+	public JButton getmReptil() {
+		return mReptil;
+	}
+
+	public void setmReptil(JButton mReptil) {
+		this.mReptil = mReptil;
+	}
+
+	public JButton getSelecProducto() {
+		return selecProducto;
+	}
+
+	public void setSelecProducto(JButton selecProducto) {
+		this.selecProducto = selecProducto;
+	}
+
+	public JButton getmJuguete() {
+		return mJuguete;
+	}
+
+	public void setmJuguete(JButton mJuguete) {
+		this.mJuguete = mJuguete;
+	}
+
+	public JButton getmMedicamento() {
+		return mMedicamento;
+	}
+
+	public void setmMedicamento(JButton mMedicamento) {
+		this.mMedicamento = mMedicamento;
+	}
+
+	public JTable getTablaAdmin() {
+		return tablaAdmin;
+	}
+
+	public void setTablaAdmin(JTable tablaAdmin) {
+		this.tablaAdmin = tablaAdmin;
+	}
+
+	public JTable getTablaVet() {
+		return tablaVet;
+	}
+
+	public void setTablaVet(JTable tablaVet) {
+		this.tablaVet = tablaVet;
+	}
+
+	public JTable getTablaCliente() {
+		return tablaCliente;
+	}
+
+	public void setTablaCliente(JTable tablaCliente) {
+		this.tablaCliente = tablaCliente;
+	}
+
+	public JTable getTablaAve() {
+		return tablaAve;
+	}
+
+	public void setTablaAve(JTable tablaAve) {
+		this.tablaAve = tablaAve;
+	}
+
+	public JTable getTablaMamifero() {
+		return tablaMamifero;
+	}
+
+	public void setTablaMamifero(JTable tablaMamifero) {
+		this.tablaMamifero = tablaMamifero;
+	}
+
+	public JTable getTablaReptil() {
+		return tablaReptil;
+	}
+
+	public void setTablaReptil(JTable tablaReptil) {
+		this.tablaReptil = tablaReptil;
+	}
+
+	public JTable getTablaPez() {
+		return tablaPez;
+	}
+
+	public void setTablaPez(JTable tablaPez) {
+		this.tablaPez = tablaPez;
+	}
+
+	public JTable getTablaJuguete() {
+		return tablaJuguete;
+	}
+
+	public void setTablaJuguete(JTable tablaJuguete) {
+		this.tablaJuguete = tablaJuguete;
+	}
+
+	public JTable getTablaMedicamento() {
+		return tablaMedicamento;
+	}
+
+	public void setTablaMedicamento(JTable tablaMedicamento) {
+		this.tablaMedicamento = tablaMedicamento;
+	}
+
+	public JLabel getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(JLabel tipo) {
+		this.tipo = tipo;
+	}
+
+	public JComboBox<String> getCmbTipo() {
+		return cmbTipo;
+	}
+
+	public void setCmbTipo(JComboBox<String> cmbTipo) {
+		this.cmbTipo = cmbTipo;
+	}
+
+	public JLabel getPersona() {
+		return persona;
+	}
+
+	public void setPersona(JLabel persona) {
+		this.persona = persona;
+	}
+
+	public JComboBox<String> getCmbPersona() {
+		return cmbPersona;
+	}
+
+	public void setCmbPersona(JComboBox<String> cmbPersona) {
+		this.cmbPersona = cmbPersona;
+	}
+
+	public JLabel getMascota() {
+		return mascota;
+	}
+
+	public void setMascota(JLabel mascota) {
+		this.mascota = mascota;
+	}
+
+	public JComboBox<String> getCmbMascota() {
+		return cmbMascota;
+	}
+
+	public void setCmbMascota(JComboBox<String> cmbMascota) {
+		this.cmbMascota = cmbMascota;
+	}
+
+	public JLabel getProducto() {
+		return producto;
+	}
+
+	public void setProducto(JLabel producto) {
+		this.producto = producto;
+	}
+
+	public JComboBox<String> getCmbProducto() {
+		return cmbProducto;
+	}
+
+	public void setCmbProducto(JComboBox<String> cmbProducto) {
+		this.cmbProducto = cmbProducto;
+	}
+
 }
