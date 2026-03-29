@@ -28,7 +28,7 @@ public class PanelActualizar extends JPanel{
 		}
 		
 		public void initComps() {
-			this.setBounds(170, 120, 780, 375);
+			this.setBounds(130, 217, 780, 375);
 			this.setLayout(null);
 			this.setBackground(Color.decode("#622347"));
 		}

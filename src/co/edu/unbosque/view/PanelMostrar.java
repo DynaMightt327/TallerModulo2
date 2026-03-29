@@ -54,9 +54,9 @@ public class PanelMostrar extends JPanel {
 	}
 
 	public void initComps() {
-		this.setBounds(135, 120, 815, 375);
+		this.setBounds(60, 217, 870, 375);
 		this.setLayout(null);
-		this.setBackground(Color.decode("#6d4c41"));
+		this.setBackground(Color.decode("#80665c"));
 		
 		tipo = new JLabel("Seleccione que desea crear:");
 		tipo.setBounds(20, 15, 300, 30);

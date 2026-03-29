@@ -101,9 +101,9 @@ public class PanelCrear extends JPanel{
 	}
 	
 	public void initComps() {
-		this.setBounds(170, 120, 780, 375);
+		this.setBounds(115, 217, 780, 375);
 		this.setLayout(null);
-		this.setBackground(Color.decode("#dba76d"));
+		this.setBackground(Color.decode("#80665c"));
 		
 		tipo = new JLabel("Seleccione que desea crear:");
 		tipo.setBounds(20, 15, 300, 30);
@@ -245,7 +245,7 @@ public class PanelCrear extends JPanel{
 		tTelefono.setBackground(Color.decode("#e0ebe0"));
 		tTelefono.setBorder(null);
 		add(tTelefono);
-
+		//admin y vet
 		salario = new JLabel("Salario:");
 		salario.setBounds(25, 215, 150, 30);
 		salario.setFont(new Font("Agency FB", Font.BOLD, 22));
@@ -259,7 +259,7 @@ public class PanelCrear extends JPanel{
 		tSalario.setBackground(Color.decode("#e0ebe0"));
 		tSalario.setBorder(null);
 		add(tSalario);
-
+		//admiiin
 		areaAsignada = new JLabel("Área asignada:");
 		areaAsignada.setBounds(235, 215, 150, 30);
 		areaAsignada.setFont(new Font("Agency FB", Font.BOLD, 22));
@@ -301,7 +301,7 @@ public class PanelCrear extends JPanel{
 		tNumEmpleado.setBackground(Color.decode("#e0ebe0"));
 		tNumEmpleado.setBorder(null);
 		add(tNumEmpleado);
-		
+		//vet
 		cargo = new JLabel("Cargo:");
 		cargo.setBounds(235, 215, 150, 30);
 		cargo.setFont(new Font("Agency FB", Font.BOLD, 22));
@@ -343,7 +343,7 @@ public class PanelCrear extends JPanel{
 		tNumLicencia.setBackground(Color.decode("#e0ebe0"));
 		tNumLicencia.setBorder(null);
 		add(tNumLicencia);
-		
+		//cliente
 		nombreMascota = new JLabel("Nombre mascota:");
 		nombreMascota.setBounds(25, 215, 150, 30);
 		nombreMascota.setFont(new Font("Agency FB", Font.BOLD, 22));

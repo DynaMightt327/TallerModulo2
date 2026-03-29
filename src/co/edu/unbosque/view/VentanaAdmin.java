@@ -3,27 +3,26 @@ package co.edu.unbosque.view;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class VentanaAdmin extends JFrame {
-	
+
+	private JLabel background;
 	private PanelCrear panelCrear;
 	private PanelMostrar panelMostrar;
 	private PanelActualizar panelActualizar;
 	private PanelEliminar panelEliminar;
-	
+
 	private JButton crear;
 	private JButton mostrar;
 	private JButton actualizar;
 	private JButton eliminar;
 	private JButton volver;
-	
-	private JPanel banner;
-	private JLabel titulo;
-	
+
 	public VentanaAdmin() {
 		initcomps();
 		setVisible(false);
@@ -32,68 +31,79 @@ public class VentanaAdmin extends JFrame {
 	public void initcomps() {
 		// ====CONFIGURACION DE LA VENTANA====
 		this.setTitle("Chupiveterinaria");
-		this.setBounds(250, 30, 980, 550);
+		this.setBounds(250, 30, 1000, 650);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.setLayout(null);
 		this.getContentPane().setBackground(Color.decode("#fff4e4"));
-		
-		banner = new JPanel();
-		banner.setBounds(0, 0, 980, 100);
-		banner.setBackground(Color.white);
-		add(banner);
-		
-		titulo = new JLabel("Veterinaria");
-		titulo.setBounds(450, 0, 300, 100);
-		titulo.setForeground(Color.black);
-		titulo.setFont(new Font("Arial", Font.BOLD, 70));
-		banner.add(titulo);
+
+		// ====IMAGEN DE FONDO====
+		ImageIcon backgroundImage = new ImageIcon(getClass().getResource("imagen.png"));
+		background = new JLabel(backgroundImage);
+		background.setBounds(0, 0, 1000, 650);
+		background.setLayout(null);
+		this.add(background);
 
 		panelCrear = new PanelCrear();
 		panelCrear.setVisible(false);
-		add(panelCrear);
-		
+		background.add(panelCrear);
+
 		panelMostrar = new PanelMostrar();
 		panelMostrar.setVisible(false);
-		add(panelMostrar);
-		
+		background.add(panelMostrar);
+
 		panelActualizar = new PanelActualizar();
 		panelActualizar.setVisible(false);
-		add(panelActualizar);
-		
+		background.add(panelActualizar);
+
 		panelEliminar = new PanelEliminar();
 		panelEliminar.setVisible(false);
-		add(panelEliminar);
-		
-		crear = new JButton("Crear");
-		crear.setBounds(15, 190, 100, 30);
+		background.add(panelEliminar);
+
+		crear = new JButton("CREAR");
+		crear.setBounds(80, 162, 150, 30);
 		crear.setBorderPainted(false);
-		crear.setForeground(Color.decode("#060b37"));
-		add(crear);
-		
-		mostrar = new JButton("Mostrar");
-		mostrar.setBounds(15, 230, 100, 30);
+		crear.setLayout(null);
+		crear.setFont(new Font("Georgia", Font.BOLD, 12));
+		crear.setBackground(Color.decode("#cca881"));
+		crear.setForeground(Color.black);
+		background.add(crear);
+
+		mostrar = new JButton("MOSTRAR");
+		mostrar.setBounds(245, 162, 150, 30);
 		mostrar.setBorderPainted(false);
-		mostrar.setForeground(Color.decode("#060b37"));
-		add(mostrar);
-		
-		actualizar = new JButton("Actualizar");
-		actualizar.setBounds(15, 270, 100, 30);
+		mostrar.setLayout(null);
+		mostrar.setFont(new Font("Georgia", Font.BOLD, 12));
+		mostrar.setBackground(Color.decode("#cca881"));
+		mostrar.setForeground(Color.black);
+		background.add(mostrar);
+
+		actualizar = new JButton("ACTUALIZAR");
+		actualizar.setBounds(405, 162, 200, 30);
 		actualizar.setBorderPainted(false);
-		actualizar.setForeground(Color.decode("#060b37"));
-		add(actualizar);
-		
-		eliminar = new JButton("Eliminar");
-		eliminar.setBounds(15, 310, 100, 30);
+		actualizar.setLayout(null);
+		actualizar.setFont(new Font("Georgia", Font.BOLD, 12));
+		actualizar.setBackground(Color.decode("#cca881"));
+		actualizar.setForeground(Color.black);
+		background.add(actualizar);
+
+		eliminar = new JButton("ELIMINAR");
+		eliminar.setBounds(615, 162, 150, 30);
 		eliminar.setBorderPainted(false);
-		eliminar.setForeground(Color.decode("#060b37"));
-		add(eliminar);
-		
-		volver = new JButton("Volver");
-		volver.setBounds(15, 350, 100, 30);
+		eliminar.setLayout(null);
+		eliminar.setFont(new Font("Georgia", Font.BOLD, 12));
+		eliminar.setBackground(Color.decode("#cca881"));
+		eliminar.setForeground(Color.black);
+		background.add(eliminar);
+
+		volver = new JButton("VOLVER");
+		volver.setBounds(780, 162, 150, 30);
 		volver.setBorderPainted(false);
-		volver.setForeground(Color.decode("#060b37"));
-		add(volver);
+		volver.setLayout(null);
+		volver.setFont(new Font("Georgia", Font.BOLD, 12));
+		volver.setBackground(Color.decode("#cca881"));
+		volver.setForeground(Color.black);
+		background.add(volver);
 	}
 
 	public PanelCrear getPanelCrear() {
@@ -144,22 +154,6 @@ public class VentanaAdmin extends JFrame {
 		this.volver = volver;
 	}
 
-	public JPanel getBanner() {
-		return banner;
-	}
-
-	public void setBanner(JPanel banner) {
-		this.banner = banner;
-	}
-
-	public JLabel getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(JLabel titulo) {
-		this.titulo = titulo;
-	}
-
 	public PanelMostrar getPanelMostrar() {
 		return panelMostrar;
 	}
@@ -183,6 +177,5 @@ public class VentanaAdmin extends JFrame {
 	public void setPanelEliminar(PanelEliminar panelEliminar) {
 		this.panelEliminar = panelEliminar;
 	}
-	
-	
+
 }

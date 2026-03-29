@@ -28,7 +28,7 @@ public class PanelEliminar extends JPanel{
 		}
 		
 		public void initComps() {
-			this.setBounds(170, 120, 780, 375);
+			this.setBounds(130, 217, 780, 375);
 			this.setLayout(null);
 			this.setBackground(Color.decode("#e0b4b2"));
 		}
