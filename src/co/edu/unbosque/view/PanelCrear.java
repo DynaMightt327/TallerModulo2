@@ -80,20 +80,20 @@ public class PanelCrear extends JPanel{
 	//campos de texto
 	private JTextField tNombre;
 	private JTextField tApellido;
-	private JTextField tGenero;
+	private JComboBox<String> tGenero;
 	private JTextField tDocumento;
 	private JTextField tCorreo;
 	private JTextField tTelefono;
-	private JTextField tCargo;
+	private JComboBox<String> tCargo;
 	private JTextField tSalario;
 	private JTextField tHoraTrabajo;
 	private JTextField tNumLicencia;
-	private JTextField tAreaAsignada;
-	private JTextField tHorario;
+	private JComboBox<String> tAreaAsignada;
+	private JComboBox<String> tHorario;
 	private JTextField tNumEmpleado;
 	private JTextField tNombreMascota;
 	private JTextField tRazonVisita;
-	private JTextField tEsClienteNuevo;
+	private JComboBox<String> tEsClienteNuevo;
 	
 	public PanelCrear() {
 		initComps();
@@ -196,7 +196,7 @@ public class PanelCrear extends JPanel{
 		genero.setForeground(Color.decode("#111d15"));
 		add(genero);
 		
-		tGenero = new JTextField();
+		tGenero = new JComboBox<String>(new String[] { "...", "Femenino", "Masculino"});
 		tGenero.setBounds(445, 115, 164, 32);
 		tGenero.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tGenero.setForeground(Color.decode("#111d15"));
@@ -266,7 +266,7 @@ public class PanelCrear extends JPanel{
 		areaAsignada.setForeground(Color.decode("#111d15"));
 		add(areaAsignada);
 		
-		tAreaAsignada = new JTextField();
+		tAreaAsignada = new JComboBox<String>(new String[] { "...", "Gestion contable", "Logistica", "Atencion al cliente", "Proveedores", "Archivo"});
 		tAreaAsignada.setBounds(240, 245, 164, 32);
 		tAreaAsignada.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tAreaAsignada.setForeground(Color.decode("#111d15"));
@@ -280,7 +280,7 @@ public class PanelCrear extends JPanel{
 		horario.setForeground(Color.decode("#111d15"));
 		add(horario);
 		
-		tHorario = new JTextField();
+		tHorario = new JComboBox<String>(new String[] { "...", "6am - 2pm", "2pm - 10pm", "10pm - 6am"});
 		tHorario.setBounds(445, 245, 164, 32);
 		tHorario.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tHorario.setForeground(Color.decode("#111d15"));
@@ -308,7 +308,7 @@ public class PanelCrear extends JPanel{
 		cargo.setForeground(Color.decode("#111d15"));
 		add(cargo);
 		
-		tCargo = new JTextField();
+		tCargo = new JComboBox<String>(new String[] { "...", "Cirujano", "Dermatologia", "Oncologia", "Cardiologia", "Anestesiologia", "Odontologia", "Cuidados criticos"});
 		tCargo.setBounds(240, 245, 164, 32);
 		tCargo.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tCargo.setForeground(Color.decode("#111d15"));
@@ -378,7 +378,7 @@ public class PanelCrear extends JPanel{
 		esClienteNuevo.setForeground(Color.decode("#111d15"));
 		add(esClienteNuevo);
 		
-		tEsClienteNuevo = new JTextField();
+		tEsClienteNuevo = new JComboBox<String>(new String[] { "...", "Si", "No"});
 		tEsClienteNuevo.setBounds(445, 245, 164, 32);
 		tEsClienteNuevo.setFont(new Font("Agency FB", Font.BOLD, 18));
 		tEsClienteNuevo.setForeground(Color.decode("#111d15"));
@@ -386,134 +386,6 @@ public class PanelCrear extends JPanel{
 		tEsClienteNuevo.setBorder(null);
 		add(tEsClienteNuevo);
 
-	}
-
-	public JTextField gettNombre() {
-		return tNombre;
-	}
-
-	public void settNombre(JTextField tNombre) {
-		this.tNombre = tNombre;
-	}
-
-	public JTextField gettApellido() {
-		return tApellido;
-	}
-
-	public void settApellido(JTextField tApellido) {
-		this.tApellido = tApellido;
-	}
-
-	public JTextField gettGenero() {
-		return tGenero;
-	}
-
-	public void settGenero(JTextField tGenero) {
-		this.tGenero = tGenero;
-	}
-
-	public JTextField gettDocumento() {
-		return tDocumento;
-	}
-
-	public void settDocumento(JTextField tDocumento) {
-		this.tDocumento = tDocumento;
-	}
-
-	public JTextField gettCorreo() {
-		return tCorreo;
-	}
-
-	public void settCorreo(JTextField tCorreo) {
-		this.tCorreo = tCorreo;
-	}
-
-	public JTextField gettTelefono() {
-		return tTelefono;
-	}
-
-	public void settTelefono(JTextField tTelefono) {
-		this.tTelefono = tTelefono;
-	}
-
-	public JTextField gettCargo() {
-		return tCargo;
-	}
-
-	public void settCargo(JTextField tCargo) {
-		this.tCargo = tCargo;
-	}
-
-	public JTextField gettSalario() {
-		return tSalario;
-	}
-
-	public void settSalario(JTextField tSalario) {
-		this.tSalario = tSalario;
-	}
-
-	public JTextField gettHoraTrabajo() {
-		return tHoraTrabajo;
-	}
-
-	public void settHoraTrabajo(JTextField tHoraTrabajo) {
-		this.tHoraTrabajo = tHoraTrabajo;
-	}
-
-	public JTextField gettNumLicencia() {
-		return tNumLicencia;
-	}
-
-	public void settNumLicencia(JTextField tNumLicencia) {
-		this.tNumLicencia = tNumLicencia;
-	}
-
-	public JTextField gettAreaAsignada() {
-		return tAreaAsignada;
-	}
-
-	public void settAreaAsignada(JTextField tAreaAsignada) {
-		this.tAreaAsignada = tAreaAsignada;
-	}
-
-	public JTextField gettHorario() {
-		return tHorario;
-	}
-
-	public void settHorario(JTextField tHorario) {
-		this.tHorario = tHorario;
-	}
-
-	public JTextField gettNumEmpleado() {
-		return tNumEmpleado;
-	}
-
-	public void settNumEmpleado(JTextField tNumEmpleado) {
-		this.tNumEmpleado = tNumEmpleado;
-	}
-
-	public JTextField gettNombreMascota() {
-		return tNombreMascota;
-	}
-
-	public void settNombreMascota(JTextField tNombreMascota) {
-		this.tNombreMascota = tNombreMascota;
-	}
-
-	public JTextField gettRazonVisita() {
-		return tRazonVisita;
-	}
-
-	public void settRazonVisita(JTextField tRazonVisita) {
-		this.tRazonVisita = tRazonVisita;
-	}
-
-	public JTextField gettEsClienteNuevo() {
-		return tEsClienteNuevo;
-	}
-
-	public void settEsClienteNuevo(JTextField tEsClienteNuevo) {
-		this.tEsClienteNuevo = tEsClienteNuevo;
 	}
 
 	public JLabel getTipo() {
@@ -996,5 +868,132 @@ public class PanelCrear extends JPanel{
 		this.garantia = garantia;
 	}
 
+	public JTextField gettNombre() {
+		return tNombre;
+	}
+
+	public void settNombre(JTextField tNombre) {
+		this.tNombre = tNombre;
+	}
+
+	public JTextField gettApellido() {
+		return tApellido;
+	}
+
+	public void settApellido(JTextField tApellido) {
+		this.tApellido = tApellido;
+	}
+
+	public JComboBox<String> gettGenero() {
+		return tGenero;
+	}
+
+	public void settGenero(JComboBox<String> tGenero) {
+		this.tGenero = tGenero;
+	}
+
+	public JTextField gettDocumento() {
+		return tDocumento;
+	}
+
+	public void settDocumento(JTextField tDocumento) {
+		this.tDocumento = tDocumento;
+	}
+
+	public JTextField gettCorreo() {
+		return tCorreo;
+	}
+
+	public void settCorreo(JTextField tCorreo) {
+		this.tCorreo = tCorreo;
+	}
+
+	public JTextField gettTelefono() {
+		return tTelefono;
+	}
+
+	public void settTelefono(JTextField tTelefono) {
+		this.tTelefono = tTelefono;
+	}
+
+	public JComboBox<String> gettCargo() {
+		return tCargo;
+	}
+
+	public void settCargo(JComboBox<String> tCargo) {
+		this.tCargo = tCargo;
+	}
+
+	public JTextField gettSalario() {
+		return tSalario;
+	}
+
+	public void settSalario(JTextField tSalario) {
+		this.tSalario = tSalario;
+	}
+
+	public JTextField gettHoraTrabajo() {
+		return tHoraTrabajo;
+	}
+
+	public void settHoraTrabajo(JTextField tHoraTrabajo) {
+		this.tHoraTrabajo = tHoraTrabajo;
+	}
+
+	public JTextField gettNumLicencia() {
+		return tNumLicencia;
+	}
+
+	public void settNumLicencia(JTextField tNumLicencia) {
+		this.tNumLicencia = tNumLicencia;
+	}
+
+	public JComboBox<String> gettAreaAsignada() {
+		return tAreaAsignada;
+	}
+
+	public void settAreaAsignada(JComboBox<String> tAreaAsignada) {
+		this.tAreaAsignada = tAreaAsignada;
+	}
+
+	public JComboBox<String> gettHorario() {
+		return tHorario;
+	}
+
+	public void settHorario(JComboBox<String> tHorario) {
+		this.tHorario = tHorario;
+	}
+
+	public JTextField gettNumEmpleado() {
+		return tNumEmpleado;
+	}
+
+	public void settNumEmpleado(JTextField tNumEmpleado) {
+		this.tNumEmpleado = tNumEmpleado;
+	}
+
+	public JTextField gettNombreMascota() {
+		return tNombreMascota;
+	}
+
+	public void settNombreMascota(JTextField tNombreMascota) {
+		this.tNombreMascota = tNombreMascota;
+	}
+
+	public JTextField gettRazonVisita() {
+		return tRazonVisita;
+	}
+
+	public void settRazonVisita(JTextField tRazonVisita) {
+		this.tRazonVisita = tRazonVisita;
+	}
+
+	public JComboBox<String> gettEsClienteNuevo() {
+		return tEsClienteNuevo;
+	}
+
+	public void settEsClienteNuevo(JComboBox<String> tEsClienteNuevo) {
+		this.tEsClienteNuevo = tEsClienteNuevo;
+	}
 
 }
