@@ -38,7 +38,7 @@ public class VentanaPrincipal extends JFrame {
 		
 		//====BOTONES DE INGRESO====
 		bAdmin = new JButton("ADMINISTRATIVO");
-		bAdmin.setBounds(197, 395, 172, 25);
+		bAdmin.setBounds(200, 385, 168, 45);
 		bAdmin.setBorderPainted(false);
 		bAdmin.setLayout(null);
 		bAdmin.setFont(new Font("Georgia", Font.BOLD, 12));
@@ -47,7 +47,7 @@ public class VentanaPrincipal extends JFrame {
 		background.add(bAdmin);
 		
 		bVeterinario = new JButton("VETERINARIO");
-		bVeterinario.setBounds(425, 395, 140, 25);
+		bVeterinario.setBounds(425, 375, 140, 60);
 		bVeterinario.setBorderPainted(false);
 		bVeterinario.setLayout(null);
 		bVeterinario.setFont(new Font("Georgia", Font.BOLD, 12));
@@ -56,7 +56,7 @@ public class VentanaPrincipal extends JFrame {
 		background.add(bVeterinario);
 		
 		bCliente = new JButton("CLIENTE");
-		bCliente.setBounds(644, 395, 140, 25);
+		bCliente.setBounds(644, 375, 140, 60);
 		bCliente.setBorderPainted(false);
 		bCliente.setLayout(null);
 		bCliente.setFont(new Font("Georgia", Font.BOLD, 12));

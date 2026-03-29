@@ -21,6 +21,17 @@ public class PanelCrear extends JPanel{
 	private JComboBox<String> cmbMascota;
 	private JComboBox<String> cmbProducto;
 	
+	//paneles para agrupar
+	/*private JPanel pAdmin;
+	private JPanel pVet;
+	private JPanel pCliente;
+	private JPanel pAve;
+	private JPanel pMamifero;
+	private JPanel pReptil;
+	private JPanel pPez;
+	private JPanel pJuguete;
+	private JPanel pMedicamento;
+	*/
 	//labels de la info que se pide
 	private JLabel nombre;
 	private JLabel apellido;
