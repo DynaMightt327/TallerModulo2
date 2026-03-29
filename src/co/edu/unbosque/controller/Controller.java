@@ -4,9 +4,18 @@ import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
 
+import javax.print.attribute.standard.PrinterMakeAndModel;
 import javax.swing.JOptionPane;
 
+import co.edu.unbosque.model.Administrativo;
+import co.edu.unbosque.model.Ave;
 import co.edu.unbosque.model.Cliente;
+import co.edu.unbosque.model.Juguete;
+import co.edu.unbosque.model.Mamifero;
+import co.edu.unbosque.model.Medicamento;
+import co.edu.unbosque.model.Pez;
+import co.edu.unbosque.model.Reptil;
+import co.edu.unbosque.model.Veterinario;
 import co.edu.unbosque.model.persistence.AdminDAO;
 import co.edu.unbosque.model.persistence.AveDAO;
 import co.edu.unbosque.model.persistence.ClienteDAO;
@@ -695,6 +704,7 @@ public class Controller implements ActionListener {
 				double documento = (double) Double.parseDouble(va.getPanelCrear().gettDocumento().getText());
 				String correo = va.getPanelCrear().gettCorreo().getText();
 				double telefono = (double) Double.parseDouble(va.getPanelCrear().gettTelefono().getText());
+				
 				String tipoPersona = (String) va.getPanelCrear().getCmbPersona().getSelectedItem();
 				
 				if(tipoPersona.equals("Cliente")) {
@@ -703,6 +713,22 @@ public class Controller implements ActionListener {
 					boolean esClienteNuevo = (boolean) va.getPanelCrear().gettEsClienteNuevo().getSelectedItem();
 					
 					cDAO.crear(new Cliente(nombre, apellido, genero, documento, correo, telefono, nombreMascota, razonVisita, esClienteNuevo));
+				}
+				if(tipoPersona.equals("Veterinario")) {
+					String cargo = (String) va.getPanelCrear().gettCargo().getSelectedItem();
+					float salario = (float) Float.parseFloat(va.getPanelCrear().gettSalario().getText());
+					int horaTrabajo = (int) Integer.parseInt(va.getPanelCrear().gettHoraTrabajo().getText());
+					double numLicencia = (double) Double.parseDouble(va.getPanelCrear().getNumLicencia().getText());
+					
+					vDAO.crear(new Veterinario(nombre, apellido, genero, documento, correo, telefono, cargo, salario, horaTrabajo, numLicencia));
+				}
+				if(tipoPersona.equals("Administrativo")) {
+					float salario = (float) Float.parseFloat(va.getPanelCrear().gettSalario().getText());
+					String areaAsignada = (String) va.getPanelCrear().gettAreaAsignada().getSelectedItem();
+					String horario = (String) va.getPanelCrear().gettHorario().getSelectedItem();
+					
+					aDAO.crear(new Administrativo(nombre, apellido, genero, documento, correo, telefono, salario, areaAsignada, horario, genero));
+					
 				}
 				
 			} else if(tipo.equals("Mascota")) {
@@ -714,11 +740,68 @@ public class Controller implements ActionListener {
 				float altura = (float) Float.parseFloat(va.getPanelCrear().gettAltura().getText());
 				int edad = (int) Integer.parseInt(va.getPanelCrear().gettEdad().getText());
 				
+				String tipoMascota = (String) va.getPanelCrear().getCmbMascota().getSelectedItem();
+				
+				if(tipoMascota.equals("Ave")) {
+					String formaPata = (String) va.getPanelCrear().gettFormaPata().getSelectedItem();
+					String colorPluma = (String) va.getPanelCrear().gettColorPluma().getText();
+					int cantidadHuevo = (int) Integer.parseInt(va.getPanelCrear().gettCantidadHuevo().getText());
+					String tamanoPico = (String) va.getPanelCrear().gettTamanoPico().getText();
+					boolean esMigratoria = (boolean) va.getPanelCrear().gettEsMigratoria().getSelectedItem();
+					
+					avDAO.crear(new Ave(nombre, especie, habitat, tipoAlimento, peso, altura, edad, formaPata, colorPluma, cantidadHuevo, tamanoPico, esMigratoria));
+				}
+				if(tipoMascota.equals("Mamífero")) {
+					String cantidadPelaje = (String) va.getPanelCrear().gettCantidadPelaje().getSelectedItem();
+					String colorPelaje = (String) va.getPanelCrear().gettColorPelaje().getText();
+					String tipoDiente = (String) va.getPanelCrear().gettTipoDiente().getSelectedItem();
+					int numeroDiente = (int) Integer.parseInt(va.getPanelCrear().gettNumeroDiente().getText());
+					String medioDesplazamiento = (String) va.getPanelCrear().gettMedioDesplazamiento().getSelectedItem();
+					
+					mDAO.crear(new Mamifero(especie, especie, habitat, tipoAlimento, peso, altura, edad, cantidadPelaje, colorPelaje, tipoDiente, numeroDiente, medioDesplazamiento));
+				}
+				if(tipoMascota.equals("Reptil")) {
+					String tipoDesplazamiento = (String) va.getPanelCrear().gettTipoDesplazamiento().getSelectedItem();
+					String tipoDiente = (String) va.getPanelCrear().gettTipoDesplazamiento().getSelectedItem();
+					float temperaturacorporal = (float) Float.parseFloat(va.getPanelCrear().gettTemperaturaCorporal().getText());
+					boolean esVenenoso = (boolean) va.getPanelCrear().gettEsVenenoso().getSelectedItem();
+					boolean esEctoformo = (boolean) va.getPanelCrear().gettEsEctoformo().getSelectedItem();
+					
+					rDAO.crear(new Reptil(nombre, especie, habitat, tipoAlimento, peso, altura, edad, tipoDesplazamiento, tipoDiente, temperaturacorporal, esVenenoso, esEctoformo));
+				}
+				if(tipoMascota.equals("Pez")) {
+					String tipoAgua = (String) va.getPanelCrear().gettTipoAgua().getSelectedItem();
+					String colorEscama = (String) va.getPanelCrear().gettColorEscama().getText();
+					String tipoRespiracion = (String) va.getPanelCrear().gettTipoRespiracion().getSelectedItem();
+					int numeroAleta = (int) Integer.parseInt(va.getPanelCrear().gettNumeroAleta().getText());
+					double profundidadMaxima = (double) Double.parseDouble(va.getPanelCrear().gettProfundidadMaxima().getText());
+				
+					pDAO.crear(new Pez(nombre, especie, habitat, tipoAlimento, peso, altura, edad, tipoAgua, colorEscama, tipoRespiracion, numeroAleta, profundidadMaxima));
+				}
+				
 			} else if(tipo.equals("Producto")) {
 				String marca = va.getPanelCrear().gettMarca().getText();
 				float precio = (float) Float.parseFloat(va.getPanelCrear().gettPrecio().getText());
 				int idProducto = (int) Integer.parseInt(va.getPanelCrear().gettIdProducto().getText());
 				
+				String tipoProducto = (String) va.getPanelCrear().getCmbProducto().getSelectedItem();
+				if(tipoProducto.equals("Juguete")) {
+					String nombre = (String) va.getPanelCrear().gettNombre().getText();
+					String color = (String) va.getPanelCrear().gettColor().getText();
+					String tipoJuguete = (String) va.getPanelCrear().gettTipoJuguete().getSelectedItem();
+					String garantia = (String) va.getPanelCrear().gettGarantia().getSelectedItem();
+					
+					jDAO.crear(new Juguete(marca, precio, idProducto, nombre, color, tipoJuguete, garantia));
+				}
+				if(tipoProducto.equals("Medicamento")) {
+					String nombreComercial = (String) va.getPanelCrear().gettNombreComercial().getText();
+					String nombreCientifico = (String) va.getPanelCrear().gettNombreCientifico().getText();
+					String fechaCaducidad = (String) va.getPanelCrear().gettFechaCaducidad().getText();
+					boolean estaDisponible = (boolean) va.getPanelCrear().gettEstaDisponible().getSelectedItem();
+					float dosis = (float) Float.parseFloat(va.getPanelCrear().gettDosis().getText());
+					
+					meDAO.crear(new Medicamento(marca, precio, idProducto, nombreComercial, nombreCientifico, fechaCaducidad, estaDisponible, dosis));
+				}
 			}
 			
 		} catch (Exception e) {
