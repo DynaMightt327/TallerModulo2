@@ -218,23 +218,35 @@ public class Controller implements ActionListener {
 			break;
 		}
 		case "cmb_tipo_mostrar_admin": {
+			ocultarCamposParaMostrar();
 			String tipo = (String) va.getPanelMostrar().getCmbTipo().getSelectedItem();
-			va.getPanelMostrar().getCmbPersona().setVisible(false);
-			va.getPanelMostrar().getCmbMascota().setVisible(false);
-			va.getPanelMostrar().getCmbProducto().setVisible(false);
+
+			if (tipo == null || tipo.equals("...")) {
+				ocultarCamposParaMostrar();
+			}
+
 			if (tipo.equals("Persona")) {
+				va.getPanelMostrar().getPersona().setVisible(true);
 				va.getPanelMostrar().getCmbPersona().setVisible(true);
+				va.getPanelMostrar().getMascota().setVisible(false);
 				va.getPanelMostrar().getCmbMascota().setVisible(false);
+				va.getPanelMostrar().getProducto().setVisible(false);
 				va.getPanelMostrar().getCmbProducto().setVisible(false);
 			}
 			if (tipo.equals("Mascota")) {
-				va.getPanelMostrar().getCmbMascota().setVisible(true);
+				va.getPanelMostrar().getPersona().setVisible(false);
 				va.getPanelMostrar().getCmbPersona().setVisible(false);
+				va.getPanelMostrar().getMascota().setVisible(true);
+				va.getPanelMostrar().getCmbMascota().setVisible(true);
+				va.getPanelMostrar().getProducto().setVisible(false);
 				va.getPanelMostrar().getCmbProducto().setVisible(false);
 			}
 			if (tipo.equals("Producto")) {
-				va.getPanelMostrar().getCmbMascota().setVisible(false);
+				va.getPanelMostrar().getPersona().setVisible(false);
 				va.getPanelMostrar().getCmbPersona().setVisible(false);
+				va.getPanelMostrar().getMascota().setVisible(false);
+				va.getPanelMostrar().getCmbMascota().setVisible(false);
+				va.getPanelMostrar().getProducto().setVisible(true);
 				va.getPanelMostrar().getCmbProducto().setVisible(true);
 			}
 			Component[] comps = va.getPanelMostrar().getComponents();
@@ -422,6 +434,15 @@ public class Controller implements ActionListener {
 			break;
 		}
 
+	}
+
+	public void ocultarCamposParaMostrar() {
+		va.getPanelMostrar().getPersona().setVisible(false);
+		va.getPanelMostrar().getCmbPersona().setVisible(false);
+		va.getPanelMostrar().getMascota().setVisible(false);
+		va.getPanelMostrar().getCmbMascota().setVisible(false);
+		va.getPanelMostrar().getProducto().setVisible(false);
+		va.getPanelMostrar().getCmbProducto().setVisible(false);
 	}
 
 	public void ocultarCampos() {
@@ -1349,20 +1370,291 @@ public class Controller implements ActionListener {
 							"Error de formato", JOptionPane.ERROR_MESSAGE);
 				}
 			}
-	}catch(
-	Exception e)
-	{
-		JOptionPane.showMessageDialog(va, "Error creando: " + e.getMessage());
-		e.printStackTrace();
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(va, "Error creando: " + e.getMessage());
+			e.printStackTrace();
+
+		}
 
 	}
 
-	}
-	
 	public void actualizarSegunEleccion() {
-		
+		String opcion = (String) va.getPanelActualizar().getOpcion().getSelectedItem();
+		if (opcion == null || opcion.equals("...")) {
+			JOptionPane.showMessageDialog(va, "No puede dejar el campo vacío, seleccione una opcion");
+			return;
+		}
+		try {
+			if (opcion.equals("Administrativo")) {
+				try {
+					int indiceUsuario = Integer.parseInt(va.getPanelActualizar().getCampoIndex().getText());
+					int indiceLista = indiceUsuario - 1;
+					if (aDAO.getListaAdmins().isEmpty()) {
+						JOptionPane.showMessageDialog(null, "No hay administrativos registrados.", "lista vacia",
+								JOptionPane.WARNING_MESSAGE);
+
+					} else if (indiceLista < 0 || indiceLista >= aDAO.getListaAdmins().size()) {
+						JOptionPane.showMessageDialog(null,
+								"Indice invalido. Debe estar entre 1 y " + aDAO.getListaAdmins().size(),
+								"Indice incorrecto", JOptionPane.WARNING_MESSAGE);
+
+					} else {
+						Administrativo actualizado = aDAO.getListaAdmins().get(indiceLista);
+						JOptionPane.showMessageDialog(null, "Administrativo a actualizar: (posicion" + indiceUsuario + "):\n\n" + aDAO.getListaAdmins().toString(), "Informacion actual", JOptionPane.INFORMATION_MESSAGE);
+
+						String nuevoNombre = JOptionPane.showInputDialog(null, "Nombre:", actualizado.getNombre());
+						String nuevoApellido = JOptionPane.showInputDialog(null, "Apellido:", actualizado.getApellido());
+						String nuevoGeneroStr = JOptionPane.showInputDialog(null, "Género:", actualizado.getGenero());
+						String nuevoDocumentoStr = JOptionPane.showInputDialog(null, "Documento:",actualizado.getDocumento());
+						String nuevoCorreo = JOptionPane.showInputDialog(null, "Correo:",actualizado.getCorreo());
+						String nuevoTelefonoStr = JOptionPane.showInputDialog(null, "Telefono:",actualizado.getTelefono());
+						String nuevoSalarioStr = JOptionPane.showInputDialog(null, "Salario:",actualizado.getSalario());
+						String nuevaAreaAsignada = JOptionPane.showInputDialog(null, "Area asignada:",actualizado.getAreaAsignada());
+						String nuevoHorario = JOptionPane.showInputDialog(null, "Horario:",actualizado.getHorario());
+						String nuevoNumEmpleadoStr = JOptionPane.showInputDialog(null, "Numero de empleados:",actualizado.getNumEmpleado());
+					
+						double nuevoDocumento = Double.parseDouble(nuevoDocumentoStr);
+						double nuevoTelefono = Double.parseDouble(nuevoTelefonoStr);
+						float nuevoSalario = Float.parseFloat(nuevoSalarioStr);
+						char nuevoGenero = nuevoGeneroStr.charAt(0);
+						int numEmpleado = Integer.parseInt(nuevoNumEmpleadoStr);
+						
+						actualizado.setNombre(nuevoNombre);
+						actualizado.setApellido(nuevoApellido);
+						actualizado.setGenero(nuevoGenero);
+						actualizado.setDocumento(nuevoDocumento);
+						actualizado.setCorreo(nuevoCorreo);
+						actualizado.setTelefono(nuevoTelefono);
+						actualizado.setSalario(nuevoSalario);
+						actualizado.setAreaAsignada(nuevaAreaAsignada);
+						actualizado.setHorario(nuevoHorario);
+						actualizado.setNumEmpleado(numEmpleado);
+						JOptionPane.showMessageDialog(null, "Administrativo actualizado:\n\n" + actualizado.toString(), "Actualizacion exitosa", JOptionPane.INFORMATION_MESSAGE);	
+						
+					}
+				} catch (NumberFormatException ex) {
+					JOptionPane.showMessageDialog(null, "Error: el indice debe ser un numero entero.",
+							"Error de formato", JOptionPane.ERROR_MESSAGE);
+				}
+			} else if (opcion.equals("Veterinario")) {
+
+				try {
+					int indiceUsuario = Integer.parseInt(va.getPanelEliminar().getCampoIndex().getText());
+					int indiceLista = indiceUsuario - 1;
+					if (vDAO.getListaVeterinarios().isEmpty()) {
+						JOptionPane.showMessageDialog(null, "No hay veterinarios registrados.", "lista vacia",
+								JOptionPane.WARNING_MESSAGE);
+
+					} else if (indiceLista < 0 || indiceLista >= vDAO.getListaVeterinarios().size()) {
+						JOptionPane.showMessageDialog(null,
+								"Indice invalido. Debe estar entre 1 y " + vDAO.getListaVeterinarios().size(),
+								"Indice incorrecto", JOptionPane.WARNING_MESSAGE);
+
+					} else {
+						Veterinario actualizado = vDAO.getListaVeterinarios().get(indiceLista);
+						JOptionPane.showMessageDialog(null, "Veterinario a actualizar: (posicion" + indiceUsuario + "):\n\n" + vDAO.getListaVeterinarios().toString(), "Informacion actual", JOptionPane.INFORMATION_MESSAGE);
+
+						String nuevoNombre = JOptionPane.showInputDialog(null, "Nombre:", actualizado.getNombre());
+						String nuevoApellido = JOptionPane.showInputDialog(null, "Apellido:", actualizado.getApellido());
+						String nuevoGeneroStr = JOptionPane.showInputDialog(null, "Género:", actualizado.getGenero());
+						String nuevoDocumentoStr = JOptionPane.showInputDialog(null, "Documento:",actualizado.getDocumento());
+						String nuevoCorreo = JOptionPane.showInputDialog(null, "Correo:",actualizado.getCorreo());
+						String nuevoTelefonoStr = JOptionPane.showInputDialog(null, "Telefono:",actualizado.getTelefono());
+						String nuevoSalarioStr = JOptionPane.showInputDialog(null, "Salario:",actualizado.getSalario());
+						String nuevoCargo = JOptionPane.showInputDialog(null, "Cargo:",actualizado.getCargo());
+						String nuevaHoraTrabajoStr = JOptionPane.showInputDialog(null, "Horas Trabajo:",actualizado.getHoraTrabajo());
+						String nuevoNumLicenciaStr = JOptionPane.showInputDialog(null, "Numero de licencia:",actualizado.getNumLicencia());
+						
+						double nuevoDocumento = Double.parseDouble(nuevoDocumentoStr);
+						double nuevoTelefono = Double.parseDouble(nuevoTelefonoStr);
+						double nuevoNumLicencia = Double.parseDouble(nuevoNumLicenciaStr);
+						float nuevoSalario = Float.parseFloat(nuevoSalarioStr);
+						int nuevoHoraTrabajo = Integer.parseInt(nuevaHoraTrabajoStr);
+						char nuevoGenero = nuevoGeneroStr.charAt(0);
+						
+						actualizado.setNombre(nuevoNombre);
+						actualizado.setApellido(nuevoApellido);
+						actualizado.setGenero(nuevoGenero);
+						actualizado.setDocumento(nuevoDocumento);
+						actualizado.setCorreo(nuevoCorreo);
+						actualizado.setTelefono(nuevoTelefono);
+						actualizado.setSalario(nuevoSalario);
+						actualizado.setHoraTrabajo(nuevoHoraTrabajo);
+						actualizado.setNumLicencia(nuevoNumLicencia);
+						actualizado.setCargo(nuevoCargo);
+						JOptionPane.showMessageDialog(null, "Veterinario actualizado:\n\n" + actualizado.toString(), "Actualizacion exitosa", JOptionPane.INFORMATION_MESSAGE);	
+						
+						
+					}
+				} catch (NumberFormatException ex) {
+					JOptionPane.showMessageDialog(null, "Error: el indice debe ser un numero entero.",
+							"Error de formato", JOptionPane.ERROR_MESSAGE);
+
+				}
+			} else if (opcion.equals("Cliente")) {
+
+				try {
+					int indiceUsuario = Integer.parseInt(va.getPanelEliminar().getCampoIndex().getText());
+					int indiceLista = indiceUsuario - 1;
+					if (cDAO.getListaClientes().isEmpty()) {
+						JOptionPane.showMessageDialog(null, "No hay clientes registrados.", "lista vacia",
+								JOptionPane.WARNING_MESSAGE);
+
+					} else if (indiceLista < 0 || indiceLista >= cDAO.getListaClientes().size()) {
+						JOptionPane.showMessageDialog(null,
+								"Indice invalido. Debe estar entre 1 y " + cDAO.getListaClientes().size(),
+								"Indice incorrecto", JOptionPane.WARNING_MESSAGE);
+
+					} else {
+						Cliente actualizado = cDAO.getListaClientes().get(indiceLista);
+						JOptionPane.showMessageDialog(null, "Cliente a actualizar: (posicion" + indiceUsuario + "):\n\n" + cDAO.getListaClientes().toString(), "Informacion actual", JOptionPane.INFORMATION_MESSAGE);
+
+					}
+				} catch (NumberFormatException ex) {
+					JOptionPane.showMessageDialog(null, "Error: el indice debe ser un numero entero.",
+							"Error de formato", JOptionPane.ERROR_MESSAGE);
+
+				}
+			} else if (opcion.equals("Ave")) {
+
+				try {
+					int indiceUsuario = Integer.parseInt(va.getPanelEliminar().getCampoIndex().getText());
+					int indiceLista = indiceUsuario - 1;
+					if (avDAO.getListaAves().isEmpty()) {
+						JOptionPane.showMessageDialog(null, "No hay aves registradas registradas.", "lista vacia",
+								JOptionPane.WARNING_MESSAGE);
+
+					} else if (indiceLista < 0 || indiceLista >= avDAO.getListaAves().size()) {
+						JOptionPane.showMessageDialog(null,
+								"Indice invalido. Debe estar entre 1 y " + avDAO.getListaAves().size(),
+								"Indice incorrecto", JOptionPane.WARNING_MESSAGE);
+
+					} else {
+						
+					}
+				} catch (NumberFormatException ex) {
+					JOptionPane.showMessageDialog(null, "Error: el indice debe ser un numero entero.",
+							"Error de formato", JOptionPane.ERROR_MESSAGE);
+
+				}
+			} else if (opcion.equals("Mamifero")) {
+
+				try {
+					int indiceUsuario = Integer.parseInt(va.getPanelEliminar().getCampoIndex().getText());
+					int indiceLista = indiceUsuario - 1;
+					if (mDAO.getListaMamiferos().isEmpty()) {
+						JOptionPane.showMessageDialog(null, "No hay mamiferos registrados.", "lista vacia",
+								JOptionPane.WARNING_MESSAGE);
+
+					} else if (indiceLista < 0 || indiceLista >= mDAO.getListaMamiferos().size()) {
+						JOptionPane.showMessageDialog(null,
+								"Indice invalido. Debe estar entre 1 y " + mDAO.getListaMamiferos().size(),
+								"Indice incorrecto", JOptionPane.WARNING_MESSAGE);
+
+					} else {
+						
+					}
+				} catch (NumberFormatException ex) {
+					JOptionPane.showMessageDialog(null, "Error: el indice debe ser un numero entero.",
+							"Error de formato", JOptionPane.ERROR_MESSAGE);
+
+				}
+			} else if (opcion.equals("Reptil")) {
+
+				try {
+					int indiceUsuario = Integer.parseInt(va.getPanelEliminar().getCampoIndex().getText());
+					int indiceLista = indiceUsuario - 1;
+					if (rDAO.getListaReptiles().isEmpty()) {
+						JOptionPane.showMessageDialog(null, "No hay reptiles registrados.", "lista vacia",
+								JOptionPane.WARNING_MESSAGE);
+
+					} else if (indiceLista < 0 || indiceLista >= rDAO.getListaReptiles().size()) {
+						JOptionPane.showMessageDialog(null,
+								"Indice invalido. Debe estar entre 1 y " + rDAO.getListaReptiles().size(),
+								"Indice incorrecto", JOptionPane.WARNING_MESSAGE);
+
+					} else {
+						
+					}
+				} catch (NumberFormatException ex) {
+					JOptionPane.showMessageDialog(null, "Error: el indice debe ser un numero entero.",
+							"Error de formato", JOptionPane.ERROR_MESSAGE);
+
+				}
+			} else if (opcion.equals("Pez")) {
+
+				try {
+					int indiceUsuario = Integer.parseInt(va.getPanelEliminar().getCampoIndex().getText());
+					int indiceLista = indiceUsuario - 1;
+					if (pDAO.getListaPeces().isEmpty()) {
+						JOptionPane.showMessageDialog(null, "No hay peces registrados.", "lista vacia",
+								JOptionPane.WARNING_MESSAGE);
+
+					} else if (indiceLista < 0 || indiceLista >= rDAO.getListaReptiles().size()) {
+						JOptionPane.showMessageDialog(null,
+								"Indice invalido. Debe estar entre 1 y " + rDAO.getListaReptiles().size(),
+								"Indice incorrecto", JOptionPane.WARNING_MESSAGE);
+
+					} else {
+						
+					}
+				} catch (NumberFormatException ex) {
+					JOptionPane.showMessageDialog(null, "Error: el indice debe ser un numero entero.",
+							"Error de formato", JOptionPane.ERROR_MESSAGE);
+
+				}
+			} else if (opcion.equals("Juguete")) {
+
+				try {
+					int indiceUsuario = Integer.parseInt(va.getPanelEliminar().getCampoIndex().getText());
+					int indiceLista = indiceUsuario - 1;
+					if (jDAO.getListaJuguetes().isEmpty()) {
+						JOptionPane.showMessageDialog(null, "No hay juguetes creados.", "lista vacia",
+								JOptionPane.WARNING_MESSAGE);
+
+					} else if (indiceLista < 0 || indiceLista >= jDAO.getListaJuguetes().size()) {
+						JOptionPane.showMessageDialog(null,
+								"Indice invalido. Debe estar entre 1 y " + jDAO.getListaJuguetes().size(),
+								"Indice incorrecto", JOptionPane.WARNING_MESSAGE);
+
+					} else {
+						
+					}
+				} catch (NumberFormatException ex) {
+					JOptionPane.showMessageDialog(null, "Error: el indice debe ser un numero entero.",
+							"Error de formato", JOptionPane.ERROR_MESSAGE);
+
+				}
+			} else if (opcion.equals("Medicamento")) {
+
+				try {
+					int indiceUsuario = Integer.parseInt(va.getPanelEliminar().getCampoIndex().getText());
+					int indiceLista = indiceUsuario - 1;
+					if (meDAO.getListaMedicamentos().isEmpty()) {
+						JOptionPane.showMessageDialog(null, "No hay medicamentos registrados.", "lista vacia",
+								JOptionPane.WARNING_MESSAGE);
+
+					} else if (indiceLista < 0 || indiceLista >= meDAO.getListaMedicamentos().size()) {
+						JOptionPane.showMessageDialog(null,
+								"Indice invalido. Debe estar entre 1 y " + meDAO.getListaMedicamentos().size(),
+								"Indice incorrecto", JOptionPane.WARNING_MESSAGE);
+
+					} else {
+						
+					}
+				} catch (NumberFormatException ex) {
+					JOptionPane.showMessageDialog(null, "Error: el indice debe ser un numero entero.",
+							"Error de formato", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(va, "Error creando: " + e.getMessage());
+			e.printStackTrace();
+
+		}
+
 	}
- 
+
 	public void iniciar() {
 		vp.setVisible(true);
 	}

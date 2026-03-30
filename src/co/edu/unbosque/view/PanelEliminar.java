@@ -12,7 +12,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class PanelEliminar extends JPanel{
-	//seleccionar que se desea crear
 		private JButton borrar;
 		private JTextField campoIndex;
 		private JComboBox<String> opcion;
