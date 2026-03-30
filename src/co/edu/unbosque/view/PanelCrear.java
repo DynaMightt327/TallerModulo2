@@ -3,6 +3,7 @@ package co.edu.unbosque.view;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -135,6 +136,9 @@ public class PanelCrear extends JPanel{
 	private JComboBox<String> tTipoJuguete;
 	private JComboBox<String> tGarantia;
 	
+	private JPanel opcionInvalida;
+	private JButton aceptar;
+	
 	public PanelCrear() {
 		initComps();
 		setVisible(false);
@@ -144,6 +148,28 @@ public class PanelCrear extends JPanel{
 		this.setBounds(115, 217, 780, 375);
 		this.setLayout(null);
 		this.setBackground(Color.decode("#80665c"));
+		
+		opcionInvalida = new JPanel();
+		opcionInvalida.setBounds(310, 15, 250, 350);
+		opcionInvalida.setBackground(Color.decode("#80665c"));
+		opcionInvalida.setLayout(null);
+		opcionInvalida.setVisible(false);
+		add(opcionInvalida);
+		
+		ImageIcon imageLogo = new ImageIcon(getClass().getResource("warning.JPG"));
+		JLabel lIcon = new JLabel(imageLogo);
+		lIcon.setBounds(0, -80, 250, 450);
+		opcionInvalida.add(lIcon);
+		
+		aceptar = new JButton("ACEPTAR");
+		aceptar.setBounds(75, 310, 110, 30);
+		aceptar.setBorderPainted(false);
+		aceptar.setLayout(null);
+		aceptar.setFont(new Font("Georgia", Font.BOLD, 12));
+		aceptar.setBackground(Color.decode("#e1c8ad"));
+		aceptar.setForeground(Color.black);
+		opcionInvalida.add(aceptar);
+		
 		
 		tipo = new JLabel("Seleccione que desea crear:");
 		tipo.setBounds(20, 15, 300, 30);
@@ -946,6 +972,23 @@ public class PanelCrear extends JPanel{
 		tEsClienteNuevo.setBorder(null);
 		add(tEsClienteNuevo);
 
+	}
+
+	
+	public JButton getAceptar() {
+		return aceptar;
+	}
+
+	public void setAceptar(JButton aceptar) {
+		this.aceptar = aceptar;
+	}
+
+	public JPanel getOpcionInvalida() {
+		return opcionInvalida;
+	}
+
+	public void setOpcionInvalida(JPanel opcionInvalida) {
+		this.opcionInvalida = opcionInvalida;
 	}
 
 	public JLabel getTipo() {

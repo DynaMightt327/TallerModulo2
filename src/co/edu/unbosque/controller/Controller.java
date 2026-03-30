@@ -34,8 +34,6 @@ import co.edu.unbosque.view.VentanaCliente;
 import co.edu.unbosque.view.VentanaPrincipal;
 import co.edu.unbosque.view.VentanaVet;
 
-
-
 public class Controller implements ActionListener {
 
 	private VentanaPrincipal vp;
@@ -95,10 +93,10 @@ public class Controller implements ActionListener {
 
 		va.getMostrar().addActionListener(this);
 		va.getMostrar().setActionCommand("mostrar_en_admin");
-		
+
 		va.getPanelMostrar().getCmbTipo().addActionListener(this);
 		va.getPanelMostrar().getCmbTipo().setActionCommand("cmb_tipo_mostrar_admin");
-		
+
 		va.getPanelMostrar().getCmbPersona().addActionListener(this);
 		va.getPanelMostrar().getCmbPersona().setActionCommand("cmb_persona_mostrar_admin");
 
@@ -110,16 +108,16 @@ public class Controller implements ActionListener {
 
 		va.getPanelCrear().getCmbTipo().addActionListener(this);
 		va.getPanelCrear().getCmbTipo().setActionCommand("cmb_tipo_crear_admin");
-		
+
 		va.getPanelCrear().getCmbPersona().addActionListener(this);
 		va.getPanelCrear().getCmbPersona().setActionCommand("cmb_persona_crear_admin");
-		
+
 		va.getPanelCrear().getCmbMascota().addActionListener(this);
 		va.getPanelCrear().getCmbMascota().setActionCommand("cmb_mascota_crear_admin");
-		
+
 		va.getPanelCrear().getCmbProducto().addActionListener(this);
 		va.getPanelCrear().getCmbProducto().setActionCommand("cmb_producto_crear_admin");
-		
+
 		va.getPanelCrear().getGuardar().addActionListener(this);
 		va.getPanelCrear().getGuardar().setActionCommand("guardar_objeto_admin");
 
@@ -139,7 +137,7 @@ public class Controller implements ActionListener {
 		// ========CLIENTE=========
 		vc.getMostrar().addActionListener(this);
 		vc.getMostrar().setActionCommand("mostrar_en_cliente");
-		
+
 		va.getPanelMostrar().getCmbMascota().addActionListener(this);
 		va.getPanelMostrar().getCmbMascota().setActionCommand("cmb_mascota_mostrar_admin");
 
@@ -195,7 +193,7 @@ public class Controller implements ActionListener {
 			actualizarPorTipo();
 			break;
 		}
-		
+
 		case "cmb_persona_crear_admin": {
 			actualizarPorPersona();
 			break;
@@ -342,7 +340,6 @@ public class Controller implements ActionListener {
 
 			break;
 		}
-		
 
 		case "cmb_producto_mostrar_admin": {
 			hacerVisibleScrollSegunCmbProducto();
@@ -372,7 +369,6 @@ public class Controller implements ActionListener {
 			break;
 		}
 
-		
 		case "actualizar_en_admin": {
 			va.getPanelCrear().setVisible(false);
 			va.getPanelMostrar().setVisible(false);
@@ -385,6 +381,7 @@ public class Controller implements ActionListener {
 			va.getPanelMostrar().setVisible(false);
 			va.getPanelActualizar().setVisible(false);
 			va.getPanelEliminar().setVisible(true);
+			eliminarSegunSeleccion();
 			break;
 		}
 		case "crear_en_vet": {
@@ -420,15 +417,15 @@ public class Controller implements ActionListener {
 			vc.getPanelMostrar().setVisible(true);
 			break;
 		}
+
 		default:
 			break;
 		}
 
 	}
 
-	
 	public void ocultarCampos() {
-		
+
 		va.getPanelCrear().getPersona().setVisible(false);
 		va.getPanelCrear().getCmbPersona().setVisible(false);
 		va.getPanelCrear().getMascota().setVisible(false);
@@ -551,15 +548,15 @@ public class Controller implements ActionListener {
 		va.getPanelCrear().gettTemperaturaCorporal().setVisible(false);
 		va.getPanelCrear().getProfundidadMaxima().setVisible(false);
 		va.getPanelCrear().gettProfundidadMaxima().setVisible(false);
-		
+
 		va.getPanelCrear().revalidate();
 		va.getPanelCrear().repaint();
-		
+
 	}
-	
+
 	public void actualizarPorTipo() {
 		String tipo = (String) va.getPanelCrear().getCmbTipo().getSelectedItem();
-		
+
 		ocultarCampos();
 		if (tipo.equals("...")) {
 			return;
@@ -579,12 +576,12 @@ public class Controller implements ActionListener {
 			va.getPanelCrear().gettTelefono().setVisible(true);
 			va.getPanelCrear().getPersona().setVisible(true);
 			va.getPanelCrear().getCmbPersona().setVisible(true);
-			
+
 		}
 		if (tipo.equals("Mascota")) {
 			va.getPanelCrear().getMascota().setVisible(true);
 			va.getPanelCrear().getCmbMascota().setVisible(true);
-			
+
 			va.getPanelCrear().getNombre().setVisible(true);
 			va.getPanelCrear().gettNombre().setVisible(true);
 			va.getPanelCrear().getEspecie().setVisible(true);
@@ -599,87 +596,87 @@ public class Controller implements ActionListener {
 			va.getPanelCrear().gettAltura().setVisible(true);
 			va.getPanelCrear().getEdad().setVisible(true);
 			va.getPanelCrear().gettEdad().setVisible(true);
-			
+
 		}
 		if (tipo.equals("Producto")) {
 			va.getPanelCrear().getProducto().setVisible(true);
 			va.getPanelCrear().getCmbProducto().setVisible(true);
-			
+
 			va.getPanelCrear().getMarca().setVisible(true);
 			va.getPanelCrear().gettMarca().setVisible(true);
 			va.getPanelCrear().getPrecio().setVisible(true);
 			va.getPanelCrear().gettPrecio().setVisible(true);
 			va.getPanelCrear().getIdProducto().setVisible(true);
 			va.getPanelCrear().gettIdProducto().setVisible(true);
-		
+
 		}
-		
+
 		va.getPanelCrear().revalidate();
 		va.getPanelCrear().repaint();
 	}
-	
+
 	public void actualizarPorPersona() {
 		String persona = (String) va.getPanelCrear().getCmbPersona().getSelectedItem();
-		
+
 		ocultarCampoPersona();
-		if(persona == null || persona.equals("...")) {
+		if (persona == null || persona.equals("...")) {
 			return;
 		}
-		if(persona.equals("Veterinario")) {
+		if (persona.equals("Veterinario")) {
 			va.getPanelCrear().getCargo().setVisible(true);
 			va.getPanelCrear().gettCargo().setVisible(true);
-			
+
 			va.getPanelCrear().getSalario().setVisible(true);
 			va.getPanelCrear().gettSalario().setVisible(true);
-			
+
 			va.getPanelCrear().getHorario().setVisible(true);
 			va.getPanelCrear().gettHorario().setVisible(true);
-			
+
 			va.getPanelCrear().getNumLicencia().setVisible(true);
 			va.getPanelCrear().gettNumLicencia().setVisible(true);
-			
+
 		}
-		if(persona.equals("Administrativo")) {
-			
+		if (persona.equals("Administrativo")) {
+
 			va.getPanelCrear().getSalario().setVisible(true);
 			va.getPanelCrear().gettSalario().setVisible(true);
-			
+
 			va.getPanelCrear().getAreaAsignada().setVisible(true);
 			va.getPanelCrear().gettAreaAsignada().setVisible(true);
-			
+
 			va.getPanelCrear().getHorario().setVisible(true);
 			va.getPanelCrear().gettHorario().setVisible(true);
-			
+
 			va.getPanelCrear().getNumEmpleado().setVisible(true);
 			va.getPanelCrear().gettNumEmpleado().setVisible(true);
-			
+
 		}
-		if(persona.equals("Cliente")) {
-			
+		if (persona.equals("Cliente")) {
+
 			va.getPanelCrear().getNombreMascota().setVisible(true);
 			va.getPanelCrear().gettNombreMascota().setVisible(true);
-			
+
 			va.getPanelCrear().getRazonVisita().setVisible(true);
 			va.getPanelCrear().gettRazonVisita().setVisible(true);
-			
+
 			va.getPanelCrear().getEsClienteNuevo().setVisible(true);
 			va.getPanelCrear().gettEsClienteNuevo().setVisible(true);
-			
+
 		}
-		
+
 		va.getPanelCrear().revalidate();
 		va.getPanelCrear().repaint();
 	}
-	
+
 	public void actualizarPorMascota() {
 		String mascota = (String) va.getPanelCrear().getCmbMascota().getSelectedItem();
 		ocultarCampoMascota();
-		
-		if(mascota == null || mascota.equals("...")) {
+
+		if (mascota == null || mascota.equals("...")) {
 			return;
 		}
-		if(mascota.equals("Ave")) {
-			
+		if (mascota.equals("Ave")) {
+
 			va.getPanelCrear().getFormaPata().setVisible(true);
 			va.getPanelCrear().gettFormaPata().setVisible(true);
 			va.getPanelCrear().getColorPluma().setVisible(true);
@@ -690,10 +687,10 @@ public class Controller implements ActionListener {
 			va.getPanelCrear().gettTamanoPico().setVisible(true);
 			va.getPanelCrear().getEsMigratoria().setVisible(true);
 			va.getPanelCrear().gettEsMigratoria().setVisible(true);
-			
+
 		}
-		if(mascota.equals("Mamífero")) {
-			
+		if (mascota.equals("Mamífero")) {
+
 			va.getPanelCrear().getCantidadPelaje().setVisible(true);
 			va.getPanelCrear().gettCantidadPelaje().setVisible(true);
 			va.getPanelCrear().getColorPelaje().setVisible(true);
@@ -704,10 +701,10 @@ public class Controller implements ActionListener {
 			va.getPanelCrear().gettNumeroDiente().setVisible(true);
 			va.getPanelCrear().getMedioDesplazamiento().setVisible(true);
 			va.getPanelCrear().gettMedioDesplazamiento().setVisible(true);
-			
+
 		}
-		if(mascota.equals("Pez")) {
-			
+		if (mascota.equals("Pez")) {
+
 			va.getPanelCrear().getTipoAgua().setVisible(true);
 			va.getPanelCrear().gettTipoAgua().setVisible(true);
 			va.getPanelCrear().getColorEscama().setVisible(true);
@@ -718,10 +715,10 @@ public class Controller implements ActionListener {
 			va.getPanelCrear().gettNumeroAleta().setVisible(true);
 			va.getPanelCrear().getProfundidadMaxima().setVisible(true);
 			va.getPanelCrear().gettProfundidadMaxima().setVisible(true);
-			
+
 		}
-		if(mascota.equals("Reptil")) {
-			
+		if (mascota.equals("Reptil")) {
+
 			va.getPanelCrear().getTipoDiente().setVisible(true);
 			va.getPanelCrear().gettTipoDiente().setVisible(true);
 			va.getPanelCrear().getTipoDesplazamiento().setVisible(true);
@@ -732,22 +729,22 @@ public class Controller implements ActionListener {
 			va.getPanelCrear().gettEsVenenoso().setVisible(true);
 			va.getPanelCrear().getEsEctoformo().setVisible(true);
 			va.getPanelCrear().gettEsEctoformo().setVisible(true);
-			
+
 		}
 		va.getPanelCrear().revalidate();
 		va.getPanelCrear().repaint();
-		
+
 	}
-	
+
 	public void actualizarPorProducto() {
 		String producto = (String) va.getPanelCrear().getCmbProducto().getSelectedItem();
 		ocultarCampoProducto();
-		
-		if(producto == null || producto.equals("...")) {
+
+		if (producto == null || producto.equals("...")) {
 			return;
 		}
-		if(producto.equals("Medicamento")) {
-			
+		if (producto.equals("Medicamento")) {
+
 			va.getPanelCrear().getNombreComercial().setVisible(true);
 			va.getPanelCrear().gettNombreComercial().setVisible(true);
 			va.getPanelCrear().getNombreCientifico().setVisible(true);
@@ -758,10 +755,10 @@ public class Controller implements ActionListener {
 			va.getPanelCrear().gettEstaDisponible().setVisible(true);
 			va.getPanelCrear().getDosis().setVisible(true);
 			va.getPanelCrear().gettDosis().setVisible(true);
-			
+
 		}
-		if(producto.equals("Juguete")) {
-			
+		if (producto.equals("Juguete")) {
+
 			va.getPanelCrear().getNombre().setVisible(true);
 			va.getPanelCrear().gettNombre().setVisible(true);
 			va.getPanelCrear().getColor().setVisible(true);
@@ -770,44 +767,44 @@ public class Controller implements ActionListener {
 			va.getPanelCrear().gettTipoJuguete().setVisible(true);
 			va.getPanelCrear().getGarantia().setVisible(true);
 			va.getPanelCrear().gettGarantia().setVisible(true);
-			
+
 		}
-		
+
 		va.getPanelCrear().revalidate();
 		va.getPanelCrear().repaint();
-		
+
 	}
-	
+
 	public void ocultarCampoPersona() {
-        va.getPanelCrear().getCargo().setVisible(false);
-        va.getPanelCrear().gettCargo().setVisible(false);
+		va.getPanelCrear().getCargo().setVisible(false);
+		va.getPanelCrear().gettCargo().setVisible(false);
 
-        va.getPanelCrear().getSalario().setVisible(false);
-        va.getPanelCrear().gettSalario().setVisible(false);
+		va.getPanelCrear().getSalario().setVisible(false);
+		va.getPanelCrear().gettSalario().setVisible(false);
 
-        va.getPanelCrear().getHorario().setVisible(false);
-        va.getPanelCrear().gettHorario().setVisible(false);
+		va.getPanelCrear().getHorario().setVisible(false);
+		va.getPanelCrear().gettHorario().setVisible(false);
 
-        va.getPanelCrear().getNumLicencia().setVisible(false);
-        va.getPanelCrear().gettNumLicencia().setVisible(false);
+		va.getPanelCrear().getNumLicencia().setVisible(false);
+		va.getPanelCrear().gettNumLicencia().setVisible(false);
 
-        va.getPanelCrear().getAreaAsignada().setVisible(false);
-        va.getPanelCrear().gettAreaAsignada().setVisible(false);
+		va.getPanelCrear().getAreaAsignada().setVisible(false);
+		va.getPanelCrear().gettAreaAsignada().setVisible(false);
 
-        va.getPanelCrear().getNumEmpleado().setVisible(false);
-        va.getPanelCrear().gettNumEmpleado().setVisible(false);
+		va.getPanelCrear().getNumEmpleado().setVisible(false);
+		va.getPanelCrear().gettNumEmpleado().setVisible(false);
 
-        va.getPanelCrear().getNombreMascota().setVisible(false);
-        va.getPanelCrear().gettNombreMascota().setVisible(false);
+		va.getPanelCrear().getNombreMascota().setVisible(false);
+		va.getPanelCrear().gettNombreMascota().setVisible(false);
 
-        va.getPanelCrear().getRazonVisita().setVisible(false);
-        va.getPanelCrear().gettRazonVisita().setVisible(false);
+		va.getPanelCrear().getRazonVisita().setVisible(false);
+		va.getPanelCrear().gettRazonVisita().setVisible(false);
 
-        va.getPanelCrear().getEsClienteNuevo().setVisible(false);
-        va.getPanelCrear().gettEsClienteNuevo().setVisible(false);
+		va.getPanelCrear().getEsClienteNuevo().setVisible(false);
+		va.getPanelCrear().gettEsClienteNuevo().setVisible(false);
 
-    }
-	
+	}
+
 	public void ocultarCampoMascota() {
 
 		va.getPanelCrear().getFormaPata().setVisible(false);
@@ -853,9 +850,9 @@ public class Controller implements ActionListener {
 		va.getPanelCrear().gettEsEctoformo().setVisible(false);
 
 	}
-	
+
 	public void ocultarCampoProducto() {
-		
+
 		va.getPanelCrear().getNombreComercial().setVisible(false);
 		va.getPanelCrear().gettNombreComercial().setVisible(false);
 		va.getPanelCrear().getNombreCientifico().setVisible(false);
@@ -866,7 +863,7 @@ public class Controller implements ActionListener {
 		va.getPanelCrear().gettEstaDisponible().setVisible(false);
 		va.getPanelCrear().getDosis().setVisible(false);
 		va.getPanelCrear().gettDosis().setVisible(false);
-		
+
 		va.getPanelCrear().getNombre().setVisible(false);
 		va.getPanelCrear().gettNombre().setVisible(false);
 		va.getPanelCrear().getColor().setVisible(false);
@@ -875,18 +872,18 @@ public class Controller implements ActionListener {
 		va.getPanelCrear().gettTipoJuguete().setVisible(false);
 		va.getPanelCrear().getGarantia().setVisible(false);
 		va.getPanelCrear().gettGarantia().setVisible(false);
-		
+
 	}
-	
+
 	public void guardarSegunTipo() {
 		String tipo = (String) va.getPanelCrear().getCmbTipo().getSelectedItem();
-		
-		if(tipo == null || tipo.equals("...")) {
+
+		if (tipo == null || tipo.equals("...")) {
 			JOptionPane.showMessageDialog(va, "Debe seleccionar un tipo (Persona/Mascota/Producto)");
 			return;
 		}
 		try {
-			if(tipo.equals("Persona")) {
+			if (tipo.equals("Persona")) {
 
 				String nombre = va.getPanelCrear().gettNombre().getText();
 				String apellido = va.getPanelCrear().gettApellido().getText();
@@ -897,37 +894,40 @@ public class Controller implements ActionListener {
 				double documento = Double.parseDouble(va.getPanelCrear().gettDocumento().getText());
 				String correo = va.getPanelCrear().gettCorreo().getText();
 				double telefono = Double.parseDouble(va.getPanelCrear().gettTelefono().getText());
-				
+
 				String tipoPersona = (String) va.getPanelCrear().getCmbPersona().getSelectedItem();
-				
-				if(tipoPersona.equals("Cliente")) {
+
+				if (tipoPersona.equals("Cliente")) {
 					String nombreMascota = va.getPanelCrear().gettNombreMascota().getText();
 					String razonVisita = va.getPanelCrear().gettRazonVisita().getText();
 
 					String s = String.valueOf(va.getPanelCrear().gettEsClienteNuevo().getSelectedItem());
 					boolean esClienteNuevo = s.equalsIgnoreCase("si") || s.equalsIgnoreCase("sí")
 							|| s.equalsIgnoreCase("true");
-					
-					cDAO.crear(new Cliente(nombre, apellido, genero, documento, correo, telefono, nombreMascota, razonVisita, esClienteNuevo));
+
+					cDAO.crear(new Cliente(nombre, apellido, genero, documento, correo, telefono, nombreMascota,
+							razonVisita, esClienteNuevo));
 				}
-				if(tipoPersona.equals("Veterinario")) {
+				if (tipoPersona.equals("Veterinario")) {
 					String cargo = (String) va.getPanelCrear().gettCargo().getSelectedItem();
 					float salario = (float) Float.parseFloat(va.getPanelCrear().gettSalario().getText());
 					int horaTrabajo = (int) Integer.parseInt(va.getPanelCrear().gettHoraTrabajo().getText());
 					double numLicencia = (double) Double.parseDouble(va.getPanelCrear().getNumLicencia().getText());
-					
-					vDAO.crear(new Veterinario(nombre, apellido, genero, documento, correo, telefono, cargo, salario, horaTrabajo, numLicencia));
+
+					vDAO.crear(new Veterinario(nombre, apellido, genero, documento, correo, telefono, cargo, salario,
+							horaTrabajo, numLicencia));
 				}
-				if(tipoPersona.equals("Administrativo")) {
+				if (tipoPersona.equals("Administrativo")) {
 					float salario = (float) Float.parseFloat(va.getPanelCrear().gettSalario().getText());
 					String areaAsignada = (String) va.getPanelCrear().gettAreaAsignada().getSelectedItem();
 					String horario = (String) va.getPanelCrear().gettHorario().getSelectedItem();
-					
-					aDAO.crear(new Administrativo(nombre, apellido, genero, documento, correo, telefono, salario, areaAsignada, horario, genero));
-					
+
+					aDAO.crear(new Administrativo(nombre, apellido, genero, documento, correo, telefono, salario,
+							areaAsignada, horario, genero));
+
 				}
-				
-			} else if(tipo.equals("Mascota")) {
+
+			} else if (tipo.equals("Mascota")) {
 				String nombre = va.getPanelCrear().gettNombre().getText();
 				String especie = (String) va.getPanelCrear().getCmbMascota().getSelectedItem();
 				String habitat = va.getPanelCrear().gettHabitat().getText();
@@ -935,79 +935,87 @@ public class Controller implements ActionListener {
 				float peso = (float) Float.parseFloat(va.getPanelCrear().gettPeso().getText());
 				float altura = (float) Float.parseFloat(va.getPanelCrear().gettAltura().getText());
 				int edad = (int) Integer.parseInt(va.getPanelCrear().gettEdad().getText());
-				
+
 				String tipoMascota = (String) va.getPanelCrear().getCmbMascota().getSelectedItem();
-				
-				if(tipoMascota.equals("Ave")) {
+
+				if (tipoMascota.equals("Ave")) {
 					String formaPata = (String) va.getPanelCrear().gettFormaPata().getSelectedItem();
 					String colorPluma = (String) va.getPanelCrear().gettColorPluma().getText();
 					int cantidadHuevo = (int) Integer.parseInt(va.getPanelCrear().gettCantidadHuevo().getText());
 					String tamanoPico = (String) va.getPanelCrear().gettTamanoPico().getText();
 					boolean esMigratoria = (boolean) va.getPanelCrear().gettEsMigratoria().getSelectedItem();
-					
-					avDAO.crear(new Ave(nombre, especie, habitat, tipoAlimento, peso, altura, edad, formaPata, colorPluma, cantidadHuevo, tamanoPico, esMigratoria));
+
+					avDAO.crear(new Ave(nombre, especie, habitat, tipoAlimento, peso, altura, edad, formaPata,
+							colorPluma, cantidadHuevo, tamanoPico, esMigratoria));
 				}
-				if(tipoMascota.equals("Mamífero")) {
+				if (tipoMascota.equals("Mamífero")) {
 					String cantidadPelaje = (String) va.getPanelCrear().gettCantidadPelaje().getSelectedItem();
 					String colorPelaje = (String) va.getPanelCrear().gettColorPelaje().getText();
 					String tipoDiente = (String) va.getPanelCrear().gettTipoDiente().getSelectedItem();
 					int numeroDiente = (int) Integer.parseInt(va.getPanelCrear().gettNumeroDiente().getText());
-					String medioDesplazamiento = (String) va.getPanelCrear().gettMedioDesplazamiento().getSelectedItem();
-					
-					mDAO.crear(new Mamifero(especie, especie, habitat, tipoAlimento, peso, altura, edad, cantidadPelaje, colorPelaje, tipoDiente, numeroDiente, medioDesplazamiento));
+					String medioDesplazamiento = (String) va.getPanelCrear().gettMedioDesplazamiento()
+							.getSelectedItem();
+
+					mDAO.crear(new Mamifero(especie, especie, habitat, tipoAlimento, peso, altura, edad, cantidadPelaje,
+							colorPelaje, tipoDiente, numeroDiente, medioDesplazamiento));
 				}
-				if(tipoMascota.equals("Reptil")) {
+				if (tipoMascota.equals("Reptil")) {
 					String tipoDesplazamiento = (String) va.getPanelCrear().gettTipoDesplazamiento().getSelectedItem();
 					String tipoDiente = (String) va.getPanelCrear().gettTipoDesplazamiento().getSelectedItem();
-					float temperaturacorporal = (float) Float.parseFloat(va.getPanelCrear().gettTemperaturaCorporal().getText());
+					float temperaturacorporal = (float) Float
+							.parseFloat(va.getPanelCrear().gettTemperaturaCorporal().getText());
 					boolean esVenenoso = (boolean) va.getPanelCrear().gettEsVenenoso().getSelectedItem();
 					boolean esEctoformo = (boolean) va.getPanelCrear().gettEsEctoformo().getSelectedItem();
-					
-					rDAO.crear(new Reptil(nombre, especie, habitat, tipoAlimento, peso, altura, edad, tipoDesplazamiento, tipoDiente, temperaturacorporal, esVenenoso, esEctoformo));
+
+					rDAO.crear(new Reptil(nombre, especie, habitat, tipoAlimento, peso, altura, edad,
+							tipoDesplazamiento, tipoDiente, temperaturacorporal, esVenenoso, esEctoformo));
 				}
-				if(tipoMascota.equals("Pez")) {
+				if (tipoMascota.equals("Pez")) {
 					String tipoAgua = (String) va.getPanelCrear().gettTipoAgua().getSelectedItem();
 					String colorEscama = (String) va.getPanelCrear().gettColorEscama().getText();
 					String tipoRespiracion = (String) va.getPanelCrear().gettTipoRespiracion().getSelectedItem();
 					int numeroAleta = (int) Integer.parseInt(va.getPanelCrear().gettNumeroAleta().getText());
-					double profundidadMaxima = (double) Double.parseDouble(va.getPanelCrear().gettProfundidadMaxima().getText());
-				
-					pDAO.crear(new Pez(nombre, especie, habitat, tipoAlimento, peso, altura, edad, tipoAgua, colorEscama, tipoRespiracion, numeroAleta, profundidadMaxima));
+					double profundidadMaxima = (double) Double
+							.parseDouble(va.getPanelCrear().gettProfundidadMaxima().getText());
+
+					pDAO.crear(new Pez(nombre, especie, habitat, tipoAlimento, peso, altura, edad, tipoAgua,
+							colorEscama, tipoRespiracion, numeroAleta, profundidadMaxima));
 				}
-				
-			} else if(tipo.equals("Producto")) {
+
+			} else if (tipo.equals("Producto")) {
 				String marca = va.getPanelCrear().gettMarca().getText();
 				float precio = (float) Float.parseFloat(va.getPanelCrear().gettPrecio().getText());
 				int idProducto = (int) Integer.parseInt(va.getPanelCrear().gettIdProducto().getText());
-				
+
 				String tipoProducto = (String) va.getPanelCrear().getCmbProducto().getSelectedItem();
-				if(tipoProducto.equals("Juguete")) {
+				if (tipoProducto.equals("Juguete")) {
 					String nombre = (String) va.getPanelCrear().gettNombre().getText();
 					String color = (String) va.getPanelCrear().gettColor().getText();
 					String tipoJuguete = (String) va.getPanelCrear().gettTipoJuguete().getSelectedItem();
 					String garantia = (String) va.getPanelCrear().gettGarantia().getSelectedItem();
-					
+
 					jDAO.crear(new Juguete(marca, precio, idProducto, nombre, color, tipoJuguete, garantia));
 				}
-				if(tipoProducto.equals("Medicamento")) {
+				if (tipoProducto.equals("Medicamento")) {
 					String nombreComercial = (String) va.getPanelCrear().gettNombreComercial().getText();
 					String nombreCientifico = (String) va.getPanelCrear().gettNombreCientifico().getText();
 					String fechaCaducidad = (String) va.getPanelCrear().gettFechaCaducidad().getText();
 					boolean estaDisponible = (boolean) va.getPanelCrear().gettEstaDisponible().getSelectedItem();
 					float dosis = (float) Float.parseFloat(va.getPanelCrear().gettDosis().getText());
-					
-					meDAO.crear(new Medicamento(marca, precio, idProducto, nombreComercial, nombreCientifico, fechaCaducidad, estaDisponible, dosis));
+
+					meDAO.crear(new Medicamento(marca, precio, idProducto, nombreComercial, nombreCientifico,
+							fechaCaducidad, estaDisponible, dosis));
 				}
 			}
-			
+
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(va, "Error creando: " + e.getMessage());
 			e.printStackTrace();
 
 		}
-		
+
 	}
-	
+
 	private void hacerVisibleScrollSegunCmbPersona() {
 
 		String persona = String.valueOf(va.getPanelMostrar().getCmbPersona().getSelectedItem());
@@ -1042,14 +1050,14 @@ public class Controller implements ActionListener {
 				sp.setVisible(esElCorrecto);
 
 			} catch (ClassCastException ex) {
-				
+
 			}
 		}
 
 		va.getPanelMostrar().revalidate();
 		va.getPanelMostrar().repaint();
 	}
-	
+
 	private void hacerVisibleScrollSegunCmbMascota() {
 		String mascota = String.valueOf(va.getPanelMostrar().getCmbMascota().getSelectedItem());
 		JTable tablaObjetivo = null;
@@ -1086,7 +1094,7 @@ public class Controller implements ActionListener {
 		va.getPanelMostrar().revalidate();
 		va.getPanelMostrar().repaint();
 	}
-	
+
 	private void hacerVisibleScrollSegunCmbProducto() {
 		String prod = String.valueOf(va.getPanelMostrar().getCmbProducto().getSelectedItem());
 		JTable tablaObjetivo = null;
@@ -1119,7 +1127,66 @@ public class Controller implements ActionListener {
 		va.getPanelMostrar().revalidate();
 		va.getPanelMostrar().repaint();
 	}
-	
+
+	private void eliminarSegunSeleccion() {
+		String opcion = (String) va.getPanelEliminar().getOpcion().getSelectedItem();
+		if(opcion == null || opcion.equals("...")) {
+			JOptionPane.showMessageDialog(va, "No puede dejar el campo vacío, seleccione una opcion");
+			return;
+		}
+		try {
+			if(opcion.equals("Administrativo")) {
+				try {
+					int indiceUsuario = Integer.parseInt(va.getPanelEliminar().getCampoIndex().getText());
+					int indiceLista = indiceUsuario - 1;
+					if(aDAO.getListaAdmins().isEmpty()) {
+						JOptionPane.showMessageDialog(null, "No hay anchetas dulces registradas.", "lista vacia", JOptionPane.WARNING_MESSAGE);
+						
+					}else if(indiceLista < 0 || indiceLista >= aDAO.getListaAdmins().size()) {
+						JOptionPane.showMessageDialog(null, "Indice invalido. Debe estar entre 1 y " + aDAO.getListaAdmins().size(), "Indice incorrecto", JOptionPane.WARNING_MESSAGE);
+						
+					}else {
+						Administrativo eliminada = aDAO.getListaAdmins().remove(indiceLista);
+						JOptionPane.showMessageDialog(null, "Ancheta dulce eliminada:\n\n" + eliminada.toString(), "Eliminacion exitosa", JOptionPane.INFORMATION_MESSAGE);
+					}
+				} catch (NumberFormatException ex) {
+					JOptionPane.showMessageDialog(null, "Error: el indice debe ser un numero entero.", "Error de formato", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			else if(opcion.equals("Veterinario")) {
+				
+			} 
+			else if(opcion.equals("Cliente")) {
+				
+			} 
+			else if(opcion.equals("Ave")) {
+				
+			} 
+			else if(opcion.equals("Mamifero")) {
+			
+			} 
+			else if(opcion.equals("Reptil")) {
+			
+			}
+			else if(opcion.equals("Pez")) {
+				
+			}
+			else if(opcion.equals("Juguete")) {
+				
+			}
+			else if(opcion.equals("Medicamento")) {
+				
+			}
+	}catch(
+	Exception e)
+	{
+		JOptionPane.showMessageDialog(va, "Error creando: " + e.getMessage());
+		e.printStackTrace();
+
+	}
+
+	}
+
 	public void iniciar() {
 		vp.setVisible(true);
 	}
