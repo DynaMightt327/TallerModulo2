@@ -121,6 +121,9 @@ public class Controller implements ActionListener {
 		va.getPanelCrear().getGuardar().addActionListener(this);
 		va.getPanelCrear().getGuardar().setActionCommand("guardar_objeto_admin");
 
+		va.getPanelActualizar().getBorrar().addActionListener(this);
+		va.getPanelActualizar().getBorrar().setActionCommand("actualizar_objeto_admin");
+
 		// =========VETERINARIO========
 		vv.getCrear().addActionListener(this);
 		vv.getCrear().setActionCommand("crear_en_vet");
@@ -386,6 +389,10 @@ public class Controller implements ActionListener {
 			va.getPanelMostrar().setVisible(false);
 			va.getPanelActualizar().setVisible(true);
 			va.getPanelEliminar().setVisible(false);
+			break;
+		}
+		case "actualizar_objeto_admin": {
+			actualizarSegunEleccion();
 			break;
 		}
 		case "eliminar_en_admin": {
@@ -1400,25 +1407,34 @@ public class Controller implements ActionListener {
 
 					} else {
 						Administrativo actualizado = aDAO.getListaAdmins().get(indiceLista);
-						JOptionPane.showMessageDialog(null, "Administrativo a actualizar: (posicion" + indiceUsuario + "):\n\n" + aDAO.getListaAdmins().toString(), "Informacion actual", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null,
+								"Administrativo a actualizar: (posicion" + indiceUsuario + "):\n\n"
+										+ aDAO.getListaAdmins().toString(),
+								"Informacion actual", JOptionPane.INFORMATION_MESSAGE);
 
 						String nuevoNombre = JOptionPane.showInputDialog(null, "Nombre:", actualizado.getNombre());
-						String nuevoApellido = JOptionPane.showInputDialog(null, "Apellido:", actualizado.getApellido());
+						String nuevoApellido = JOptionPane.showInputDialog(null, "Apellido:",
+								actualizado.getApellido());
 						String nuevoGeneroStr = JOptionPane.showInputDialog(null, "Género:", actualizado.getGenero());
-						String nuevoDocumentoStr = JOptionPane.showInputDialog(null, "Documento:",actualizado.getDocumento());
-						String nuevoCorreo = JOptionPane.showInputDialog(null, "Correo:",actualizado.getCorreo());
-						String nuevoTelefonoStr = JOptionPane.showInputDialog(null, "Telefono:",actualizado.getTelefono());
-						String nuevoSalarioStr = JOptionPane.showInputDialog(null, "Salario:",actualizado.getSalario());
-						String nuevaAreaAsignada = JOptionPane.showInputDialog(null, "Area asignada:",actualizado.getAreaAsignada());
-						String nuevoHorario = JOptionPane.showInputDialog(null, "Horario:",actualizado.getHorario());
-						String nuevoNumEmpleadoStr = JOptionPane.showInputDialog(null, "Numero de empleados:",actualizado.getNumEmpleado());
-					
+						String nuevoDocumentoStr = JOptionPane.showInputDialog(null, "Documento:",
+								actualizado.getDocumento());
+						String nuevoCorreo = JOptionPane.showInputDialog(null, "Correo:", actualizado.getCorreo());
+						String nuevoTelefonoStr = JOptionPane.showInputDialog(null, "Telefono:",
+								actualizado.getTelefono());
+						String nuevoSalarioStr = JOptionPane.showInputDialog(null, "Salario:",
+								actualizado.getSalario());
+						String nuevaAreaAsignada = JOptionPane.showInputDialog(null, "Area asignada:",
+								actualizado.getAreaAsignada());
+						String nuevoHorario = JOptionPane.showInputDialog(null, "Horario:", actualizado.getHorario());
+						String nuevoNumEmpleadoStr = JOptionPane.showInputDialog(null, "Numero de empleados:",
+								actualizado.getNumEmpleado());
+
 						double nuevoDocumento = Double.parseDouble(nuevoDocumentoStr);
 						double nuevoTelefono = Double.parseDouble(nuevoTelefonoStr);
 						float nuevoSalario = Float.parseFloat(nuevoSalarioStr);
 						char nuevoGenero = nuevoGeneroStr.charAt(0);
 						int numEmpleado = Integer.parseInt(nuevoNumEmpleadoStr);
-						
+
 						actualizado.setNombre(nuevoNombre);
 						actualizado.setApellido(nuevoApellido);
 						actualizado.setGenero(nuevoGenero);
@@ -1429,8 +1445,10 @@ public class Controller implements ActionListener {
 						actualizado.setAreaAsignada(nuevaAreaAsignada);
 						actualizado.setHorario(nuevoHorario);
 						actualizado.setNumEmpleado(numEmpleado);
-						JOptionPane.showMessageDialog(null, "Administrativo actualizado:\n\n" + actualizado.toString(), "Actualizacion exitosa", JOptionPane.INFORMATION_MESSAGE);	
-						
+						aDAO.actualizar(indiceLista, actualizado);
+						JOptionPane.showMessageDialog(null, "Administrativo actualizado:\n\n" + actualizado.toString(),
+								"Actualizacion exitosa", JOptionPane.INFORMATION_MESSAGE);
+
 					}
 				} catch (NumberFormatException ex) {
 					JOptionPane.showMessageDialog(null, "Error: el indice debe ser un numero entero.",
@@ -1452,26 +1470,35 @@ public class Controller implements ActionListener {
 
 					} else {
 						Veterinario actualizado = vDAO.getListaVeterinarios().get(indiceLista);
-						JOptionPane.showMessageDialog(null, "Veterinario a actualizar: (posicion" + indiceUsuario + "):\n\n" + vDAO.getListaVeterinarios().toString(), "Informacion actual", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null,
+								"Veterinario a actualizar: (posicion" + indiceUsuario + "):\n\n"
+										+ vDAO.getListaVeterinarios().toString(),
+								"Informacion actual", JOptionPane.INFORMATION_MESSAGE);
 
 						String nuevoNombre = JOptionPane.showInputDialog(null, "Nombre:", actualizado.getNombre());
-						String nuevoApellido = JOptionPane.showInputDialog(null, "Apellido:", actualizado.getApellido());
+						String nuevoApellido = JOptionPane.showInputDialog(null, "Apellido:",
+								actualizado.getApellido());
 						String nuevoGeneroStr = JOptionPane.showInputDialog(null, "Género:", actualizado.getGenero());
-						String nuevoDocumentoStr = JOptionPane.showInputDialog(null, "Documento:",actualizado.getDocumento());
-						String nuevoCorreo = JOptionPane.showInputDialog(null, "Correo:",actualizado.getCorreo());
-						String nuevoTelefonoStr = JOptionPane.showInputDialog(null, "Telefono:",actualizado.getTelefono());
-						String nuevoSalarioStr = JOptionPane.showInputDialog(null, "Salario:",actualizado.getSalario());
-						String nuevoCargo = JOptionPane.showInputDialog(null, "Cargo:",actualizado.getCargo());
-						String nuevaHoraTrabajoStr = JOptionPane.showInputDialog(null, "Horas Trabajo:",actualizado.getHoraTrabajo());
-						String nuevoNumLicenciaStr = JOptionPane.showInputDialog(null, "Numero de licencia:",actualizado.getNumLicencia());
-						
+						String nuevoDocumentoStr = JOptionPane.showInputDialog(null, "Documento:",
+								actualizado.getDocumento());
+						String nuevoCorreo = JOptionPane.showInputDialog(null, "Correo:", actualizado.getCorreo());
+						String nuevoTelefonoStr = JOptionPane.showInputDialog(null, "Telefono:",
+								actualizado.getTelefono());
+						String nuevoSalarioStr = JOptionPane.showInputDialog(null, "Salario:",
+								actualizado.getSalario());
+						String nuevoCargo = JOptionPane.showInputDialog(null, "Cargo:", actualizado.getCargo());
+						String nuevaHoraTrabajoStr = JOptionPane.showInputDialog(null, "Horas Trabajo:",
+								actualizado.getHoraTrabajo());
+						String nuevoNumLicenciaStr = JOptionPane.showInputDialog(null, "Numero de licencia:",
+								actualizado.getNumLicencia());
+
 						double nuevoDocumento = Double.parseDouble(nuevoDocumentoStr);
 						double nuevoTelefono = Double.parseDouble(nuevoTelefonoStr);
+						char nuevoGenero = nuevoGeneroStr.charAt(0);
 						double nuevoNumLicencia = Double.parseDouble(nuevoNumLicenciaStr);
 						float nuevoSalario = Float.parseFloat(nuevoSalarioStr);
 						int nuevoHoraTrabajo = Integer.parseInt(nuevaHoraTrabajoStr);
-						char nuevoGenero = nuevoGeneroStr.charAt(0);
-						
+
 						actualizado.setNombre(nuevoNombre);
 						actualizado.setApellido(nuevoApellido);
 						actualizado.setGenero(nuevoGenero);
@@ -1482,9 +1509,11 @@ public class Controller implements ActionListener {
 						actualizado.setHoraTrabajo(nuevoHoraTrabajo);
 						actualizado.setNumLicencia(nuevoNumLicencia);
 						actualizado.setCargo(nuevoCargo);
-						JOptionPane.showMessageDialog(null, "Veterinario actualizado:\n\n" + actualizado.toString(), "Actualizacion exitosa", JOptionPane.INFORMATION_MESSAGE);	
-						
-						
+
+						vDAO.actualizar(indiceLista, actualizado);
+						JOptionPane.showMessageDialog(null, "Veterinario actualizado:\n\n" + actualizado.toString(),
+								"Actualizacion exitosa", JOptionPane.INFORMATION_MESSAGE);
+
 					}
 				} catch (NumberFormatException ex) {
 					JOptionPane.showMessageDialog(null, "Error: el indice debe ser un numero entero.",
@@ -1507,7 +1536,42 @@ public class Controller implements ActionListener {
 
 					} else {
 						Cliente actualizado = cDAO.getListaClientes().get(indiceLista);
-						JOptionPane.showMessageDialog(null, "Cliente a actualizar: (posicion" + indiceUsuario + "):\n\n" + cDAO.getListaClientes().toString(), "Informacion actual", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null,
+								"Cliente a actualizar: (posicion" + indiceUsuario + "):\n\n"
+										+ cDAO.getListaClientes().toString(),
+								"Informacion actual", JOptionPane.INFORMATION_MESSAGE);
+
+						String nuevoNombre = JOptionPane.showInputDialog(null, "Nombre:", actualizado.getNombre());
+						String nuevoApellido = JOptionPane.showInputDialog(null, "Apellido:",
+								actualizado.getApellido());
+						String nuevoGeneroStr = JOptionPane.showInputDialog(null, "Género:", actualizado.getGenero());
+						String nuevoDocumentoStr = JOptionPane.showInputDialog(null, "Documento:",
+								actualizado.getDocumento());
+						String nuevoCorreo = JOptionPane.showInputDialog(null, "Correo:", actualizado.getCorreo());
+						String nuevoTelefonoStr = JOptionPane.showInputDialog(null, "Telefono:",
+								actualizado.getTelefono());
+						String nuevoNombreMascota = JOptionPane.showInputDialog(null, "Nombre mascota:",
+								actualizado.getNombreMascota());
+						String nuevaRazonVisita = JOptionPane.showInputDialog(null, "Razon visita:",
+								actualizado.getRazonVisita());
+						// String nuevoEsClienteNuevo = JOptionPane.showInputDialog(null, "Es cliente
+						// nuevo?:",actualizado.get());
+
+						double nuevoDocumento = Double.parseDouble(nuevoDocumentoStr);
+						double nuevoTelefono = Double.parseDouble(nuevoTelefonoStr);
+						char nuevoGenero = nuevoGeneroStr.charAt(0);
+
+						actualizado.setNombre(nuevoNombre);
+						actualizado.setApellido(nuevoApellido);
+						actualizado.setGenero(nuevoGenero);
+						actualizado.setDocumento(nuevoDocumento);
+						actualizado.setCorreo(nuevoCorreo);
+						actualizado.setTelefono(nuevoTelefono);
+						actualizado.setNombreMascota(nuevoNombreMascota);
+						actualizado.setRazonVisita(nuevaRazonVisita);
+						cDAO.actualizar(indiceLista, actualizado);
+						JOptionPane.showMessageDialog(null, "Cliente actualizado:\n\n" + actualizado.toString(),
+								"Actualizacion exitosa", JOptionPane.INFORMATION_MESSAGE);
 
 					}
 				} catch (NumberFormatException ex) {
@@ -1530,7 +1594,54 @@ public class Controller implements ActionListener {
 								"Indice incorrecto", JOptionPane.WARNING_MESSAGE);
 
 					} else {
-						
+						Ave actualizado = avDAO.getListaAves().get(indiceLista);
+						JOptionPane.showMessageDialog(null,
+								"Ave a actualizar: (posicion" + indiceUsuario + "):\n\n"
+										+ avDAO.getListaAves().toString(),
+								"Informacion actual", JOptionPane.INFORMATION_MESSAGE);
+
+						String nuevoNombre = JOptionPane.showInputDialog(null, "Nombre:", actualizado.getNombre());
+						String nuevaEspecie = JOptionPane.showInputDialog(null, "Especie:", actualizado.getEspecie());
+						String nuevoHabitat = JOptionPane.showInputDialog(null, "Habitat:", actualizado.getHabitat());
+						String nuevoTipoAlimento = JOptionPane.showInputDialog(null, "Tipo alimento:",
+								actualizado.getTipoAlimento());
+						String nuevoPesoStr = JOptionPane.showInputDialog(null, "Peso:", actualizado.getPeso());
+						String nuevaAlturaStr = JOptionPane.showInputDialog(null, "Altura:", actualizado.getAltura());
+						String nuevaEdadStr = JOptionPane.showInputDialog(null, "Edad:", actualizado.getEdad());
+						String nuevaFormaPata = JOptionPane.showInputDialog(null, "Forma Patas:",
+								actualizado.getFormaPata());
+						String nuevoColorPluma = JOptionPane.showInputDialog(null, "Color plumas:",
+								actualizado.getColorPluma());
+						String nuevoCantidadHuevoStr = JOptionPane.showInputDialog(null, "Cantidad huevos:",
+								actualizado.getCantidadHuevo());
+						String nuevoTamanoPico = JOptionPane.showInputDialog(null, "Tamaño Pico:",
+								actualizado.getTamanoPico());
+						// String nuevoEsMigratorioStr = JOptionPane.showInputDialog(null, "Nombre:",
+						// actualizado.get());
+
+						float nuevoPeso = Float.parseFloat(nuevoPesoStr);
+						float nuevaAltura = Float.parseFloat(nuevaAlturaStr);
+						int nuevaEdad = Integer.parseInt(nuevaEdadStr);
+						int nuevoCantidadHuevo = Integer.parseInt(nuevoCantidadHuevoStr);
+						// boolean nuevoEsMigratorio = Boolean.parseBoolean(nuevoEsMigratorioStr);
+
+						actualizado.setNombre(nuevoNombre);
+						actualizado.setEspecie(nuevaEspecie);
+						actualizado.setHabitat(nuevoHabitat);
+						actualizado.setTipoAlimento(nuevoTipoAlimento);
+						actualizado.setPeso(nuevoPeso);
+						actualizado.setAltura(nuevaAltura);
+						actualizado.setEdad(nuevaEdad);
+						actualizado.setFormaPata(nuevaFormaPata);
+						actualizado.setColorPluma(nuevoColorPluma);
+						actualizado.setCantidadHuevo(nuevoCantidadHuevo);
+						actualizado.setTamanoPico(nuevoTamanoPico);
+						// actualizado.setEsMigratoria(nuevoEsMigratorio);
+
+						avDAO.actualizar(indiceLista, actualizado);
+						JOptionPane.showMessageDialog(null, "Ave actualizada:\n\n" + actualizado.toString(),
+								"Actualizacion exitosa", JOptionPane.INFORMATION_MESSAGE);
+
 					}
 				} catch (NumberFormatException ex) {
 					JOptionPane.showMessageDialog(null, "Error: el indice debe ser un numero entero.",
@@ -1552,7 +1663,53 @@ public class Controller implements ActionListener {
 								"Indice incorrecto", JOptionPane.WARNING_MESSAGE);
 
 					} else {
-						
+						Mamifero actualizado = mDAO.getListaMamiferos().get(indiceLista);
+						JOptionPane.showMessageDialog(null,
+								"Mamifero a actualizar: (posicion" + indiceUsuario + "):\n\n"
+										+ mDAO.getListaMamiferos().toString(),
+								"Informacion actual", JOptionPane.INFORMATION_MESSAGE);
+
+						String nuevoNombre = JOptionPane.showInputDialog(null, "Nombre:", actualizado.getNombre());
+						String nuevaEspecie = JOptionPane.showInputDialog(null, "Especie:", actualizado.getEspecie());
+						String nuevoHabitat = JOptionPane.showInputDialog(null, "Habitat:", actualizado.getHabitat());
+						String nuevoTipoAlimento = JOptionPane.showInputDialog(null, "Tipo alimento:",
+								actualizado.getTipoAlimento());
+						String nuevoPesoStr = JOptionPane.showInputDialog(null, "Peso:", actualizado.getPeso());
+						String nuevaAlturaStr = JOptionPane.showInputDialog(null, "Altura:", actualizado.getAltura());
+						String nuevaEdadStr = JOptionPane.showInputDialog(null, "Edad:", actualizado.getEdad());
+						String nuevaCantidadPelaje = JOptionPane.showInputDialog(null, "Cantidad de pelaje:",
+								actualizado.getCantidadPelaje());
+						String nuevoColorPelaje = JOptionPane.showInputDialog(null, "Color pelaje:",
+								actualizado.getColorPelaje());
+						String nuevoTipoDiente = JOptionPane.showInputDialog(null, "Tipo Dientes:",
+								actualizado.getTipoDiente());
+						String nuevoNumeroDienteStr = JOptionPane.showInputDialog(null, "Numero de dientes:",
+								actualizado.getNumeroDiente());
+						String nuevoMedioDesplazamiento = JOptionPane.showInputDialog(null, "Medio desplazamiento:",
+								actualizado.getMedioDesplazamiento());
+
+						float nuevoPeso = Float.parseFloat(nuevoPesoStr);
+						float nuevaAltura = Float.parseFloat(nuevaAlturaStr);
+						int nuevaEdad = Integer.parseInt(nuevaEdadStr);
+						int nuevoNumeroDiente = Integer.parseInt(nuevoNumeroDienteStr);
+
+						actualizado.setNombre(nuevoNombre);
+						actualizado.setEspecie(nuevaEspecie);
+						actualizado.setHabitat(nuevoHabitat);
+						actualizado.setTipoAlimento(nuevoTipoAlimento);
+						actualizado.setPeso(nuevoPeso);
+						actualizado.setAltura(nuevaAltura);
+						actualizado.setEdad(nuevaEdad);
+						actualizado.setCantidadPelaje(nuevaCantidadPelaje);
+						actualizado.setColorPelaje(nuevoColorPelaje);
+						actualizado.setTipoDiente(nuevoTipoDiente);
+						actualizado.setNumeroDiente(nuevoNumeroDiente);
+						actualizado.setMedioDesplazamiento(nuevoMedioDesplazamiento);
+
+						mDAO.actualizar(indiceLista, actualizado);
+						JOptionPane.showMessageDialog(null, "Mamifero actualizado:\n\n" + actualizado.toString(),
+								"Actualizacion exitosa", JOptionPane.INFORMATION_MESSAGE);
+
 					}
 				} catch (NumberFormatException ex) {
 					JOptionPane.showMessageDialog(null, "Error: el indice debe ser un numero entero.",
@@ -1574,7 +1731,49 @@ public class Controller implements ActionListener {
 								"Indice incorrecto", JOptionPane.WARNING_MESSAGE);
 
 					} else {
-						
+						Reptil actualizado = rDAO.getListaReptiles().get(indiceLista);
+						JOptionPane.showMessageDialog(null,
+								"Reptil a actualizar: (posicion" + indiceUsuario + "):\n\n"
+										+ rDAO.getListaReptiles().toString(),
+								"Informacion actual", JOptionPane.INFORMATION_MESSAGE);
+
+						String nuevoNombre = JOptionPane.showInputDialog(null, "Nombre:", actualizado.getNombre());
+						String nuevaEspecie = JOptionPane.showInputDialog(null, "Especie:", actualizado.getEspecie());
+						String nuevoHabitat = JOptionPane.showInputDialog(null, "Habitat:", actualizado.getHabitat());
+						String nuevoTipoAlimento = JOptionPane.showInputDialog(null, "Tipo alimento:",
+								actualizado.getTipoAlimento());
+						String nuevoPesoStr = JOptionPane.showInputDialog(null, "Peso:", actualizado.getPeso());
+						String nuevaAlturaStr = JOptionPane.showInputDialog(null, "Altura:", actualizado.getAltura());
+						String nuevaEdadStr = JOptionPane.showInputDialog(null, "Edad:", actualizado.getEdad());
+						String nuevoTipoDesplazamiento = JOptionPane.showInputDialog(null, "Tipo desplazamiento:",
+								actualizado.getTipoDesplazamiento());
+						String nuevoTipoDiente = JOptionPane.showInputDialog(null, "Tipo dientes:",
+								actualizado.getTipoDiente());
+						String nuevaTemperaturaCorporalStr = JOptionPane.showInputDialog(null, "Temperatura corporal:",
+								actualizado.getTemperaturaCorporal());
+						// String nuevoEsVenenosoStr = JOptionPane.showInputDialog(null, "Es
+						// venenoso?:", actualizado.get());
+
+						float nuevoPeso = Float.parseFloat(nuevoPesoStr);
+						float nuevaAltura = Float.parseFloat(nuevaAlturaStr);
+						int nuevaEdad = Integer.parseInt(nuevaEdadStr);
+						float nuevaTemperaturaCorporal = Float.parseFloat(nuevaTemperaturaCorporalStr);
+
+						actualizado.setNombre(nuevoNombre);
+						actualizado.setEspecie(nuevaEspecie);
+						actualizado.setHabitat(nuevoHabitat);
+						actualizado.setTipoAlimento(nuevoTipoAlimento);
+						actualizado.setPeso(nuevoPeso);
+						actualizado.setAltura(nuevaAltura);
+						actualizado.setEdad(nuevaEdad);
+						actualizado.setTipoDesplazamiento(nuevoTipoDesplazamiento);
+						actualizado.setTipoDiente(nuevoTipoDiente);
+						actualizado.setTemperaturaCorporal(nuevaTemperaturaCorporal);
+
+						rDAO.actualizar(indiceLista, actualizado);
+						JOptionPane.showMessageDialog(null, "Reptil actualizado:\n\n" + actualizado.toString(),
+								"Actualizacion exitosa", JOptionPane.INFORMATION_MESSAGE);
+
 					}
 				} catch (NumberFormatException ex) {
 					JOptionPane.showMessageDialog(null, "Error: el indice debe ser un numero entero.",
@@ -1596,7 +1795,54 @@ public class Controller implements ActionListener {
 								"Indice incorrecto", JOptionPane.WARNING_MESSAGE);
 
 					} else {
-						
+						Pez actualizado = pDAO.getListaPeces().get(indiceLista);
+						JOptionPane.showMessageDialog(null,
+								"Pez a actualizar: (posicion" + indiceUsuario + "):\n\n"
+										+ pDAO.getListaPeces().toString(),
+								"Informacion actual", JOptionPane.INFORMATION_MESSAGE);
+
+						String nuevoNombre = JOptionPane.showInputDialog(null, "Nombre:", actualizado.getNombre());
+						String nuevaEspecie = JOptionPane.showInputDialog(null, "Especie:", actualizado.getEspecie());
+						String nuevoHabitat = JOptionPane.showInputDialog(null, "Habitat:", actualizado.getHabitat());
+						String nuevoTipoAlimento = JOptionPane.showInputDialog(null, "Tipo alimento:",
+								actualizado.getTipoAlimento());
+						String nuevoPesoStr = JOptionPane.showInputDialog(null, "Peso:", actualizado.getPeso());
+						String nuevaAlturaStr = JOptionPane.showInputDialog(null, "Altura:", actualizado.getAltura());
+						String nuevaEdadStr = JOptionPane.showInputDialog(null, "Edad:", actualizado.getEdad());
+						String nuevoTipoAgua = JOptionPane.showInputDialog(null, "Tipo Agua:",
+								actualizado.getTipoAgua());
+						String nuevoColorEscama = JOptionPane.showInputDialog(null, "Color escama:",
+								actualizado.getColorEscama());
+						String nuevoTipoRespiracion = JOptionPane.showInputDialog(null, "Tipo respiracion:",
+								actualizado.getTipoRespiracion());
+						String nuevoNumeroAletaStr = JOptionPane.showInputDialog(null, "Numero aleta:",
+								actualizado.getNumeroAleta());
+						String nuevaProfundidadMaximaStr = JOptionPane.showInputDialog(null, "Profundidad maxima:",
+								actualizado.getProfundidadMaxima());
+
+						float nuevoPeso = Float.parseFloat(nuevoPesoStr);
+						float nuevaAltura = Float.parseFloat(nuevaAlturaStr);
+						int nuevaEdad = Integer.parseInt(nuevaEdadStr);
+						int nuevoNumeroAleta = Integer.parseInt(nuevoNumeroAletaStr);
+						float nuevaProfundidadMaxima = Float.parseFloat(nuevaProfundidadMaximaStr);
+
+						actualizado.setNombre(nuevoNombre);
+						actualizado.setEspecie(nuevaEspecie);
+						actualizado.setHabitat(nuevoHabitat);
+						actualizado.setTipoAlimento(nuevoTipoAlimento);
+						actualizado.setPeso(nuevoPeso);
+						actualizado.setAltura(nuevaAltura);
+						actualizado.setEdad(nuevaEdad);
+						actualizado.setTipoAgua(nuevoTipoAgua);
+						actualizado.setColorEscama(nuevoColorEscama);
+						actualizado.setTipoRespiracion(nuevoTipoRespiracion);
+						actualizado.setNumeroAleta(nuevoNumeroAleta);
+						actualizado.setProfundidadMaxima(nuevaProfundidadMaxima);
+
+						pDAO.actualizar(indiceLista, actualizado);
+						JOptionPane.showMessageDialog(null, "Pez actualizado:\n\n" + actualizado.toString(),
+								"Actualizacion exitosa", JOptionPane.INFORMATION_MESSAGE);
+
 					}
 				} catch (NumberFormatException ex) {
 					JOptionPane.showMessageDialog(null, "Error: el indice debe ser un numero entero.",
@@ -1618,6 +1864,35 @@ public class Controller implements ActionListener {
 								"Indice incorrecto", JOptionPane.WARNING_MESSAGE);
 
 					} else {
+						Juguete actualizado = jDAO.getListaJuguetes().get(indiceLista);
+						JOptionPane.showMessageDialog(null,
+								"Juguete a actualizar: (posicion" + indiceUsuario + "):\n\n"
+										+ jDAO.getListaJuguetes().toString(),
+								"Informacion actual", JOptionPane.INFORMATION_MESSAGE);
+						
+						String nuevaMarca = JOptionPane.showInputDialog(null, "Marca:", actualizado.getMarca());
+						String nuevoPrecioStr = JOptionPane.showInputDialog(null, "Precio:", actualizado.getPrecio());
+						String nuevoIdProductoStr = JOptionPane.showInputDialog(null, "ID producto:", actualizado.getIdProducto());
+						String nuevoNombre = JOptionPane.showInputDialog(null, "Nombre:", actualizado.getNombre());
+						String nuevoColor = JOptionPane.showInputDialog(null, "Color:", actualizado.getColor());
+						String nuevoTipoJuguete = JOptionPane.showInputDialog(null, "Tipo juguete:", actualizado.getTipoJuguete());
+						String nuevaGarantia = JOptionPane.showInputDialog(null, "Garantia:", actualizado.getGarantia());
+						
+						float nuevoPrecio = Float.parseFloat(nuevoPrecioStr);
+						int nuevoIdProducto = Integer.parseInt(nuevoIdProductoStr);
+						
+						actualizado.setNombre(nuevoNombre);
+						actualizado.setPrecio(nuevoPrecio);
+						actualizado.setIdProducto(nuevoIdProducto);
+						actualizado.setNombre(nuevoNombre);
+						actualizado.setColor(nuevoColor);
+						actualizado.setTipoJuguete(nuevoTipoJuguete);
+						actualizado.setGarantia(nuevaGarantia);
+						
+						jDAO.actualizar(indiceLista, actualizado);
+						JOptionPane.showMessageDialog(null, "Juguete actualizado:\n\n" + actualizado.toString(),
+								"Actualizacion exitosa", JOptionPane.INFORMATION_MESSAGE);
+
 						
 					}
 				} catch (NumberFormatException ex) {
@@ -1640,7 +1915,34 @@ public class Controller implements ActionListener {
 								"Indice incorrecto", JOptionPane.WARNING_MESSAGE);
 
 					} else {
+						Medicamento actualizado = meDAO.getListaMedicamentos().get(indiceLista);
+						JOptionPane.showMessageDialog(null,
+								"Medicamento a actualizar: (posicion" + indiceUsuario + "):\n\n"
+										+ meDAO.getListaMedicamentos().toString(),
+								"Informacion actual", JOptionPane.INFORMATION_MESSAGE);
 						
+						String nuevaMarca = JOptionPane.showInputDialog(null, "Marca:", actualizado.getMarca());
+						String nuevoPrecioStr = JOptionPane.showInputDialog(null, "Precio:", actualizado.getPrecio());
+						String nuevoIdProductoStr = JOptionPane.showInputDialog(null, "ID producto:", actualizado.getIdProducto());
+						String nuevoNombreComercial = JOptionPane.showInputDialog(null, "Nombre comercial:", actualizado.getNombreComercial());
+						String nuevoNombreCientifico = JOptionPane.showInputDialog(null, "Nombre cientifico:", actualizado.getNombreCientifico());
+						String nuevaDosisStr = JOptionPane.showInputDialog(null, "Dosis:", actualizado.getDosis());
+						
+						float nuevoPrecio = Float.parseFloat(nuevoPrecioStr);
+						int nuevoIdProducto = Integer.parseInt(nuevoIdProductoStr);
+						float nuevaDosis = Float.parseFloat(nuevaDosisStr);
+						
+						actualizado.setMarca(nuevaMarca);
+						actualizado.setPrecio(nuevoPrecio);
+						actualizado.setIdProducto(nuevoIdProducto);
+						actualizado.setNombreComercial(nuevoNombreComercial);
+						actualizado.setNombreCientifico(nuevoNombreCientifico);
+						actualizado.setDosis(nuevaDosis);
+						
+						meDAO.actualizar(indiceLista, actualizado);
+						JOptionPane.showMessageDialog(null, "Medicamento actualizado:\n\n" + actualizado.toString(),
+								"Actualizacion exitosa", JOptionPane.INFORMATION_MESSAGE);
+
 					}
 				} catch (NumberFormatException ex) {
 					JOptionPane.showMessageDialog(null, "Error: el indice debe ser un numero entero.",
